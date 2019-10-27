@@ -1,30 +1,37 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<title>PixelTable - Control</title>
+   <title>PixelTable - Control</title>
 </head>
 
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+   <script>
+
+
+   $( document ).ready(function() 
+   {
+   	$("button").click(function()
+	{
+      	   var _row = document.getElementById('_row').value;	
+           var _col = document.getElementById('_col').value;
+           $.ajax({url: "setPixel.php?row="+_row+"&col="+_col+"", success: function()
+	   {}
+        });
+      });
+   });
+   </script>
+
 <body>
-<center>
-<h1>Pixel Table</h1>
+   <center>
+      <h1>Pixel Table</h1>
 
-    <input type="button" id='script' name="scriptbutton" value=" Run Script " onclick="goPython()">
-
-    <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-
-    <script>
-        function goPython(){
-            $.ajax({
-	           exec("sudo sh /var/www/html/exec/main.sh");
-		   url: "exec/main.py 2",
-             context: document.body
-            }).done(function() {
-             alert('finished python script');;
-            });
-        }
-    </script>
-</center>
+      <form>
+         <input type="text" id = "_row" value = "row" placeholder="Row" />
+         <input type="text" id = "_col" value = "col" placeholder="Col" />
+         <button>I bims 1 button</button>
+      </form>
+   </center>
 </body>
-
 
 </html>
