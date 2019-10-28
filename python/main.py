@@ -48,7 +48,7 @@ def setAllPixel():
 	color_r = int( color_hex[0]+color_hex[1],16 )
 	color_g = int( color_hex[2]+color_hex[3],16 )
 	color_b = int( color_hex[4]+color_hex[5],16 )
-	for x in range(0, LED_COUNT-1):
+	for x in range(0, LED_COUNT):
 		strip.setPixelColor(x,Color(color_r,color_g,color_b))
 	strip.show()
 	f.close()
