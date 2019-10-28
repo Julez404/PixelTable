@@ -1,0 +1,199 @@
+﻿<div class="section">
+    <section>
+        <div class="col">
+            <div class="card mb-3">
+
+                <div class="card-body">
+                    <h3 class="card-title" style="text-align:center">Maschinen </h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="col-md-12">
+            <div class="card-deck">
+
+                <div class="card mb-2 shadow-sm">
+                    <div class="card-header">
+                        <h4 class="my-0 font-weight-normal">OP10</h4>
+                    </div>
+                    <div class="card-body">
+
+                        <span>Aktive: </span><span class="badge badge-pill badge-success">.</span>
+                        <p>Last Downtime:</p>
+                        <p>Freigabe erhalten:<p>
+                        <p>Last Downtime:</p>
+
+                    </div>
+                    <div class="card-footer">
+                        <button type="button" class="btn btn-lg btn-block btn-primary">Contact us</button>
+                    </div>
+                </div>
+
+                <div class="card mb-2 shadow-sm">
+                    <div class="card-header">
+                        <h4 class="my-0 font-weight-normal">OP20</h4>
+                    </div>
+                    <div class="card-body">
+                        <p>Aktive:</p>
+                        <p>Last Downtime:</p>
+                    </div>
+                    <div class="card-footer">
+                        <button type="button" class="btn btn-lg btn-block btn-primary">Contact us</button>
+                    </div>
+                </div>
+
+                <div class="card mb-2 shadow-sm">
+                    <div class="card-header">
+                        <h4 class="my-0 font-weight-normal">OP30</h4>
+                    </div>
+                    <div class="card-body">
+                        <canvas id="chart-area4"></canvas>
+
+
+                    </div>
+                    <div class="card-footer">
+                        <button type="button" class="btn btn-lg btn-block btn-primary">Contact us</button>
+                    </div>
+                </div>
+                <div class="card mb-2 shadow-sm">
+                    <div class="card-header">
+                        <h4 class="my-0 font-weight-normal">OP40</h4>
+                    </div>
+                    <div class="card-body">
+                        <p>Aktive:</p>
+                        <p>Last Downtime:</p>
+
+
+                    </div>
+                    <div class="card-footer">
+                        <button type="button" class="btn btn-lg btn-block btn-primary">Contact us</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="col-md-12">
+            <div class="card-deck">
+
+                <div class="card mb-2 shadow-sm">
+                    <div class="card-header">
+                        <h4 class="my-0 font-weight-normal">Nadelpräger</h4>
+                    </div>
+                    <div class="card-body">
+                        <p>Aktive:</p>
+                        <p>Last Downtime:</p>
+
+                    </div>
+                    <div class="card-footer">
+                        <button type="button" class="btn btn-lg btn-block btn-primary">Contact us</button>
+                    </div>
+
+                </div>
+
+                <div class="card mb-2 shadow-sm">
+                    <div class="card-header">
+                        <h4 class="my-0 font-weight-normal">Messmaschine</h4>
+                    </div>
+                    <div class="card-body">
+                        <canvas id="chart-area3"></canvas>
+                    </div>
+                    <div class="card-footer">
+                        <button type="button" class="btn btn-lg btn-block btn-primary">Contact us</button>
+                    </div>
+
+
+                </div>
+
+                <div class="card mb-2 shadow-sm">
+                    <div class="card-header">
+                        <h4 class="my-0 font-weight-normal">Wuchtmaschine</h4>
+                    </div>
+                    <div class="card-body">
+                        <canvas id="chart-area4"></canvas>
+
+
+                    </div>
+                    <div class="card-footer">
+                        <button type="button" class="btn btn-lg btn-block btn-primary">Contact us</button>
+                    </div>
+                </div>
+                <div class="card mb-2 shadow-sm">
+                    <div class="card-header">
+                        <h4 class="my-0 font-weight-normal">Trackmotion</h4>
+                    </div>
+                    <div class="card-body">
+                        <canvas id="chart-area4"></canvas>
+
+
+                    </div>
+                    <div class="card-footer">
+                        <button type="button" class="btn btn-lg btn-block btn-primary">Contact us</button>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+</div>
+
+
+
+
+<script>
+
+    var ctx = document.getElementById('chart-area3').getContext('2d');
+    var chart = new Chart(ctx, {
+        // The type of chart we want to create
+        type: 'bar',
+
+        // The data for our dataset
+        data: {
+            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+            datasets: [{
+                label: 'Prodzierte Teile',
+                backgroundColor: 'rgb(255, 99, 132)',
+                borderColor: 'rgb(255, 99, 132)',
+                data: [0, 10, 5, 2, 20, 30, 45]
+            }]
+        },
+
+        // Configuration options go here
+        options: {}
+    });
+
+
+    var ctx = document.getElementById('chart-area4').getContext('2d');
+    var chart = new Chart(ctx, {
+        // The type of chart we want to create
+        type: 'bar',
+
+        // The data for our dataset
+        data: {
+            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+            datasets: [{
+                label: 'Prodzierte Teile',
+                backgroundColor: 'rgb(255, 99, 132)',
+                borderColor: 'rgb(255, 99, 132)',
+                data: [0, 10, 5, 2, 20, 30, 45]
+            }]
+        },
+
+        // Configuration options go here
+        options: {}
+    });
+
+
+
+
+
+
+
+
+
+</script>
