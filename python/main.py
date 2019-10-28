@@ -2,6 +2,7 @@
 
 from rpi_ws281x import *
 from random import randint
+from animations import *
 import sys
 import time
 
@@ -55,6 +56,22 @@ def setAllPixel():
 	f = open(".exchange","w")
 	f.close
 
+# Start a predefined animation
+def setAnimation():
+    f = open(".exchange","r")
+    f.readline()
+    animation = f.readline()
+    f.close()
+    while (animation ="rainbow" + '\n'):
+        rainbow(strip)
+        f = open(".exchange","r")
+        f.readline()
+        animation = f.readline()
+        f.close()
+    f = open(".exchange","w")
+    f.close
+
+# Main loop
 while True:
 	time.sleep(0.1)				# Delay Betwee Commands
 	f = open(".exchange","r")
@@ -65,3 +82,5 @@ while True:
 		setPixel()
 	if input == ("setAllPixel"+'\n'):
 		setAllPixel()
+	if input == ("setAnimation"+'\n'):
+		setAnimation()
