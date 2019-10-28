@@ -1,4 +1,5 @@
 import time
+from rpi_ws281x import *
 import sys
 
 def colorWipe(strip, color, wait_ms=50):

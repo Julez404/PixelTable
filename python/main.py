@@ -62,7 +62,7 @@ def setAnimation():
     f.readline()
     animation = f.readline()
     f.close()
-    while (animation ="rainbow" + '\n'):
+    while (animation == ("rainbow" + '\n')):
         rainbow(strip)
         f = open(".exchange","r")
         f.readline()
