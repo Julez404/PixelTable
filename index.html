@@ -50,7 +50,8 @@ function set_Pixel() {
     _column = document.getElementById('_column').value
     //  alert("setAllPixel.php?color=" + _color + "");
     $.ajax({
-        url: "setPixel.php?row=" + _row + "&column=" + _column + "&color=" + _color + "", success: function () {
+        url: "setPixel.php?row=" + _row + "&column=" + _column + "&color=" + _color + "",
+        success: function () {
         }
     });
 }//end set_Pixl
@@ -60,7 +61,8 @@ function set_all_Pixel() {
     _column = document.getElementById('_column').value
 //    alert("setAllPixel.php?color=" + _color + "");
     $.ajax({
-        url: "setAllPixel.php?color=" + _color + "", success: function () {
+        url: "setAllPixel.php?color=" + _color + "", 
+        success: function () {
         }
     });
 }//end set_all_Pixl
