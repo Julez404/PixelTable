@@ -1,11 +1,10 @@
 <?php
 
 $row = $_GET['row'];
-$col = $_GET['col'];
+$column = $_GET['column'];
+$color = $_GET['color'];
 
-
-print_r($led);
-exec("sudo python/main.py $row $col",$output);
+exec("./python/setPixel.py $row $column $color",$output);
 print_r($output);
 
 ?>
