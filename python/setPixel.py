@@ -1,10 +1,7 @@
 #!/usr/bin/python3
 
 import sys
-import time
 
-for eachArg in sys.argv:
-        print (eachArg)
 
 f = open("/var/www/pixel/python/.exchange", "w+")
 f.write("setPixel" + '\n')

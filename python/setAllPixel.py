@@ -2,10 +2,7 @@
 
 from validData import *
 import sys
-import time
 
-for eachArg in sys.argv:
-        print (eachArg)
 # Expected Input
 # 1: Color -> Hex (000000 to FFFFFF)
 
