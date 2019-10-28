@@ -23,7 +23,7 @@
        colorWheel.on('input:end', function (color) {
            var hex = colorWheel.color.hexString;
         //   alert(hex); // hex = "#ff0000"
-           _color = hex;
+           _color = hex.slice(1, 7);
         })
 
 
@@ -31,7 +31,7 @@
 	{
    	    _row = document.getElementById('_row').value
    	    _column = document.getElementById('_column').value
-       // alert("setPixel.php?row=" + _row + "&column=" + _column + "&color=" + _color + "");
+        alert("setPixel.php?row=" + _row + "&column=" + _column + "&color=" + _color + "");
 
         $.ajax({
             url: "setPixel.php?row=" + _row + "&column=" + _column + "&color=" + _color + "", success: function ()
