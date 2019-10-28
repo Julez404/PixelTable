@@ -33,7 +33,7 @@ def getPixelIndex(row,col):
     return row*LED_COLLUMN_COUNT+col
 
 # Set single pixel in specific color
-def setPixel:
+def setPixel():
 	f = open(".exchange","r")
 	f.readline()
 
@@ -52,7 +52,7 @@ def setPixel:
 	f.close
 
 # Set all Pixel to a specific color
-def setAllPixel:
+def setAllPixel():
 	f = open(".exchange","r")
 	f.readline()
 	color_hex = f.readline()
