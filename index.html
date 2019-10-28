@@ -5,18 +5,36 @@
    <title>PixelTable - Control</title>
 </head>
 
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+ 
+    <script type="text/javascript" src="js/iro.min.js"></script>
    <script>
 
 
    $( document ).ready(function() 
    {
+       var _row = document.getElementById('_row').value;
+       var _column = document.getElementById('_column').value;
+       var _color="";
+       var colorWheel = iro.ColorPicker("#colorWheelDemo", {
+
+       });
+
+       colorWheel.on('input:end', function (color) {
+           var hex = colorWheel.color.hexString;
+        //   alert(hex); // hex = "#ff0000"
+           _color = hex;
+        })
+
+
    	$("button").click(function()
 	{
-      	   var _row = document.getElementById('_row').value;	
-           var _column = document.getElementById('_column').value;
-    	   var _color = document.getElementById('_color').value;
-	   $.ajax({url: "setPixel.php?row="+_row+"&column="+_column+"&color="+_color+"", success: function()
+   	    _row = document.getElementById('_row').value
+   	    _column = document.getElementById('_column').value
+       // alert("setPixel.php?row=" + _row + "&column=" + _column + "&color=" + _color + "");
+
+        $.ajax({
+            url: "setPixel.php?row=" + _row + "&column=" + _column + "&color=" + _color + "", success: function ()
 	   {}
         });
       });
@@ -33,6 +51,8 @@
 	 <input type="text" id = "_color" value = "color" placeholder="Color" />
          <button>I bims 1 button</button>
       </form>
+       <div class="wheel" id="colorWheelDemo"></div>
+
 
    </center>
 </body>
