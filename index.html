@@ -31,7 +31,7 @@
 	{
    	    _row = document.getElementById('_row').value
    	    _column = document.getElementById('_column').value
-        alert("setPixel.php?row=" + _row + "&column=" + _column + "&color=" + _color + "");
+       // alert("setPixel.php?row=" + _row + "&column=" + _column + "&color=" + _color + "");
 
         $.ajax({
             url: "setPixel.php?row=" + _row + "&column=" + _column + "&color=" + _color + "", success: function ()
