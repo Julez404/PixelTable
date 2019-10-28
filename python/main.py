@@ -59,13 +59,17 @@ def setAllPixel():
 # Start a predefined animation
 def setAnimation():
     f = open(".exchange","r")
-    f.readline()
+    state = f.readline()
     animation = f.readline()
     f.close()
-    while (animation == ("rainbow" + '\n')):
-        rainbow(strip)
+    while (state == ("setAnimation" + '\n'))
+        if (animation == ("rainbow" + '\n')):
+            rainbow(strip)
+        if (animation == ("theaterChaseRainbow" + '\n')):
+            theaterChaseRainbow(strip)
+
         f = open(".exchange","r")
-        f.readline()
+        state = f.readline()
         animation = f.readline()
         f.close()
     f = open(".exchange","w")
