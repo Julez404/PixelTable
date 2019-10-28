@@ -17,17 +17,6 @@ LED_COLLUMN_COUNT = 20
 strip = Adafruit_NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ,LED_DMA,LED_INVERT,LED_BRIGHTNESS,LED_CHANNEL)
 strip.begin()
 
-while True:
-	time.sleep(0.1)				# Delay Betwee Commands
-	f = open(".exchange","r")
-	input = f.readline()
-	f.close()
-
-	if input == ("setPixel"+'\n'):
-		setPixel()
-	if input == ("setAllPixel"+'\n'):
-		setAllPixel()
-
 # Return the Pixelindex by row and column
 def getPixelIndex(row,col):
     return row*LED_COLLUMN_COUNT+col
@@ -65,3 +54,14 @@ def setAllPixel():
 	f.close()
 	f = open(".exchange","w")
 	f.close
+
+while True:
+	time.sleep(0.1)				# Delay Betwee Commands
+	f = open(".exchange","r")
+	input = f.readline()
+	f.close()
+
+	if input == ("setPixel"+'\n'):
+		setPixel()
+	if input == ("setAllPixel"+'\n'):
+		setAllPixel()
