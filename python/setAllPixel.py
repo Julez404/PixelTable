@@ -14,7 +14,7 @@ if (isHex(sys.argv[1]) and strLengthIs(sys.argv[1],6)):
     f.write("setAllPixel" + '\n')
     f.write(sys.argv[1] + '\n')
     f.close()
-else
+else:
     f = open("/var/www/pixel/python/.error", "a")
     f.write(sys.argv[1:] + '\n')
     f.close()
