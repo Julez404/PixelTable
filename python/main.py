@@ -23,8 +23,6 @@ while True:
 	input = f.readline()
 	f.close()
 
-for eachArg in sys.argv:
-	print (eachArg)
 	if input == ("setPixel"+'\n'):
 		setPixel()
 	if input == ("setAllPixel"+'\n'):
