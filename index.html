@@ -6,55 +6,63 @@
 </head>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
- 
     <script type="text/javascript" src="js/iro.min.js"></script>
-   <script>
-
-
-   $( document ).ready(function() 
-   {
-       var _row = document.getElementById('_row').value;
-       var _column = document.getElementById('_column').value;
-       var _color="";
-       var colorWheel = iro.ColorPicker("#colorWheelDemo", {
-
-       });
-
-       colorWheel.on('input:end', function (color) {
-           var hex = colorWheel.color.hexString;
-        //   alert(hex); // hex = "#ff0000"
-           _color = hex.slice(1, 7);
-        })
-
-
-   	$("button").click(function()
-	{
-   	    _row = document.getElementById('_row').value
-   	    _column = document.getElementById('_column').value
-       // alert("setPixel.php?row=" + _row + "&column=" + _column + "&color=" + _color + "");
-
-        $.ajax({
-            url: "setPixel.php?row=" + _row + "&column=" + _column + "&color=" + _color + "", success: function ()
-	   {}
-        });
-      });
-   });
-   </script>
 
 <body>
    <center>
       <h1>Pixel Table</h1>
-
       <form>
          <input type="text" id = "_row" value = "row" placeholder="Row" />
          <input type="text" id = "_column" value = "column" placeholder="Column" />
-	 <input type="text" id = "_color" value = "color" placeholder="Color" />
-         <button>I bims 1 button</button>
+	     <input type="text" id = "_color" value = "color" placeholkder="Color" />
+         <button id="btn_set_Pxl" onclick="set_Pixel()" >I bims 1 button</button>
+         <button id="btn_set_all_Pxl" onclick="set_all_Pixel()">I bims 1 button für alle</button>
       </form>
        <div class="wheel" id="colorWheelDemo"></div>
-
-
    </center>
 </body>
 
+<script>
+//Variables
+    var _row = document.getElementById('_row').value;
+    var _column = document.getElementById('_column').value;
+    var _color = "";
+    var colorWheel = iro.ColorPicker("#colorWheelDemo", {});
+
+$(document).ready(function () {
+    colorWheel.on('color:init', function (color) {
+        var hex = colorWheel.color.hexString;
+        //   alert(hex); // hex = "#ff0000"
+        _color = hex.slice(1, 7);
+    });
+
+    colorWheel.on('input:end', function (color) {
+        var hex = colorWheel.color.hexString;
+        //   alert(hex); // hex = "#ff0000"
+        _color = hex.slice(1, 7);
+    });
+});  //end document ready
+  
+//Funktionen//
+
+function set_Pixel() {
+    _row = document.getElementById('_row').value
+    _column = document.getElementById('_column').value
+    //  alert("setAllPixel.php?color=" + _color + "");
+    $.ajax({
+        url: "setPixel.php?row=" + _row + "&column=" + _column + "&color=" + _color + "", success: function () {
+        }
+    });
+}//end set_Pixl
+ 
+function set_all_Pixel() {
+    _row = document.getElementById('_row').value
+    _column = document.getElementById('_column').value
+//    alert("setAllPixel.php?color=" + _color + "");
+    $.ajax({
+        url: "setAllPixel.php?color=" + _color + "", success: function () {
+        }
+    });
+}//end set_all_Pixl
+</script>
 </html>
