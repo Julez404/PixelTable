@@ -27,6 +27,8 @@ for eachArg in sys.argv:
 	print (eachArg)
 	if input == ("setPixel"+'\n'):
 		setPixel()
+	if input == ("setAllPixel"+'\n'):
+		setAllPixel()
 
 def getPixelIndex(row,col):
     return row*LED_COLLUMN_COUNT+col
@@ -50,3 +52,17 @@ def setPixel:
 	f = open(".exchange","w")
 	f.close
 
+# Set all Pixel to a specific color
+def setAllPixel:
+	f = open(".exchange","r")
+	f.readline()
+	color_hex = f.readline()
+	color_r = int( color_hex[0]+color_hex[1],16 )
+	color_g = int( color_hex[2]+color_hex[3],16 )
+	color_b = int( color_hex[4]+color_hex[5],16 )
+	for x in range(0, LED_COUNT-1):
+		strip.setPixelColor(x,Color(color_r,color_g,color_b))
+	strip.show()
+	f.close()
+	f = open(".exchange","w")
+	f.close
