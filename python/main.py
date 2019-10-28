@@ -28,6 +28,7 @@ while True:
 	if input == ("setAllPixel"+'\n'):
 		setAllPixel()
 
+# Return the Pixelindex by row and column
 def getPixelIndex(row,col):
     return row*LED_COLLUMN_COUNT+col
 
