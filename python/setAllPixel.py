@@ -13,5 +13,6 @@ if (isHex(sys.argv[1]) and strLengthIs(sys.argv[1],6)):
     f.close()
 else:
     f = open("/var/www/pixel/python/.error", "a")
-    f.write(sys.argv[1:] + '\n')
+    f.write(sys.argv[0] + '\n')
+    f.write(sys.argv[1] + '\n')
     f.close()

@@ -21,5 +21,8 @@ if (
     f.close()
 else:
     f = open("/var/www/pixel/python/.error", "a")
-    f.write(sys.argv[1:] + '\n')
+    f.write(sys.argv[0] + '\n')
+    f.write(sys.argv[1] + '\n')
+    f.write(sys.argv[2] + '\n')
+    f.write(sys.argv[3] + '\n')
     f.close()
