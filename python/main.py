@@ -85,6 +85,15 @@ def setAnimation():
     f = open(".exchange","w")
     f.close
 
+# Return current state of Pixels as string
+def getPixelValues():
+    f = open(".readback","w")
+    for i in range(0,LED_COUNT):
+        f.write(getPixelRow(i),'_',getPixelColumn(i),'_',strip.getPixelColor(i),'-')
+    f.close()
+    f = open(".exchange","w")
+    f.close
+
 # Main loop
 while True:
 	time.sleep(0.1)				# Delay Betwee Commands
@@ -98,3 +107,5 @@ while True:
 		setAllPixel()
 	if input == ("setAnimation"+'\n'):
 		setAnimation()
+	if input == ("getPixelValues"+'\n'):
+		getPixelValues()
