@@ -62,7 +62,7 @@ def setAnimation():
     state = f.readline()
     animation = f.readline()
     f.close()
-    while (state == ("setAnimation" + '\n'))
+    while (state == ("setAnimation" + '\n')):
         if (animation == ("rainbow" + '\n')):
             rainbow(strip)
         if (animation == ("theaterChaseRainbow" + '\n')):
