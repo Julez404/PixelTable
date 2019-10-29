@@ -292,12 +292,9 @@
                     </div>
                 </div>
                 <div class="col-md-1">
+                    <div class="colorPicker"></div>
                 </div>
                 <div class="col-md-3">
-                    <div class="wheel" id="colorWheelDemo">
-                    </div>
-                    <input type="text" id="_row" disabled value="" placeholder="" />
-                    <input type="text" id="_column" disabled value="" placeholder="" />
                     <button id="btn_set_all_Pxl" onclick="set_all_Pixel()">I bims 1 button für alle</button>
                 </div>
             </div>
@@ -308,24 +305,26 @@
 
 <script>
     //Variables
-    var _row = document.getElementById('_row').value;
-    var _column = document.getElementById('_column').value;
-    var _color = "";
-    var colorWheel = iro.ColorPicker("#colorWheelDemo", {
-        // Set the size of the color picker
-        width: 200,
-        height:200,
 
+    var _color = "";
+    var colorPicker = new iro.ColorPicker(".colorPicker", {
+        // color picker options
+        // Option guide: https://iro.js.org/guide.html#color-picker-options
+        width: 280,
+        height: 280,
+        color: "rgb(255, 0, 0)",
+        borderWidth: 1,
+        borderColor: "#fff",
     });
 
     $(document).ready(function () {
-        colorWheel.on('color:init', function (color) {
-            var hex = colorWheel.color.hexString;
+        colorPicker.on('color:init', function (color) {
+            var hex = colorPicker.color.hexString;
             _color = hex.slice(1, 7);
         });
 
-        colorWheel.on('input:end', function (color) {
-            var hex = colorWheel.color.hexString;
+        colorPicker.on('input:end', function (color) {
+            var hex = colorPicker.color.hexString;
             _color = hex.slice(1, 7);
         });
     });  //end document ready
@@ -353,11 +352,8 @@
     }//end set_all_Pixl
 
     function colorGrid(_id) {
-        
         var color_ = "#" + _color;
-   
         document.getElementById(_id.id).style.backgroundColor = color_ ;
-       
     }//end set_Pixl
 
 
