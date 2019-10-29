@@ -22,6 +22,16 @@ strip.begin()
 def getPixelIndex(row,col):
     return row*LED_COLUMN_COUNT+col
 
+# Return Pixelrow
+def getPixelRow(pixelIndex):
+    return int(pixelIndex/LED_COLUMN_COUNT)
+
+# Return Pixelcolumn
+def getPixelColumn(pixelIndex):
+    row = getPixelRow(pixelIndex)
+    column = pixelIndex - row*LED_COLUMN_COUNT
+    return column
+
 # Set single pixel in specific color
 def setPixel():
 	f = open(".exchange","r")
