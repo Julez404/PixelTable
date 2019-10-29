@@ -88,8 +88,8 @@ def setAnimation():
 # Return current state of Pixels as string
 def getPixelValues():
     f = open(".readback","w")
-    for i in range(0,LED_COUNT):
-        f.write(getPixelRow(i),'_',getPixelColumn(i),'_',strip.getPixelColor(i),'-')
+    for i in range (0,LED_COUNT):
+        f.write(str(getPixelRow(i))+"_"+str(getPixelColumn(i))+"_"+"{:06}".format(strip.getPixelColor(i))+"-")
     f.close()
     f = open(".exchange","w")
     f.close
