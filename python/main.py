@@ -13,14 +13,14 @@ LED_DMA = 10
 LED_BRIGHTNESS = 255
 LED_INVERT = False
 LED_CHANNEL = 0
-LED_COLLUMN_COUNT = 20
+LED_COLUMN_COUNT = 20
 
 strip = Adafruit_NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ,LED_DMA,LED_INVERT,LED_BRIGHTNESS,LED_CHANNEL)
 strip.begin()
 
 # Return the Pixelindex by row and column
 def getPixelIndex(row,col):
-    return row*LED_COLLUMN_COUNT+col
+    return row*LED_COLUMN_COUNT+col
 
 # Set single pixel in specific color
 def setPixel():
