@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <title>Dashboard</title>
@@ -294,7 +294,7 @@
                         <button id="btn_set_animation_theaterChase" onclick="set_animation_theaterChase()">I bims 1 theaterChase</button>
                         <input id="input_set_runningMagazine" type="text" onchange="set_runningMagazine()" placeholder="I bims 1 Kek">
                      </div>
-                </div>
+                                                    <button class="btn btn-primary" type="button" id="btn_get_PixelValues" onclick="get_PixelValues()"><i class="fa fa-download"></i>  Tisch laden</button>
             </div>
         </section>
     </div>   <!-- Content -->
@@ -394,6 +394,17 @@
             set_Pixel(this.id);
         }
     });
+
+    function get_PixelValues() {
+        $.ajax({
+            url: "getPixelValues.php",
+            success: function () {
+                alert("k");
+                
+            }
+        });
+    }//end get_PixelValues
+
 
 
 </script>
