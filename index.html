@@ -4,8 +4,8 @@
     <title>Dashboard</title>
 
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-    <script src="jquery.js"></script>
-    <script type="text/javascript" src="scripts/core.js"></script>
+ 
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
@@ -14,7 +14,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script type="text/javascript" src="js/fullpage.min.js"></script>
     <script type="text/javascript" src="js/dashboard.js"></script>
-    <script type="text/javascript" src="js/html_include.js"></script>
+
     <script type="text/javascript" src="js/iro.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
@@ -29,7 +29,7 @@
 </head>
 
 <style>
-    table.chess{
+    table.grid{
         border:1px solid #000000;
         border-collapse:collapse;
 
@@ -50,280 +50,260 @@
 </style>
 <body>
 
-    <div id="Navbar_id">
-        <!-- The NAVBAR -->
-    </div>
-
-
-
+    <!-- The NAVBAR -->
+<div id="Navbar_id">
+</div>
 
     <!-- Page content -->
-    <div class="content">
-        <br />
-        <!-- Titel -->
-        <section>
-            <div class="col-md-12">
-                <div class="row">
-                
-                    <div class="col-md-7">
-                        <div id="Header1">
-                            <!-- First  Deck -->
-                            <div id="Controller">
-                                <div class="col-md-12">
-                                    <table class="chess">
-                                        <tr>
-                                            <td id='LED_0_0' onclick="set_Pixel(this)"></td>
-                                            <td id="LED_0_1" onclick="set_Pixel(this)"></td>
-                                            <td id="LED_0_2" onclick="set_Pixel(this)"></td>
-                                            <td id='LED_0_3' onclick="set_Pixel(this)"></td>
-                                            <td id='LED_0_4' onclick="set_Pixel(this)"></td>
-                                            <td id='LED_0_5' onclick="set_Pixel(this)"></td>
-                                            <td id='LED_0_6' onclick="set_Pixel(this)"></td>
-                                            <td id="LED_0_7" onclick="set_Pixel(this)"></td>
-                                            <td id="LED_0_8" onclick="set_Pixel(this)"></td>
-                                            <td id='LED_0_9' onclick="set_Pixel(this)"></td>
-                                            <td id='LED_0_10' onclick="set_Pixel(this)"></td>
-                                            <td id='LED_0_11' onclick="set_Pixel(this)"></td>
-                                            <td id='LED_0_12' onclick="set_Pixel(this)"></td>
-                                            <td id="LED_0_13" onclick="set_Pixel(this)"></td>
-                                            <td id="LED_0_14" onclick="set_Pixel(this)"></td>
-                                            <td id='LED_0_15' onclick="set_Pixel(this)"></td>
-                                            <td id='LED_0_16' onclick="set_Pixel(this)"></td>
-                                            <td id='LED_0_17' onclick="set_Pixel(this)"></td>
-                                            <td id='LED_0_18' onclick="set_Pixel(this)"></td>
-                                            <td id='LED_0_19' onclick="set_Pixel(this)"></td>
-                                         </tr>
-                                        <tr>
-                                            <td id='LED_1_0' onclick="set_Pixel(this)"></td>
-                                            <td id="LED_1_1" onclick="set_Pixel(this)"></td>
-                                            <td id="LED_1_2" onclick="set_Pixel(this)"></td>
-                                            <td id='LED_1_3' onclick="set_Pixel(this)"></td>
-                                            <td id='LED_1_4' onclick="set_Pixel(this)"></td>
-                                            <td id='LED_1_5' onclick="set_Pixel(this)"></td>
-                                            <td id='LED_1_6' onclick="set_Pixel(this)"></td>
-                                            <td id="LED_1_7" onclick="set_Pixel(this)"></td>
-                                            <td id="LED_1_8" onclick="set_Pixel(this)"></td>
-                                            <td id='LED_1_9' onclick="set_Pixel(this)"></td>
-                                            <td id='LED_1_10' onclick="set_Pixel(this)"></td>
-                                            <td id='LED_1_11' onclick="set_Pixel(this)"></td>
-                                            <td id='LED_1_12' onclick="set_Pixel(this)"></td>
-                                            <td id="LED_1_13" onclick="set_Pixel(this)"></td>
-                                            <td id="LED_1_14" onclick="set_Pixel(this)"></td>
-                                            <td id='LED_1_15' onclick="set_Pixel(this)"></td>
-                                            <td id='LED_1_16' onclick="set_Pixel(this)"></td>
-                                            <td id='LED_1_17' onclick="set_Pixel(this)"></td>
-                                            <td id='LED_1_18' onclick="set_Pixel(this)"></td>
-                                            <td id='LED_1_19' onclick="set_Pixel(this)"></td>
-                                        </tr>
-                                        <tr>
-                                            <td id='LED_2_0' onclick="set_Pixel(this)"></td>
-                                            <td id="LED_2_1" onclick="set_Pixel(this)"></td>
-                                            <td id="LED_2_2" onclick="set_Pixel(this)"></td>
-                                            <td id='LED_2_3' onclick="set_Pixel(this)"></td>
-                                            <td id='LED_2_4' onclick="set_Pixel(this)"></td>
-                                            <td id='LED_2_5' onclick="set_Pixel(this)"></td>
-                                            <td id='LED_2_6' onclick="set_Pixel(this)"></td>
-                                            <td id="LED_2_7" onclick="set_Pixel(this)"></td>
-                                            <td id="LED_2_8" onclick="set_Pixel(this)"></td>
-                                            <td id='LED_2_9' onclick="set_Pixel(this)"></td>
-                                            <td id='LED_2_10' onclick="set_Pixel(this)"></td>
-                                            <td id='LED_2_11' onclick="set_Pixel(this)"></td>
-                                            <td id='LED_2_12' onclick="set_Pixel(this)"></td>
-                                            <td id="LED_2_13" onclick="set_Pixel(this)"></td>
-                                            <td id="LED_2_14" onclick="set_Pixel(this)"></td>
-                                            <td id='LED_2_15' onclick="set_Pixel(this)"></td>
-                                            <td id='LED_2_16' onclick="set_Pixel(this)"></td>
-                                            <td id='LED_2_17' onclick="set_Pixel(this)"></td>
-                                            <td id='LED_2_18' onclick="set_Pixel(this)"></td>
-                                            <td id='LED_2_19' onclick="set_Pixel(this)"></td>
-                                        </tr>
-                                        <tr>
-                                            <td id='LED_3_0' onclick="set_Pixel(this)"></td>
-                                            <td id="LED_3_1" onclick="set_Pixel(this)"></td>
-                                            <td id="LED_3_2" onclick="set_Pixel(this)"></td>
-                                            <td id='LED_3_3' onclick="set_Pixel(this)"></td>
-                                            <td id='LED_3_4' onclick="set_Pixel(this)"></td>
-                                            <td id='LED_3_5' onclick="set_Pixel(this)"></td>
-                                            <td id='LED_3_6' onclick="set_Pixel(this)"></td>
-                                            <td id="LED_3_7" onclick="set_Pixel(this)"></td>
-                                            <td id="LED_3_8" onclick="set_Pixel(this)"></td>
-                                            <td id='LED_3_9' onclick="set_Pixel(this)"></td>
-                                            <td id='LED_3_10' onclick="set_Pixel(this)"></td>
-                                            <td id='LED_3_11' onclick="set_Pixel(this)"></td>
-                                            <td id='LED_3_12' onclick="set_Pixel(this)"></td>
-                                            <td id="LED_3_13" onclick="set_Pixel(this)"></td>
-                                            <td id="LED_3_14" onclick="set_Pixel(this)"></td>
-                                            <td id='LED_3_15' onclick="set_Pixel(this)"></td>
-                                            <td id='LED_3_16' onclick="set_Pixel(this)"></td>
-                                            <td id='LED_3_17' onclick="set_Pixel(this)"></td>
-                                            <td id='LED_3_18' onclick="set_Pixel(this)"></td>
-                                            <td id='LED_3_19' onclick="set_Pixel(this)"></td>
-                                        </tr>
-                                        <tr>
-                                            <td id='LED_4_0' onclick="set_Pixel(this)"></td>
-                                            <td id="LED_4_1" onclick="set_Pixel(this)"></td>
-                                            <td id="LED_4_2" onclick="set_Pixel(this)"></td>
-                                            <td id='LED_4_3' onclick="set_Pixel(this)"></td>
-                                            <td id='LED_4_4' onclick="set_Pixel(this)"></td>
-                                            <td id='LED_4_5' onclick="set_Pixel(this)"></td>
-                                            <td id='LED_4_6' onclick="set_Pixel(this)"></td>
-                                            <td id="LED_4_7" onclick="set_Pixel(this)"></td>
-                                            <td id="LED_4_8" onclick="set_Pixel(this)"></td>
-                                            <td id='LED_4_9' onclick="set_Pixel(this)"></td>
-                                            <td id='LED_4_10' onclick="set_Pixel(this)"></td>
-                                            <td id='LED_4_11' onclick="set_Pixel(this)"></td>
-                                            <td id='LED_4_12' onclick="set_Pixel(this)"></td>
-                                            <td id="LED_4_13" onclick="set_Pixel(this)"></td>
-                                            <td id="LED_4_14" onclick="set_Pixel(this)"></td>
-                                            <td id='LED_4_15' onclick="set_Pixel(this)"></td>
-                                            <td id='LED_4_16' onclick="set_Pixel(this)"></td>
-                                            <td id='LED_4_17' onclick="set_Pixel(this)"></td>
-                                            <td id='LED_4_18' onclick="set_Pixel(this)"></td>
-                                            <td id='LED_4_19' onclick="set_Pixel(this)"></td>
-                                        </tr>
-                                        <tr>
-                                            <td id='LED_5_0' onclick="set_Pixel(this)"></td>
-                                            <td id="LED_5_1" onclick="set_Pixel(this)"></td>
-                                            <td id="LED_5_2" onclick="set_Pixel(this)"></td>
-                                            <td id='LED_5_3' onclick="set_Pixel(this)"></td>
-                                            <td id='LED_5_4' onclick="set_Pixel(this)"></td>
-                                            <td id='LED_5_5' onclick="set_Pixel(this)"></td>
-                                            <td id='LED_5_6' onclick="set_Pixel(this)"></td>
-                                            <td id="LED_5_7" onclick="set_Pixel(this)"></td>
-                                            <td id="LED_5_8" onclick="set_Pixel(this)"></td>
-                                            <td id='LED_5_9' onclick="set_Pixel(this)"></td>
-                                            <td id='LED_5_10' onclick="set_Pixel(this)"></td>
-                                            <td id='LED_5_11' onclick="set_Pixel(this)"></td>
-                                            <td id='LED_5_12' onclick="set_Pixel(this)"></td>
-                                            <td id="LED_5_13" onclick="set_Pixel(this)"></td>
-                                            <td id="LED_5_14" onclick="set_Pixel(this)"></td>
-                                            <td id='LED_5_15' onclick="set_Pixel(this)"></td>
-                                            <td id='LED_5_16' onclick="set_Pixel(this)"></td>
-                                            <td id='LED_5_17' onclick="set_Pixel(this)"></td>
-                                            <td id='LED_5_18' onclick="set_Pixel(this)"></td>
-                                            <td id='LED_5_19' onclick="set_Pixel(this)"></td>
-                                        </tr>
-                                        <tr>
-                                            <td id='LED_6_0' onclick="set_Pixel(this)"></td>
-                                            <td id="LED_6_1" onclick="set_Pixel(this)"></td>
-                                            <td id="LED_6_2" onclick="set_Pixel(this)"></td>
-                                            <td id='LED_6_3' onclick="set_Pixel(this)"></td>
-                                            <td id='LED_6_4' onclick="set_Pixel(this)"></td>
-                                            <td id='LED_6_5' onclick="set_Pixel(this)"></td>
-                                            <td id='LED_6_6' onclick="set_Pixel(this)"></td>
-                                            <td id="LED_6_7" onclick="set_Pixel(this)"></td>
-                                            <td id="LED_6_8" onclick="set_Pixel(this)"></td>
-                                            <td id='LED_6_9' onclick="set_Pixel(this)"></td>
-                                            <td id='LED_6_10' onclick="set_Pixel(this)"></td>
-                                            <td id='LED_6_11' onclick="set_Pixel(this)"></td>
-                                            <td id='LED_6_12' onclick="set_Pixel(this)"></td>
-                                            <td id="LED_6_13" onclick="set_Pixel(this)"></td>
-                                            <td id="LED_6_14" onclick="set_Pixel(this)"></td>
-                                            <td id='LED_6_15' onclick="set_Pixel(this)"></td>
-                                            <td id='LED_6_16' onclick="set_Pixel(this)"></td>
-                                            <td id='LED_6_17' onclick="set_Pixel(this)"></td>
-                                            <td id='LED_6_18' onclick="set_Pixel(this)"></td>
-                                            <td id='LED_6_19' onclick="set_Pixel(this)"></td>
-                                        </tr>
-                                        <tr>
-                                            <td id='LED_7_0' onclick="set_Pixel(this)"></td>
-                                            <td id="LED_7_1" onclick="set_Pixel(this)"></td>
-                                            <td id="LED_7_2" onclick="set_Pixel(this)"></td>
-                                            <td id='LED_7_3' onclick="set_Pixel(this)"></td>
-                                            <td id='LED_7_4' onclick="set_Pixel(this)"></td>
-                                            <td id='LED_7_5' onclick="set_Pixel(this)"></td>
-                                            <td id='LED_7_6' onclick="set_Pixel(this)"></td>
-                                            <td id="LED_7_7" onclick="set_Pixel(this)"></td>
-                                            <td id="LED_7_8" onclick="set_Pixel(this)"></td>
-                                            <td id='LED_7_9' onclick="set_Pixel(this)"></td>
-                                            <td id='LED_7_10' onclick="set_Pixel(this)"></td>
-                                            <td id='LED_7_11' onclick="set_Pixel(this)"></td>
-                                            <td id='LED_7_12' onclick="set_Pixel(this)"></td>
-                                            <td id="LED_7_13" onclick="set_Pixel(this)"></td>
-                                            <td id="LED_7_14" onclick="set_Pixel(this)"></td>
-                                            <td id='LED_7_15' onclick="set_Pixel(this)"></td>
-                                            <td id='LED_7_16' onclick="set_Pixel(this)"></td>
-                                            <td id='LED_7_17' onclick="set_Pixel(this)"></td>
-                                            <td id='LED_7_18' onclick="set_Pixel(this)"></td>
-                                            <td id='LED_7_19' onclick="set_Pixel(this)"></td>
-                                        </tr>
-                                        <tr>
-                                            <td id='LED_8_0' onclick="set_Pixel(this)"></td>
-                                            <td id="LED_8_1" onclick="set_Pixel(this)"></td>
-                                            <td id="LED_8_2" onclick="set_Pixel(this)"></td>
-                                            <td id='LED_8_3' onclick="set_Pixel(this)"></td>
-                                            <td id='LED_8_4' onclick="set_Pixel(this)"></td>
-                                            <td id='LED_8_5' onclick="set_Pixel(this)"></td>
-                                            <td id='LED_8_6' onclick="set_Pixel(this)"></td>
-                                            <td id="LED_8_7" onclick="set_Pixel(this)"></td>
-                                            <td id="LED_8_8" onclick="set_Pixel(this)"></td>
-                                            <td id='LED_8_9' onclick="set_Pixel(this)"></td>
-                                            <td id='LED_8_10' onclick="set_Pixel(this)"></td>
-                                            <td id='LED_8_11' onclick="set_Pixel(this)"></td>
-                                            <td id='LED_8_12' onclick="set_Pixel(this)"></td>
-                                            <td id="LED_8_13" onclick="set_Pixel(this)"></td>
-                                            <td id="LED_8_14" onclick="set_Pixel(this)"></td>
-                                            <td id='LED_8_15' onclick="set_Pixel(this)"></td>
-                                            <td id='LED_8_16' onclick="set_Pixel(this)"></td>
-                                            <td id='LED_8_17' onclick="set_Pixel(this)"></td>
-                                            <td id='LED_8_18' onclick="set_Pixel(this)"></td>
-                                            <td id='LED_8_19' onclick="set_Pixel(this)"></td>
-                                        </tr>
-                                        <tr>
-                                            <td id='LED_9_0' onclick="set_Pixel(this)"></td>
-                                            <td id="LED_9_1" onclick="set_Pixel(this)"></td>
-                                            <td id="LED_9_2" onclick="set_Pixel(this)"></td>
-                                            <td id='LED_9_3' onclick="set_Pixel(this)"></td>
-                                            <td id='LED_9_4' onclick="set_Pixel(this)"></td>
-                                            <td id='LED_9_5' onclick="set_Pixel(this)"></td>
-                                            <td id='LED_9_6' onclick="set_Pixel(this)"></td>
-                                            <td id="LED_9_7" onclick="set_Pixel(this)"></td>
-                                            <td id="LED_9_8" onclick="set_Pixel(this)"></td>
-                                            <td id='LED_9_9' onclick="set_Pixel(this)"></td>
-                                            <td id='LED_9_10' onclick="set_Pixel(this)"></td>
-                                            <td id='LED_9_11' onclick="set_Pixel(this)"></td>
-                                            <td id='LED_9_12' onclick="set_Pixel(this)"></td>
-                                            <td id="LED_9_13" onclick="set_Pixel(this)"></td>
-                                            <td id="LED_9_14" onclick="set_Pixel(this)"></td>
-                                            <td id='LED_9_15' onclick="set_Pixel(this)"></td>
-                                            <td id='LED_9_16' onclick="set_Pixel(this)"></td>
-                                            <td id='LED_9_17' onclick="set_Pixel(this)"></td>
-                                            <td id='LED_9_18' onclick="set_Pixel(this)"></td>
-                                            <td id='LED_9_19' onclick="set_Pixel(this)"></td>
-                                        </tr>
-                                    </table>
-                                </div>
+<div class="content">
+    <br />
+    <section>
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-7">
+                    <div id="Header1">
+                        <!-- First  Deck -->
+                        <div id="Controller">
+                            <div class="col-md-12">
+                                <table class="grid">
+                                    <tr>
+                                        <td id='LED_0_0' onclick="set_Pixel(this)"></td>
+                                        <td id="LED_0_1" onclick="set_Pixel(this)"></td>
+                                        <td id="LED_0_2" onclick="set_Pixel(this)"></td>
+                                        <td id='LED_0_3' onclick="set_Pixel(this)"></td>
+                                        <td id='LED_0_4' onclick="set_Pixel(this)"></td>
+                                        <td id='LED_0_5' onclick="set_Pixel(this)"></td>
+                                        <td id='LED_0_6' onclick="set_Pixel(this)"></td>
+                                        <td id="LED_0_7" onclick="set_Pixel(this)"></td>
+                                        <td id="LED_0_8" onclick="set_Pixel(this)"></td>
+                                        <td id='LED_0_9' onclick="set_Pixel(this)"></td>
+                                        <td id='LED_0_10' onclick="set_Pixel(this)"></td>
+                                        <td id='LED_0_11' onclick="set_Pixel(this)"></td>
+                                        <td id='LED_0_12' onclick="set_Pixel(this)"></td>
+                                        <td id="LED_0_13" onclick="set_Pixel(this)"></td>
+                                        <td id="LED_0_14" onclick="set_Pixel(this)"></td>
+                                        <td id='LED_0_15' onclick="set_Pixel(this)"></td>
+                                        <td id='LED_0_16' onclick="set_Pixel(this)"></td>
+                                        <td id='LED_0_17' onclick="set_Pixel(this)"></td>
+                                        <td id='LED_0_18' onclick="set_Pixel(this)"></td>
+                                        <td id='LED_0_19' onclick="set_Pixel(this)"></td>
+                                    </tr>
+                                    <tr>
+                                        <td id='LED_1_0' onclick="set_Pixel(this)"></td>
+                                        <td id="LED_1_1" onclick="set_Pixel(this)"></td>
+                                        <td id="LED_1_2" onclick="set_Pixel(this)"></td>
+                                        <td id='LED_1_3' onclick="set_Pixel(this)"></td>
+                                        <td id='LED_1_4' onclick="set_Pixel(this)"></td>
+                                        <td id='LED_1_5' onclick="set_Pixel(this)"></td>
+                                        <td id='LED_1_6' onclick="set_Pixel(this)"></td>
+                                        <td id="LED_1_7" onclick="set_Pixel(this)"></td>
+                                        <td id="LED_1_8" onclick="set_Pixel(this)"></td>
+                                        <td id='LED_1_9' onclick="set_Pixel(this)"></td>
+                                        <td id='LED_1_10' onclick="set_Pixel(this)"></td>
+                                        <td id='LED_1_11' onclick="set_Pixel(this)"></td>
+                                        <td id='LED_1_12' onclick="set_Pixel(this)"></td>
+                                        <td id="LED_1_13" onclick="set_Pixel(this)"></td>
+                                        <td id="LED_1_14" onclick="set_Pixel(this)"></td>
+                                        <td id='LED_1_15' onclick="set_Pixel(this)"></td>
+                                        <td id='LED_1_16' onclick="set_Pixel(this)"></td>
+                                        <td id='LED_1_17' onclick="set_Pixel(this)"></td>
+                                        <td id='LED_1_18' onclick="set_Pixel(this)"></td>
+                                        <td id='LED_1_19' onclick="set_Pixel(this)"></td>
+                                    </tr>
+                                    <tr>
+                                        <td id='LED_2_0' onclick="set_Pixel(this)"></td>
+                                        <td id="LED_2_1" onclick="set_Pixel(this)"></td>
+                                        <td id="LED_2_2" onclick="set_Pixel(this)"></td>
+                                        <td id='LED_2_3' onclick="set_Pixel(this)"></td>
+                                        <td id='LED_2_4' onclick="set_Pixel(this)"></td>
+                                        <td id='LED_2_5' onclick="set_Pixel(this)"></td>
+                                        <td id='LED_2_6' onclick="set_Pixel(this)"></td>
+                                        <td id="LED_2_7" onclick="set_Pixel(this)"></td>
+                                        <td id="LED_2_8" onclick="set_Pixel(this)"></td>
+                                        <td id='LED_2_9' onclick="set_Pixel(this)"></td>
+                                        <td id='LED_2_10' onclick="set_Pixel(this)"></td>
+                                        <td id='LED_2_11' onclick="set_Pixel(this)"></td>
+                                        <td id='LED_2_12' onclick="set_Pixel(this)"></td>
+                                        <td id="LED_2_13" onclick="set_Pixel(this)"></td>
+                                        <td id="LED_2_14" onclick="set_Pixel(this)"></td>
+                                        <td id='LED_2_15' onclick="set_Pixel(this)"></td>
+                                        <td id='LED_2_16' onclick="set_Pixel(this)"></td>
+                                        <td id='LED_2_17' onclick="set_Pixel(this)"></td>
+                                        <td id='LED_2_18' onclick="set_Pixel(this)"></td>
+                                        <td id='LED_2_19' onclick="set_Pixel(this)"></td>
+                                    </tr>
+                                    <tr>
+                                        <td id='LED_3_0' onclick="set_Pixel(this)"></td>
+                                        <td id="LED_3_1" onclick="set_Pixel(this)"></td>
+                                        <td id="LED_3_2" onclick="set_Pixel(this)"></td>
+                                        <td id='LED_3_3' onclick="set_Pixel(this)"></td>
+                                        <td id='LED_3_4' onclick="set_Pixel(this)"></td>
+                                        <td id='LED_3_5' onclick="set_Pixel(this)"></td>
+                                        <td id='LED_3_6' onclick="set_Pixel(this)"></td>
+                                        <td id="LED_3_7" onclick="set_Pixel(this)"></td>
+                                        <td id="LED_3_8" onclick="set_Pixel(this)"></td>
+                                        <td id='LED_3_9' onclick="set_Pixel(this)"></td>
+                                        <td id='LED_3_10' onclick="set_Pixel(this)"></td>
+                                        <td id='LED_3_11' onclick="set_Pixel(this)"></td>
+                                        <td id='LED_3_12' onclick="set_Pixel(this)"></td>
+                                        <td id="LED_3_13" onclick="set_Pixel(this)"></td>
+                                        <td id="LED_3_14" onclick="set_Pixel(this)"></td>
+                                        <td id='LED_3_15' onclick="set_Pixel(this)"></td>
+                                        <td id='LED_3_16' onclick="set_Pixel(this)"></td>
+                                        <td id='LED_3_17' onclick="set_Pixel(this)"></td>
+                                        <td id='LED_3_18' onclick="set_Pixel(this)"></td>
+                                        <td id='LED_3_19' onclick="set_Pixel(this)"></td>
+                                    </tr>
+                                    <tr>
+                                        <td id='LED_4_0' onclick="set_Pixel(this)"></td>
+                                        <td id="LED_4_1" onclick="set_Pixel(this)"></td>
+                                        <td id="LED_4_2" onclick="set_Pixel(this)"></td>
+                                        <td id='LED_4_3' onclick="set_Pixel(this)"></td>
+                                        <td id='LED_4_4' onclick="set_Pixel(this)"></td>
+                                        <td id='LED_4_5' onclick="set_Pixel(this)"></td>
+                                        <td id='LED_4_6' onclick="set_Pixel(this)"></td>
+                                        <td id="LED_4_7" onclick="set_Pixel(this)"></td>
+                                        <td id="LED_4_8" onclick="set_Pixel(this)"></td>
+                                        <td id='LED_4_9' onclick="set_Pixel(this)"></td>
+                                        <td id='LED_4_10' onclick="set_Pixel(this)"></td>
+                                        <td id='LED_4_11' onclick="set_Pixel(this)"></td>
+                                        <td id='LED_4_12' onclick="set_Pixel(this)"></td>
+                                        <td id="LED_4_13" onclick="set_Pixel(this)"></td>
+                                        <td id="LED_4_14" onclick="set_Pixel(this)"></td>
+                                        <td id='LED_4_15' onclick="set_Pixel(this)"></td>
+                                        <td id='LED_4_16' onclick="set_Pixel(this)"></td>
+                                        <td id='LED_4_17' onclick="set_Pixel(this)"></td>
+                                        <td id='LED_4_18' onclick="set_Pixel(this)"></td>
+                                        <td id='LED_4_19' onclick="set_Pixel(this)"></td>
+                                    </tr>
+                                    <tr>
+                                        <td id='LED_5_0' onclick="set_Pixel(this)"></td>
+                                        <td id="LED_5_1" onclick="set_Pixel(this)"></td>
+                                        <td id="LED_5_2" onclick="set_Pixel(this)"></td>
+                                        <td id='LED_5_3' onclick="set_Pixel(this)"></td>
+                                        <td id='LED_5_4' onclick="set_Pixel(this)"></td>
+                                        <td id='LED_5_5' onclick="set_Pixel(this)"></td>
+                                        <td id='LED_5_6' onclick="set_Pixel(this)"></td>
+                                        <td id="LED_5_7" onclick="set_Pixel(this)"></td>
+                                        <td id="LED_5_8" onclick="set_Pixel(this)"></td>
+                                        <td id='LED_5_9' onclick="set_Pixel(this)"></td>
+                                        <td id='LED_5_10' onclick="set_Pixel(this)"></td>
+                                        <td id='LED_5_11' onclick="set_Pixel(this)"></td>
+                                        <td id='LED_5_12' onclick="set_Pixel(this)"></td>
+                                        <td id="LED_5_13" onclick="set_Pixel(this)"></td>
+                                        <td id="LED_5_14" onclick="set_Pixel(this)"></td>
+                                        <td id='LED_5_15' onclick="set_Pixel(this)"></td>
+                                        <td id='LED_5_16' onclick="set_Pixel(this)"></td>
+                                        <td id='LED_5_17' onclick="set_Pixel(this)"></td>
+                                        <td id='LED_5_18' onclick="set_Pixel(this)"></td>
+                                        <td id='LED_5_19' onclick="set_Pixel(this)"></td>
+                                    </tr>
+                                    <tr>
+                                        <td id='LED_6_0' onclick="set_Pixel(this)"></td>
+                                        <td id="LED_6_1" onclick="set_Pixel(this)"></td>
+                                        <td id="LED_6_2" onclick="set_Pixel(this)"></td>
+                                        <td id='LED_6_3' onclick="set_Pixel(this)"></td>
+                                        <td id='LED_6_4' onclick="set_Pixel(this)"></td>
+                                        <td id='LED_6_5' onclick="set_Pixel(this)"></td>
+                                        <td id='LED_6_6' onclick="set_Pixel(this)"></td>
+                                        <td id="LED_6_7" onclick="set_Pixel(this)"></td>
+                                        <td id="LED_6_8" onclick="set_Pixel(this)"></td>
+                                        <td id='LED_6_9' onclick="set_Pixel(this)"></td>
+                                        <td id='LED_6_10' onclick="set_Pixel(this)"></td>
+                                        <td id='LED_6_11' onclick="set_Pixel(this)"></td>
+                                        <td id='LED_6_12' onclick="set_Pixel(this)"></td>
+                                        <td id="LED_6_13" onclick="set_Pixel(this)"></td>
+                                        <td id="LED_6_14" onclick="set_Pixel(this)"></td>
+                                        <td id='LED_6_15' onclick="set_Pixel(this)"></td>
+                                        <td id='LED_6_16' onclick="set_Pixel(this)"></td>
+                                        <td id='LED_6_17' onclick="set_Pixel(this)"></td>
+                                        <td id='LED_6_18' onclick="set_Pixel(this)"></td>
+                                        <td id='LED_6_19' onclick="set_Pixel(this)"></td>
+                                    </tr>
+                                    <tr>
+                                        <td id='LED_7_0' onclick="set_Pixel(this)"></td>
+                                        <td id="LED_7_1" onclick="set_Pixel(this)"></td>
+                                        <td id="LED_7_2" onclick="set_Pixel(this)"></td>
+                                        <td id='LED_7_3' onclick="set_Pixel(this)"></td>
+                                        <td id='LED_7_4' onclick="set_Pixel(this)"></td>
+                                        <td id='LED_7_5' onclick="set_Pixel(this)"></td>
+                                        <td id='LED_7_6' onclick="set_Pixel(this)"></td>
+                                        <td id="LED_7_7" onclick="set_Pixel(this)"></td>
+                                        <td id="LED_7_8" onclick="set_Pixel(this)"></td>
+                                        <td id='LED_7_9' onclick="set_Pixel(this)"></td>
+                                        <td id='LED_7_10' onclick="set_Pixel(this)"></td>
+                                        <td id='LED_7_11' onclick="set_Pixel(this)"></td>
+                                        <td id='LED_7_12' onclick="set_Pixel(this)"></td>
+                                        <td id="LED_7_13" onclick="set_Pixel(this)"></td>
+                                        <td id="LED_7_14" onclick="set_Pixel(this)"></td>
+                                        <td id='LED_7_15' onclick="set_Pixel(this)"></td>
+                                        <td id='LED_7_16' onclick="set_Pixel(this)"></td>
+                                        <td id='LED_7_17' onclick="set_Pixel(this)"></td>
+                                        <td id='LED_7_18' onclick="set_Pixel(this)"></td>
+                                        <td id='LED_7_19' onclick="set_Pixel(this)"></td>
+                                    </tr>
+                                    <tr>
+                                        <td id='LED_8_0' onclick="set_Pixel(this)"></td>
+                                        <td id="LED_8_1" onclick="set_Pixel(this)"></td>
+                                        <td id="LED_8_2" onclick="set_Pixel(this)"></td>
+                                        <td id='LED_8_3' onclick="set_Pixel(this)"></td>
+                                        <td id='LED_8_4' onclick="set_Pixel(this)"></td>
+                                        <td id='LED_8_5' onclick="set_Pixel(this)"></td>
+                                        <td id='LED_8_6' onclick="set_Pixel(this)"></td>
+                                        <td id="LED_8_7" onclick="set_Pixel(this)"></td>
+                                        <td id="LED_8_8" onclick="set_Pixel(this)"></td>
+                                        <td id='LED_8_9' onclick="set_Pixel(this)"></td>
+                                        <td id='LED_8_10' onclick="set_Pixel(this)"></td>
+                                        <td id='LED_8_11' onclick="set_Pixel(this)"></td>
+                                        <td id='LED_8_12' onclick="set_Pixel(this)"></td>
+                                        <td id="LED_8_13" onclick="set_Pixel(this)"></td>
+                                        <td id="LED_8_14" onclick="set_Pixel(this)"></td>
+                                        <td id='LED_8_15' onclick="set_Pixel(this)"></td>
+                                        <td id='LED_8_16' onclick="set_Pixel(this)"></td>
+                                        <td id='LED_8_17' onclick="set_Pixel(this)"></td>
+                                        <td id='LED_8_18' onclick="set_Pixel(this)"></td>
+                                        <td id='LED_8_19' onclick="set_Pixel(this)"></td>
+                                    </tr>
+                                    <tr>
+                                        <td id='LED_9_0' onclick="set_Pixel(this)"></td>
+                                        <td id="LED_9_1" onclick="set_Pixel(this)"></td>
+                                        <td id="LED_9_2" onclick="set_Pixel(this)"></td>
+                                        <td id='LED_9_3' onclick="set_Pixel(this)"></td>
+                                        <td id='LED_9_4' onclick="set_Pixel(this)"></td>
+                                        <td id='LED_9_5' onclick="set_Pixel(this)"></td>
+                                        <td id='LED_9_6' onclick="set_Pixel(this)"></td>
+                                        <td id="LED_9_7" onclick="set_Pixel(this)"></td>
+                                        <td id="LED_9_8" onclick="set_Pixel(this)"></td>
+                                        <td id='LED_9_9' onclick="set_Pixel(this)"></td>
+                                        <td id='LED_9_10' onclick="set_Pixel(this)"></td>
+                                        <td id='LED_9_11' onclick="set_Pixel(this)"></td>
+                                        <td id='LED_9_12' onclick="set_Pixel(this)"></td>
+                                        <td id="LED_9_13" onclick="set_Pixel(this)"></td>
+                                        <td id="LED_9_14" onclick="set_Pixel(this)"></td>
+                                        <td id='LED_9_15' onclick="set_Pixel(this)"></td>
+                                        <td id='LED_9_16' onclick="set_Pixel(this)"></td>
+                                        <td id='LED_9_17' onclick="set_Pixel(this)"></td>
+                                        <td id='LED_9_18' onclick="set_Pixel(this)"></td>
+                                        <td id='LED_9_19' onclick="set_Pixel(this)"></td>
+                                    </tr>
+                                </table>
                             </div>
                         </div>
                     </div>
-                         
-                        <div class="col-md-1">
-                        </div>
-
-                        <div class="col-md-3">
-                            <div class="wheel" id="colorWheelDemo"></div>
-
-
-                            <input type="text" id="_row" disabled value="" placeholder="" />
-                            <input type="text" id="_column" disabled value="" placeholder="" />
-                       
-                            <button id="btn_set_all_Pxl" onclick="set_all_Pixel()">I bims 1 button für alle</button>
-                        </div>
-
+                </div>
+                <div class="col-md-1">
+                </div>
+                <div class="col-md-3">
+                    <div class="wheel" id="colorWheelDemo">
                     </div>
-                    </div>
-
-        </section>
-
-
-       
+                    <input type="text" id="_row" disabled value="" placeholder="" />
+                    <input type="text" id="_column" disabled value="" placeholder="" />
+                    <button id="btn_set_all_Pxl" onclick="set_all_Pixel()">I bims 1 button für alle</button>
+                </div>
             </div>
-
-
-
-
-        </div>   <!-- Content -->
-
+        </div>
+    </section>
+</div>   <!-- Content -->
 </body>
 
 <script>
@@ -334,6 +314,7 @@
     var colorWheel = iro.ColorPicker("#colorWheelDemo", {
         // Set the size of the color picker
         width: 200,
+        height:200,
 
     });
 
