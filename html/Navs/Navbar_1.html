@@ -5,12 +5,12 @@
         <div class="bg-dark p-4">
             <h5 class="text-white h4">Auswahl Modi</h5>
             <br />
-             <div id="sidebar">
-                 <div class="row">
-                    <div class="col"><a class="active" href="#">Standbild</a></div>
-                     <div class="col"><a class="inactive" href="#">Animationen</a></div>
-                     <div class="col"><a class="inactive" href="#">Snake</a></div>
-                     <div class="col"><a class="inactive" href="#">Tetris</a></div>
+            <div id="sidebar">
+                <div class="row">
+                    <div class="col" ><a class="active" id="Menue_Standbild" onclick="activeMenue(this.id);" href="#">Standbild</a></div>
+                    <div class="col" ><a class="inactive" id="Menue_Animationen" onclick="activeMenue(this.id);" href="#">Animationen</a></div>
+                    <div class="col" ><a class="inactive" id="Menue_Snake" onclick="activeMenue(this.id);" href="#">Snake</a></div>
+                    <div class="col" ><a class="inactive" id="Menue_Tetris" onclick="activeMenue(this.id);" href="#">Tetris</a></div>
                 </div>
             </div>
         </div>
@@ -21,3 +21,29 @@
         </button>
     </nav>
 </div>
+
+<script>
+    var active = "Menue_Standbild";
+    $('#Standbild').show();
+    $('#Animationen').hide();
+    $('#Snake').hide();
+    $('#Tetris').hide();
+
+
+
+    function activeMenue(_id) {
+        h_var1= active.split("_");
+        h_var2 = _id.split("_");
+
+        $('#' + active).addClass('inactive').removeClass('active');
+        h_var1 = h_var1[1];
+        $('#' + h_var1).hide();
+
+        $('#' + _id).addClass('active').removeClass('inactive');
+        h_var2 = h_var2[1];
+        $('#' + h_var2).fadeIn(500);
+        active = _id;
+    }
+
+
+</script>
