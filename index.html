@@ -316,13 +316,11 @@
                                             <div class="card-body">
                                                 <h5>Farbauswahl</h5>
                                                 <hr />
-
                                                 <div class="colorPicker">
                                                 </div>
-                                                <br />
-                                                <br />
-
                                                 <div class="col-md-12" style="padding-bottom: 16px;">
+                                                    <div id="values">
+                                                    </div>
                                                     <div class="btn-group btn-group-justified">
                                                         <button class="btn btn-secondary" type="button" id="btn_set_all_Pxl" onclick="set_all_Pixel()"><i class="fa fa-upload"></i> Alle  setzen</button>
                                                         <button class="btn btn-primary" type="button" id="btn_get_PixelValues" onclick="get_PixelValues()"><i class="fa fa-download"></i>  Tisch laden</button>
@@ -330,7 +328,6 @@
                                                 </div>
                                             </div>
                                         </div>
-
                                     </div>
                                     <div class="col">
                                         <div class="card">
@@ -359,7 +356,6 @@
                                                 <hr />
                                                 <h5>Neues Bild</h5>
                                                 <div class="input-group">
-
                                                     <input type="text" class="form-control" placeholder="Chess The Mess" aria-label="" aria-describedby="basic-addon2">
                                                     <div class="input-group-append">
                                                         <button class="btn btn-outline-success" type="button">Speichern</button>
@@ -380,7 +376,6 @@
                         <button id="btn_set_animation_Rainbow" onclick="set_animation_Rainbow()">I bims 1 Regenbogen</button>
                         <button id="btn_set_animation_theaterChase" onclick="set_animation_theaterChase()">I bims 1 theaterChase</button>
                         <input id="input_set_runningMagazine" type="text" onchange="set_runningMagazine()" placeholder="I bims 1 Kek">
-
                     </div>
                 </div>
             </div>
@@ -392,27 +387,35 @@
 
 <script>
     //Variables
-
+    var values = document.getElementById("values");
     var _color = "";
     var colorPicker = new iro.ColorPicker(".colorPicker", {
         // color picker options
         // Option guide: https://iro.js.org/guide.html#color-picker-options
         width: 280,
         height: 280,
-        color: "rgb(255, 0, 0)",
+        color: "rgb(255, 255, 255)",
         borderWidth: 1,
         borderColor: "#fff",
     });
 
     $(document).ready(function () {
-        colorPicker.on('color:init', function (color) {
-            var hex = colorPicker.color.hexString;
-            _color = hex.slice(1, 7);
-        });
+
 
         colorPicker.on('input:end', function (color) {
             var hex = colorPicker.color.hexString;
             _color = hex.slice(1, 7);
+        });
+
+        colorPicker.on(["color:init", "color:change"], function (color) {
+            var hex = colorPicker.color.hexString;
+            _color = hex.slice(1, 7);
+            // Show the current color in different formats
+            // Using the selected color: https://iro.js.org/guide.html#selected-color-api
+            values.innerHTML = [
+              "hex: " + color.hexString,
+              "rgb: " + color.rgbString,
+            ].join("<br>");
         });
     });  //end document ready
 
