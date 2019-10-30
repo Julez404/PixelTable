@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <title>PixelTable</title>
@@ -421,7 +421,7 @@
         $.ajax({
             url: "setPixel.php?row=" + _row + "&column=" + _column + "&color=" + _color + "",
             success: function () {
-                colorGrid(_id);
+                colorGridPixel(_id);
             }
         });
     }//end set_Pixl
@@ -459,10 +459,10 @@
         });
     }//end set_all_Pixl
 
-    function colorGrid(_id) {
+    function colorGridPixel(_id) {
         var color_ = "#" + _color;
         document.getElementById(_id).style.backgroundColor = color_;
-    }//end colorGrid
+    }//end colorGridPixel
 
     var isDown = false;   // Tracks status of mouse button
 
