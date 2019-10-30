@@ -455,6 +455,7 @@
         $.ajax({
             url: "setAllPixel.php?color=" + _color + "",
             success: function () {
+                colorGridOneColor();
             }
         });
     }//end set_all_Pixl
@@ -464,6 +465,15 @@
         document.getElementById(_id).style.backgroundColor = color_;
     }//end colorGridPixel
 
+    function colorGridOneColor(_id) {
+        var color_ = "#" + _color;
+        for (i = 0; i <= 9 ; i++) {
+            for (k = 0; k <= 19 ; k++) {
+                var _id = "LED_" + i + "_" + k;
+                document.getElementById(_id).style.backgroundColor = color_;
+            }
+        }
+    }//end colorGridOneColor
     var isDown = false;   // Tracks status of mouse button
 
     $("td").mousedown(function () {
