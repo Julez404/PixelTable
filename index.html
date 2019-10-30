@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <title>PixelTable</title>
@@ -474,8 +474,8 @@
             }
         }
     }//end colorGridOneColor
-    var isDown = false;   // Tracks status of mouse button
 
+    var isDown = false;   // Tracks status of mouse button
     $("td").mousedown(function () {
         isDown = true;// When mouse goes down, set isDown to true
     });
@@ -486,7 +486,6 @@
 
     $("td").mouseover(function () {
         if (isDown) {       // Only change css if mouse is down
-
             set_Pixel(this.id);
         }
     });
@@ -497,12 +496,12 @@
             success: function (data) {
                 data = data.substring(19);
 		var _array = data.split("-");
-                colorGridfromData(_array);
+                colorGridPixelfromData(_array);
             }
         });
     }//end get_PixelValues
 
-    function colorGridfromData(_array) {
+    function colorGridPixelfromData(_array) {
         for (i = 0; _array[i] != ""; i++) {
             var h_array = _array[i].split("_");
             var _dataset = "LED_" + h_array[0] + "_" + h_array[1] + "_#" + h_array[2];
@@ -510,7 +509,7 @@
             var _set_color = "#" + h_array[2];
             document.getElementById(_id).style.backgroundColor = _set_color;
         }
-    }//end colorGridfromData
+    }//end colorGridPixelfromData
     
 </script>
 </html>
