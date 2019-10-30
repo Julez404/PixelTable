@@ -32,11 +32,12 @@
     <div class="content">
         <div class="container-fluid">
             <div id="Standbild" style="visibility:visible" class="column">
+                <br />
                 <div class="row justify-content-center">
                     <div id="GridCard1">
                         <div class="column">
                             <div id="Controller">
-                                <div class="card" style="margin-top:6px;">
+                                <div class="card">
                                     <div class="card-body">
                                         <table class="grid">
                                             <tr>
@@ -266,7 +267,7 @@
                         </div>
                     </div>
                     <div class="column">
-                        <div class="card" style="margin-top:6px;">
+                        <div class="card">
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col">
@@ -330,22 +331,87 @@
                 </div>
             </div>
             <div id="Animationen" class="column">
-                <div class="card">
-                    <div class="card-body">
-                        <button id="btn_set_animation_Rainbow" onclick="set_animation_Rainbow()">I bims 1 Regenbogen</button>
-                        <button id="btn_set_animation_theaterChase" onclick="set_animation_theaterChase()">I bims 1 theaterChase</button>
-                        <input id="input_set_runningMagazine" type="text" onchange="set_runningMagazine()" placeholder="I bims 1 Kek">
+                <br />
+                <div class="row">
+                    <div class="column">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5>Animationswahl</h5>
+                                <hr />
+                                <div class="col">
+                                    <div class="list-group" id="list-tab" role="tablist">
+                                        <a class="list-group-item list-group-item-action" onclick="set_animation_Rainbow()" id="Regenbogen" data-toggle="list" href="#list-home" role="tab" aria-controls="home">Regenbogen</a>
+                                        <a class="list-group-item list-group-item-action" onclick="btn_set_animation_theaterChase()" id="theaterChase" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">theaterChase</a>
+                                        <a class="list-group-item list-group-item-action" onclick="input_set_runningMagazine()" id="Laufschrift" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">Laufschrift</a>
+                                        <a class="list-group-item list-group-item-action" onclick="alert(this.id);" id="Regenbogen1" data-toggle="list" href="#list-home" role="tab" aria-controls="home">Regenbogen</a>
+                                        <a class="list-group-item list-group-item-action" onclick="alert(this.id);" id="theaterChase1" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">theaterChase</a>
+                                        <a class="list-group-item list-group-item-action" onclick="alert(this.id);" id="Laufschrift1" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">Laufschrift</a>
+                                        <a class="list-group-item list-group-item-action" onclick="alert(this.id);" id="Regenbogen2" data-toggle="list" href="#list-home" role="tab" aria-controls="home">Regenbogen</a>
+                                        <a class="list-group-item list-group-item-action" onclick="alert(this.id);" id="theaterChase2" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">theaterChase</a>
+                                        <a class="list-group-item list-group-item-action" onclick="alert(this.id);" id="Laufschrift2" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">Laufschrift</a>
+                                        <a class="list-group-item list-group-item-action" onclick="alert(this.id);" id="Regenbogen3" data-toggle="list" href="#list-home" role="tab" aria-controls="home">Regenbogen</a>
+                                        <a class="list-group-item list-group-item-action" onclick="alert(this.id);" id="theaterChase3" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">theaterChase</a>
+                                        <a class="list-group-item list-group-item-action" onclick="alert(this.id);" id="Laufschrift3" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">Laufschrift</a>
+                                    </div>
+                                </div>
+                                <hr />
+                                <div class="col">
+                                    <div class="btn-group">
+                                        <button class="btn btn-primary btn-md " type="button" id="btn_set_all_Pxl" onclick="set_all_Pixel()"><i class="fa fa-upload"></i> Animation setzen</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+
+                    <div class="column">
+                        <div class="card" style="align-items: center;">
+                            <div class="card-body">
+                                <h5>Farbauswahl</h5>
+                                <hr />
+                                <div class="colorPicker1">
+                                </div>
+                                <div class="col-md-12" style="text-align:center">
+                                    <div id="values" style="padding: 8px;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5>Animationsoptionen</h5>
+                                <hr />
+                                <div class="col">
+                                    <label for="customRange1">Speed</label>
+                                    <input type="range" class="custom-range" id="customRange1">
+                                    <hr />
+                                    <label for="input_set_runningMagazine">Laufschrift</label><br />
+                                    <input id="input_set_runningMagazine" type="text" onchange="set_runningMagazine()" placeholder="I bims 1 Kek">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
-
         </div>
-
-    </div>   <!-- Content -->
+    </div><!-- Content -->
 </body>
 
 <script>
-    //Variables
+    //Animations
+    var colorPicker = new iro.ColorPicker(".colorPicker1", {
+        // color picker options
+        // Option guide: https://iro.js.org/guide.html#color-picker-options
+        width: 280,
+        height: 280,
+        color: "rgb(255, 255, 255)",
+        borderWidth: 1,
+        borderColor: "#fff",
+    });
+    //Standbild
     var values = document.getElementById("values");
     var _color = "";
     var colorPicker = new iro.ColorPicker(".colorPicker", {
