@@ -7,19 +7,7 @@
                     <h5>Animationswahl</h5>
                     <hr />
                     <div class="col">
-                        <div class="list-group" id="list-tab" role="tablist">
-                            <a class="list-group-item list-group-item-action" onclick="getAnimationParameter(this.id);" id="rainbow" data-toggle="list" href="#list-home" role="tab" aria-controls="home">Regenbogen</a>
-                            <a class="list-group-item list-group-item-action" onclick="getAnimationParameter(this.id);" id="theaterChaseRainbow" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">theaterChase</a>
-                            <a class="list-group-item list-group-item-action" onclick="getAnimationParameter(this.id);" id="Laufschrift" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">Laufschrift</a>
-                            <a class="list-group-item list-group-item-action" onclick="getAnimationParameter(this.id);" id="Regenbogen1" data-toggle="list" href="#list-home" role="tab" aria-controls="home">Regenbogen</a>
-                            <a class="list-group-item list-group-item-action" onclick="getAnimationParameter(this.id);" id="theaterChase1" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">theaterChase</a>
-                            <a class="list-group-item list-group-item-action" onclick="getAnimationParameter(this.id);" id="Laufschrift1" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">Laufschrift</a>
-                            <a class="list-group-item list-group-item-action" onclick="getAnimationParameter(this.id);" id="rainbow" data-toggle="list" href="#list-home" role="tab" aria-controls="home">Regenbogen</a>
-                            <a class="list-group-item list-group-item-action" onclick="getAnimationParameter(this.id);" id="theaterChaseRainbow" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">theaterChase</a>
-                            <a class="list-group-item list-group-item-action" onclick="getAnimationParameter(this.id);" id="Laufschrift" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">Laufschrift</a>
-                            <a class="list-group-item list-group-item-action" onclick="getAnimationParameter(this.id);" id="Regenbogen1" data-toggle="list" href="#list-home" role="tab" aria-controls="home">Regenbogen</a>
-                            <a class="list-group-item list-group-item-action" onclick="getAnimationParameter(this.id);" id="theaterChase1" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">theaterChase</a>
-                            <a class="list-group-item list-group-item-action" onclick="getAnimationParameter(this.id);" id="Laufschrift1" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">Laufschrift</a>
+                        <div class="list-group" id="list-tab-Animationen" role="tablist">
                         </div>
                     </div>
                     <br />
@@ -89,6 +77,12 @@
     });
 
     //Funktionen
+    $(document).ready(function () {
+        
+        getAllAnimations();
+       
+    });  //end document ready
+
     function setAnimation(_name) {
         $.ajax({
             url: "setAnimation.php?animation=" + _name + "&speed=" + _speed + "&color=" + _color1 + "",
@@ -122,10 +116,20 @@
         });
     }//end set_runningMagazine
 
-    function getAllAnimation() {
+    function getAllAnimations() {
+        var data = "name1_name2_name3_name4_"; //delete this
+
+        //copy
+        data = data.split("_");
+        for (i = 0; data[i] != ""; i++) {
+            $("#list-tab-Animationen").append("<a class='list-group-item list-group-item-action' onclick='getAnimationParameter(this.id);' id'data[i]' data-toggle='list' href='#list-" + data[i] + "' role='tab' aria-controls='" + data[i] + "'>" + data[i] + "</a>");
+        }
+        //this
+
         $.ajax({
             url: "",
-            success: function () {
+            success: function (data) {
+                //in here
             }
         });
     }//end set_runningMagazine
