@@ -3,6 +3,7 @@
 from rpi_ws281x import *
 from random import randint
 from animations import *
+from command import *
 import sys
 import time
 
@@ -97,15 +98,14 @@ def getPixelValues():
 # Main loop
 while True:
 	time.sleep(0.1)				# Delay Betwee Commands
-	f = open(".exchange","r")
-	input = f.readline()
-	f.close()
+    command = []
+    command = getCommand()
 
-	if input == ("setPixel"+'\n'):
+	if command[0] == ("setPixel"+'\n'):
 		setPixel()
-	if input == ("setAllPixel"+'\n'):
+	if command[0] == ("setAllPixel"+'\n'):
 		setAllPixel()
-	if input == ("setAnimation"+'\n'):
+	if command[0] == ("setAnimation"+'\n'):
 		setAnimation()
-	if input == ("getPixelValues"+'\n'):
+	if command[0] == ("getPixelValues"+'\n'):
 		getPixelValues()
