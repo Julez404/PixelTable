@@ -1,0 +1,104 @@
+﻿<div class="container-fluid">
+    <div id="Animationen">
+        <br />
+        <div class="row">
+            <div class="card">
+                <div class="card-body">
+                    <h5>Animationswahl</h5>
+                    <hr />
+                    <div class="col">
+                        <div class="list-group" id="list-tab" role="tablist">
+                            <a class="list-group-item list-group-item-action" onclick="animation_name = this.id" id="rainbow" data-toggle="list" href="#list-home" role="tab" aria-controls="home">Regenbogen</a>
+                            <a class="list-group-item list-group-item-action" onclick="animation_name = this.id" id="theaterChaseRainbow" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">theaterChase</a>
+                            <a class="list-group-item list-group-item-action" onclick="animation_name = this.id" id="Laufschrift" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">Laufschrift</a>
+                            <a class="list-group-item list-group-item-action" onclick="animation_name = this.id" id="Regenbogen1" data-toggle="list" href="#list-home" role="tab" aria-controls="home">Regenbogen</a>
+                            <a class="list-group-item list-group-item-action" onclick="animation_name = this.id" id="theaterChase1" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">theaterChase</a>
+                            <a class="list-group-item list-group-item-action" onclick="animation_name = this.id" id="Laufschrift1" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">Laufschrift</a>
+                        </div>
+                    </div>
+                    <br />
+                    <br />
+                    <hr />
+                    <div class="col" style="text-align:center">
+                        <button class="btn btn-primary btn-md " type="button" id="btn_set_animation" onclick="setAnimation(animation_name)"><i class="fa fa-upload"></i> Animation setzen</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <h5>Farbauswahl</h5>
+                    <hr />
+                    <div class="colorPicker1" style="margin-left:auto; margin-right:auto;">
+                    </div>
+                    <div class="col">
+                        <div id="values1" style="padding: 8px;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <h5>Animationsoptionen</h5>
+                    <hr />
+                    <div class="col">
+                        <label for="customRange1">Speed</label>
+                        <input type="range" class="custom-range" min="1" onchange="_speed = this.value" id="customRange1">
+                        <hr />
+                        <label for="customRange1">Laufschrift</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Kam mit einem Messer zur Schießerei" aria-label="" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-success" type="button">Speichern</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    //Animations
+    var _speed = "50";
+    var animation_name = "";
+    var values1 = document.getElementById("values1");
+    var colorPicker1 = new iro.ColorPicker(".colorPicker1", {
+        // color picker options
+        // Option guide: https://iro.js.org/guide.html#color-picker-options
+        width: 280,
+        height: 280,
+        color: "rgb(255, 255, 255)",
+        borderWidth: 1,
+        borderColor: "#fff",
+    });
+    //Standbild
+
+    var _color1 = "";
+    colorPicker.on('input:end', function (color) {
+        var hex = colorPicker.color.hexString;
+        _color = hex.slice(1, 7);
+    });
+
+    colorPicker.on(["color:init", "color:change"], function (color) {
+        var hex = colorPicker.color.hexString;
+        _color = hex.slice(1, 7);
+        // Show the current color in different formats
+        // Using the selected color: https://iro.js.org/guide.html#selected-color-api
+        values.innerHTML = [
+          "hex: " + color.hexString,
+          "rgb: " + color.rgbString,
+        ].join("<br>");
+    });
+
+    colorPicker1.on(["color:init", "color:change"], function (color) {
+        var hex = colorPicker1.color.hexString;
+        _color1 = hex.slice(1, 7);
+        // Show the current color in different formats
+        // Using the selected color: https://iro.js.org/guide.html#selected-color-api
+        values1.innerHTML = [
+          "hex: " + color.hexString,
+          "rgb: " + color.rgbString,
+        ].join("<br>");
+    });
+</script>
