@@ -60,21 +60,18 @@ def setAllPixel(parameters):
 
 # Start a predefined animation
 def setAnimation(parameters):
-    f = open(".exchange","r")
-    state = f.readline()
-    animation = f.readline()
-    f.close()
-    while (state == ("setAnimation" + '\n')):
-        if (animation == ("rainbow" + '\n')):
+    state = parameters[0]
+    animation = parameters[1]
+    while (state == ("setAnimation")):
+        if (animation == ("rainbow")):
             rainbow(strip)
-        if (animation == ("theaterChaseRainbow" + '\n')):
+        if (animation == ("theaterChaseRainbow")):
             theaterChaseRainbow(strip)
 
-        f = open(".exchange","r")
-        state = f.readline()
-        animation = f.readline()
-        f.close()
-        delLastCommand()
+        parameters = getCommand()
+        state = parameters[0]
+        animation = parameters[1]
+    delLastCommand()
 
 # Return current state of Pixels as string
 def getPixelValues(parameters):
