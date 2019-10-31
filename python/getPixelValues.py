@@ -1,15 +1,15 @@
 #!/usr/bin/python3
 
 from validData import *
+from command import *
 import sys
 import time
 
 # Expected Input
 # None
 
-f = open("/var/www/pixel/python/.exchange", "w+")
-f.write("getPixelValues" + '\n')
-f.close()
+command = ["getPixelValues" + '\n']
+setNewCommand(command)
 
 time.sleep(.1)
 
