@@ -3,13 +3,13 @@ import sys
 MAX_PARAMETERS = 10
 
 def delFirstLine(file):
-    f.seek(0)
-    f.readline()
+    file.seek(0)
+    file.readline()
     data = f.read()
-    f.seek(0)
-    f.write(data)
-    f.truncate()
-    f.seek(0)
+    file.seek(0)
+    file.write(data)
+    file.truncate()
+    file.seek(0)
 
 
 def getCommand():
