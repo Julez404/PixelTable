@@ -78,9 +78,7 @@
 
     //Funktionen
     $(document).ready(function () {
-        
         getAllAnimations();
-       
     });  //end document ready
 
     function setAnimation(_name) {
@@ -119,7 +117,7 @@
     function getAllAnimations() {
         var data = "name1_name2_name3_name4_name5_name6_name7_name8_"; //delete this
 
-        //copy
+        // start copy
         data = data.split("_");
         for (i = 0; data[i] != ""; i++) {
             $("#list-tab-Animationen").append("<a class='list-group-item list-group-item-action' onclick='getAnimationParameter(this.id);' id'data[i]' data-toggle='list' href='#list-" + data[i] + "' role='tab' aria-controls='" + data[i] + "'>" + data[i] + "</a>");
@@ -137,7 +135,7 @@
     function getAnimationParameter(_id) {
         $.ajax({
             url: "",
-            success: function () {
+            success: function (data) {
             }
         });
     }//end set_runningMagazine
