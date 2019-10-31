@@ -31,8 +31,13 @@ def getCommand():
         command = ["NONE"]
         return command
 
-def setNewCommand():
-    return "TEST"
+def setNewCommand(command):
+    f = open("/var/www/pixel/python/.command", "a")
+    f.write("--COMMAND-BEGIN--" + '\n')
+    for i in command:
+        f.write(i+'\n')
+    f.write("--COMMAND-END--" + '\n')
+    f.close()
 
 def delLatestCommand():
     return "TEST"
