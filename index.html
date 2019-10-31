@@ -340,12 +340,12 @@
                                 <hr />
                                 <div class="col">
                                     <div class="list-group" id="list-tab" role="tablist">
-                                        <a class="list-group-item list-group-item-action" onclick="set_animation_Rainbow()" id="Regenbogen" data-toggle="list" href="#list-home" role="tab" aria-controls="home">Regenbogen</a>
-                                        <a class="list-group-item list-group-item-action" onclick="btn_set_animation_theaterChase()" id="theaterChase" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">theaterChase</a>
-                                        <a class="list-group-item list-group-item-action" onclick="input_set_runningMagazine()" id="Laufschrift" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">Laufschrift</a>
-                                        <a class="list-group-item list-group-item-action" onclick="alert(this.id);" id="Regenbogen1" data-toggle="list" href="#list-home" role="tab" aria-controls="home">Regenbogen</a>
-                                        <a class="list-group-item list-group-item-action" onclick="alert(this.id);" id="theaterChase1" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">theaterChase</a>
-                                        <a class="list-group-item list-group-item-action" onclick="alert(this.id);" id="Laufschrift1" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">Laufschrift</a>
+                                        <a class="list-group-item list-group-item-action" onclick="animation_name = this.id" id="Regenbogen" data-toggle="list" href="#list-home" role="tab" aria-controls="home">Regenbogen</a>
+                                        <a class="list-group-item list-group-item-action" onclick="animation_name = this.id" id="theaterChase" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">theaterChase</a>
+                                        <a class="list-group-item list-group-item-action" onclick="animation_name = this.id" id="Laufschrift" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">Laufschrift</a>
+                                        <a class="list-group-item list-group-item-action" onclick="animation_name = this.id" id="Regenbogen1" data-toggle="list" href="#list-home" role="tab" aria-controls="home">Regenbogen</a>
+                                        <a class="list-group-item list-group-item-action" onclick="animation_name = this.id" id="theaterChase1" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">theaterChase</a>
+                                        <a class="list-group-item list-group-item-action" onclick="animation_name = this.id" id="Laufschrift1" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">Laufschrift</a>
                                         <a class="list-group-item list-group-item-action" onclick="alert(this.id);" id="Regenbogen2" data-toggle="list" href="#list-home" role="tab" aria-controls="home">Regenbogen</a>
                                         <a class="list-group-item list-group-item-action" onclick="alert(this.id);" id="theaterChase2" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">theaterChase</a>
                                         <a class="list-group-item list-group-item-action" onclick="alert(this.id);" id="Laufschrift2" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">Laufschrift</a>
@@ -354,12 +354,14 @@
                                         <a class="list-group-item list-group-item-action" onclick="alert(this.id);" id="Laufschrift3" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">Laufschrift</a>
                                     </div>
                                 </div>
+                                <br />
+                                <br />
                                 <hr />
-                                <div class="col">
-                                    <div class="btn-group">
-                                        <button class="btn btn-primary btn-md " type="button" id="btn_set_all_Pxl" onclick="set_all_Pixel()"><i class="fa fa-upload"></i> Animation setzen</button>
-                                    </div>
+                                <div class="col" style="text-align:center">
+                                    <button class="btn btn-primary btn-md " type="button" id="btn_set_animation" onclick="setAnimation(animation_name)"><i class="fa fa-upload"></i> Animation setzen</button>
                                 </div>
+                            </div>
+                        </div>
                             </div>
                         </div>
                     </div>
@@ -378,17 +380,21 @@
                             </div>
                         </div>
                     </div>
-                    <div class="column">
                         <div class="card">
                             <div class="card-body">
                                 <h5>Animationsoptionen</h5>
                                 <hr />
                                 <div class="col">
                                     <label for="customRange1">Speed</label>
-                                    <input type="range" class="custom-range" id="customRange1">
+                                    <input type="range" class="custom-range" min="1" onchange="_speed = this.value" id="customRange1">
                                     <hr />
-                                    <label for="input_set_runningMagazine">Laufschrift</label><br />
-                                    <input id="input_set_runningMagazine" type="text" onchange="set_runningMagazine()" placeholder="I bims 1 Kek">
+                                    <label for="customRange1">Laufschrift</label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" placeholder="Kam mit einem Messer zur Schießerei" aria-label="" aria-describedby="basic-addon2">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-outline-success" type="button">Speichern</button>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -402,7 +408,8 @@
 
 <script>
     //Animations
-    var colorPicker = new iro.ColorPicker(".colorPicker1", {
+    var _speed = "50";
+    var animation_name = "";
         // color picker options
         // Option guide: https://iro.js.org/guide.html#color-picker-options
         width: 280,
@@ -542,6 +549,17 @@
             document.getElementById(_id).style.backgroundColor = _set_color;
         }
     }//end colorGridPixelfromData
+
+    function setAnimation(_name) {
+        alert(_speed);
+        $.ajax({
+            url: "setAnimation.php?animation=" + _name + "&speed=" + _speed + "&color=" + _color1 + "",
+            success: function () {
+                alert("success");
+            }
+        });
+    }//end setAnimation
+
 
 </script>
 </html>
