@@ -10,109 +10,105 @@
 
 
 
-img  {
-  width: 70px;
-  height: 70px;
+img {
+    width: 70px;
+    height: 70px;
 }
 
-.spec{
-  width: 400px;
-  height: 200px;
-
- }
-
-
-.a  {
-background-color : white;
-  text-decoration: none;
-  font-size: 16px;
-   
-  color: white;
-}
-#sidebar {
-  z-index: 10;
-  font-size: 20px;
-  text-align:center;
-
-
-  display: block;
-  transition:left 0.3s linear;
-
-}
-#sidebar a {
-
-  display: block;
-  color: white;
-  padding: 16px;
-  text-decoration: none;
+.spec {
+    width: 400px;
+    height: 200px;
 }
 
 
-#sidebar   a.active {
-
-      font-size: 30px;
-    color: white;
-    border-bottom-style:solid;
-    border-bottom-color:white;
-    border-bottom-width:1px;
-}
-
-
-/* Links on mouse-over */
-#sidebar   a:hover:not(.active) {
-  color: white;
+.a {
+    background-color: white;
     text-decoration: none;
-transition: all .2s ease;
-  font-size: 30px;
-
-
+    font-size: 16px;
+    color: white;
 }
+
+#sidebar {
+    z-index: 10;
+    font-size: 20px;
+    text-align: center;
+    display: block;
+    transition: left 0.3s linear;
+}
+
+    #sidebar a {
+        display: block;
+        color: white;
+        padding: 16px;
+        text-decoration: none;
+    }
+
+
+        #sidebar a.active {
+            font-size: 30px;
+            color: white;
+            border-bottom-style: solid;
+            border-bottom-color: white;
+            border-bottom-width: 1px;
+        }
+
+
+        /* Links on mouse-over */
+        #sidebar a:hover:not(.active) {
+            color: white;
+            text-decoration: none;
+            transition: all .2s ease;
+            font-size: 30px;
+        }
 
 #values {
-    font-size:16px;
- font-family: monospace;
-  line-height: 150%;
+    font-size: 16px;
+    font-family: monospace;
+    line-height: 150%;
 }
 
 #values1 {
-    font-size:16px;
- font-family: monospace;
-  line-height: 200%;
+    font-size: 16px;
+    font-family: monospace;
+    line-height: 200%;
 }
 
-    table.grid {
-        border: 1px solid #000000;
-        border-collapse: separate;
-        height: unset;
-        background-color: black;
-    }
+table.grid {
+    border: 1px solid #000000;
+    border-collapse: separate;
+    height: unset;
+    background-color: black;
+}
 
-    td {
-        border: 1px solid #808080;
-        cursor: pointer;
-    }
+td {
+    border: 1px solid #808080;
+    cursor: pointer;
+}
 
-    table tr td {
-        width: 50px;
-        height: 50px;
-    }
+table tr td {
+    width: 50px;
+    height: 50px;
+}
 
-    body {
-        background-color: #F2F5F6;
-    }
+body {
+    background-color: #F2F5F6;
+}
 
-    .card-deck {
-    width:100%;
-    }
+.card-deck {
+    width: 100%;
+}
 
-    .list-group {
-        max-height: 251px;
-        margin-bottom: 10px;
-        overflow-y: scroll;
-        -webkit-overflow-scrolling: touch;
-    }
+.list-group {
+    max-height: 251px;
+    margin-bottom: 10px;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+}
 
-    body {
-        overflow-x: hidden !important;
-    }
+body {
+    overflow-x: hidden !important;
+}
 
+.card {
+    margin: 5px;
+}
