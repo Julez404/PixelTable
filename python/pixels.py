@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 import time
 from rpi_ws281x import *
 from command import *
