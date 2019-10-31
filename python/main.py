@@ -4,6 +4,7 @@ from rpi_ws281x import *
 from random import randint
 from animations import *
 from command import *
+from pictures import *
 import sys
 import time
 
@@ -93,3 +94,5 @@ while True:
         setAnimation(command)
     if command[0] == ("getPixelValues"+'\n'):
         getPixelValues(command)
+#    if command[0] == ("savePicture"+'\n')
+#        savePicture(Test)
