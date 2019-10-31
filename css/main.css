@@ -111,4 +111,11 @@ body {
 
 .card {
     margin: 5px;
+    min-width:330px !important;
+    min-height:566px !important;
+}
+
+#Standbild_Grid{
+    padding-right:30px;
+
 }
