@@ -553,11 +553,9 @@
     }//end colorGridPixelfromData
 
     function setAnimation(_name) {
-        alert(_speed);
         $.ajax({
             url: "setAnimation.php?animation=" + _name + "&speed=" + _speed + "&color=" + _color1 + "",
             success: function () {
-                alert("success");
             }
         });
     }//end setAnimation
