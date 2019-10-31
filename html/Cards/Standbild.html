@@ -292,12 +292,12 @@
 </div>
 
 <script>
-
+    //Variables
     var values = document.getElementById("values");
     var _color = "";
+
+    //ColorPicker
     var colorPicker = new iro.ColorPicker(".colorPicker", {
-        // color picker options
-        // Option guide: https://iro.js.org/guide.html#color-picker-options
         width: 280,
         height: 280,
         color: "rgb(255, 255, 255)",
@@ -305,27 +305,22 @@
         borderColor: "#fff",
     });
 
-    $(document).ready(function () {
+    colorPicker.on(["color:init", "color:change"], function (color) {
+        var hex = colorPicker.color.hexString;
+        _color = hex.slice(1, 7);
+        values.innerHTML = [
+          "hex: " + color.hexString,
+        ].join("<br>");
+    });
 
+    $(document).ready(function () {
         colorPicker.on('input:end', function (color) {
             var hex = colorPicker.color.hexString;
             _color = hex.slice(1, 7);
         });
-
-        colorPicker.on(["color:init", "color:change"], function (color) {
-            var hex = colorPicker.color.hexString;
-            _color = hex.slice(1, 7);
-            // Show the current color in different formats
-            // Using the selected color: https://iro.js.org/guide.html#selected-color-api
-            values.innerHTML = [
-              "hex: " + color.hexString,
-              "rgb: " + color.rgbString,
-            ].join("<br>");
-        });
     });  //end document ready
 
-    //Functions//
-
+    //Funktionen
     function set_Pixel(_id) {
         var res = _id.split("_");
         _row = res[1];
@@ -337,31 +332,6 @@
             }
         });
     }//end set_Pixl
-
-    function set_animation_Rainbow() {
-        $.ajax({
-            url: "setAnimation.php?animation=rainbow",
-            success: function () {
-            }
-        });
-    }//end set_animation_Rainbow
-
-    function set_animation_theaterChase() {
-        $.ajax({
-            url: "setAnimation.php?animation=theaterChaseRainbow",
-            success: function () {
-            }
-        });
-    }//end set_animation_theaterChase
-
-    function set_runningMagazine() {
-        var runningText = document.getElementById("input_set_runningMagazine").value;
-        $.ajax({
-            url: "runningMagazine.php?message=" + runningText + "",
-            success: function () {
-            }
-        });
-    }//end set_runningMagazine
 
     function set_all_Pixel() {
         $.ajax({

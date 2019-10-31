@@ -79,7 +79,6 @@
         _color1 = hex.slice(1, 7);
         values1.innerHTML = [
           "hex: " + color.hexString,
-          "rgb: " + color.rgbString,
         ].join("<br>");
     });
 
@@ -91,5 +90,30 @@
             }
         });
     }//end setAnimation
+
+    function set_animation_Rainbow() {
+        $.ajax({
+            url: "setAnimation.php?animation=rainbow",
+            success: function () {
+            }
+        });
+    }//end set_animation_Rainbow
+
+    function set_animation_theaterChase() {
+        $.ajax({
+            url: "setAnimation.php?animation=theaterChaseRainbow",
+            success: function () {
+            }
+        });
+    }//end set_animation_theaterChase
+
+    function set_runningMagazine() {
+        var runningText = document.getElementById("input_set_runningMagazine").value;
+        $.ajax({
+            url: "runningMagazine.php?message=" + runningText + "",
+            success: function () {
+            }
+        });
+    }//end set_runningMagazine
 
 </script>
