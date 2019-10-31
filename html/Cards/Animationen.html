@@ -117,19 +117,19 @@
     }//end set_runningMagazine
 
     function getAllAnimations() {
-        var data = "name1_name2_name3_name4_"; //delete this
+        var data = "name1_name2_name3_name4_name5_name6_name7_name8_"; //delete this
 
         //copy
         data = data.split("_");
         for (i = 0; data[i] != ""; i++) {
             $("#list-tab-Animationen").append("<a class='list-group-item list-group-item-action' onclick='getAnimationParameter(this.id);' id'data[i]' data-toggle='list' href='#list-" + data[i] + "' role='tab' aria-controls='" + data[i] + "'>" + data[i] + "</a>");
         }
-        //this
+        //this in success
 
         $.ajax({
-            url: "",
+            url: "", // URL Here
             success: function (data) {
-                //in here
+                //copy in here
             }
         });
     }//end set_runningMagazine
