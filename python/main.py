@@ -86,7 +86,7 @@ def getPixelValues(parameters):
 
 # Main loop
 while True:
-    time.sleep(0.1)				# Delay Betwee Commands
+    time.sleep(.01)				# Delay Betwee Commands
     command = getCommand()
 
     if command[0] == ("setPixel"+'\n'):
