@@ -64,13 +64,13 @@ img {
 #values {
     font-size: 16px;
     font-family: monospace;
-    line-height: 150%;
+    line-height: 400%;
 }
 
 #values1 {
     font-size: 16px;
     font-family: monospace;
-    line-height: 200%;
+    line-height: 400%;
 }
 
 table.grid {
@@ -99,7 +99,7 @@ body {
 }
 
 .list-group {
-    max-height: 251px;
+    max-height: 290px;
     margin-bottom: 10px;
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
@@ -111,11 +111,10 @@ body {
 
 .card {
     margin: 5px;
-    min-width:330px !important;
-    min-height:566px !important;
+    min-width: 330px !important;
+    min-height: 566px !important;
 }
 
-#Standbild_Grid{
-    padding-right:30px;
-
+#Standbild_Grid {
+    padding-right: 30px;
 }
