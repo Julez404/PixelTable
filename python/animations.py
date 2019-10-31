@@ -57,3 +57,17 @@ def theaterChaseRainbow(strip, wait_ms=50):
             time.sleep(wait_ms/1000.0)
             for i in range(0, strip.numPixels(), 3):
                 strip.setPixelColor(i+q, 0)
+
+# Start a predefined animation
+def setAnimation(parameters):
+    state = parameters[0]
+    animation = parameters[1]
+    while (state == ("setAnimation"+'\n')):
+        if (animation == ("rainbow"+'\n')):
+            rainbow(strip)
+        if (animation == ("theaterChaseRainbow"+'\n')):
+            theaterChaseRainbow(strip)
+        parameters = getCommand()
+        state = parameters[0]
+        animation = parameters[1]
+    delLastCommand()
