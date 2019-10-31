@@ -295,7 +295,8 @@
     //Variables
     var values = document.getElementById("values");
     var _color = "";
-
+    var isDown = false;   // Tracks status of mouse button
+   
     //ColorPicker
     var colorPicker = new iro.ColorPicker(".colorPicker", {
         width: 280,
@@ -321,6 +322,20 @@
     });  //end document ready
 
     //Funktionen
+    $("td").mousedown(function () {
+        isDown = true;// When mouse goes down, set isDown to true
+    });
+
+    $(document).mouseup(function () {
+        isDown = false;    // When mouse goes up, set isDown to false
+    });
+
+    $("td").mouseover(function () {
+        if (isDown) {       // Only change css if mouse is down
+            set_Pixel(this.id);
+        }
+    });
+
     function set_Pixel(_id) {
         var res = _id.split("_");
         _row = res[1];
@@ -356,21 +371,6 @@
             }
         }
     }//end colorGridOneColor
-
-    var isDown = false;   // Tracks status of mouse button
-    $("td").mousedown(function () {
-        isDown = true;// When mouse goes down, set isDown to true
-    });
-
-    $(document).mouseup(function () {
-        isDown = false;    // When mouse goes up, set isDown to false
-    });
-
-    $("td").mouseover(function () {
-        if (isDown) {       // Only change css if mouse is down
-            set_Pixel(this.id);
-        }
-    });
 
     function get_GridValues() {
         $.ajax({
