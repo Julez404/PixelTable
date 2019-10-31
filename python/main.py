@@ -97,15 +97,15 @@ def getPixelValues():
 
 # Main loop
 while True:
-	time.sleep(0.1)				# Delay Betwee Commands
     command = []
+    time.sleep(0.1)				# Delay Betwee Commands
     command = getCommand()
 
-	if command[0] == ("setPixel"+'\n'):
-		setPixel()
-	if command[0] == ("setAllPixel"+'\n'):
-		setAllPixel()
-	if command[0] == ("setAnimation"+'\n'):
-		setAnimation()
-	if command[0] == ("getPixelValues"+'\n'):
-		getPixelValues()
+    if command[0] == ("setPixel"+'\n'):
+        setPixel(command)
+    if command[0] == ("setAllPixel"+'\n'):
+        setAllPixel(command)
+    if command[0] == ("setAnimation"+'\n'):
+        setAnimation(command)
+    if command[0] == ("getPixelValues"+'\n'):
+        getPixelValues(command)
