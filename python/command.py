@@ -5,7 +5,7 @@ MAX_PARAMETERS = 10
 def delFirstLine(file):
     file.seek(0)
     file.readline()
-    data = f.read()
+    data = file.read()
     file.seek(0)
     file.write(data)
     file.truncate()
