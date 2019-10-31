@@ -59,48 +59,37 @@
 </div>
 
 <script>
-
-    //Animations
+    //Variables
     var _speed = "50";
     var animation_name = "";
     var values1 = document.getElementById("values1");
+    var _color1 = "";
+
+    //ColorPicker
     var colorPicker1 = new iro.ColorPicker(".colorPicker1", {
-        // color picker options
-        // Option guide: https://iro.js.org/guide.html#color-picker-options
         width: 280,
         height: 280,
         color: "rgb(255, 255, 255)",
         borderWidth: 1,
         borderColor: "#fff",
     });
-    //Standbild
-
-    var _color1 = "";
-    colorPicker.on('input:end', function (color) {
-        var hex = colorPicker.color.hexString;
-        _color = hex.slice(1, 7);
-    });
-
-    colorPicker.on(["color:init", "color:change"], function (color) {
-        var hex = colorPicker.color.hexString;
-        _color = hex.slice(1, 7);
-        // Show the current color in different formats
-        // Using the selected color: https://iro.js.org/guide.html#selected-color-api
-        values.innerHTML = [
-          "hex: " + color.hexString,
-          "rgb: " + color.rgbString,
-        ].join("<br>");
-    });
 
     colorPicker1.on(["color:init", "color:change"], function (color) {
         var hex = colorPicker1.color.hexString;
         _color1 = hex.slice(1, 7);
-        // Show the current color in different formats
-        // Using the selected color: https://iro.js.org/guide.html#selected-color-api
         values1.innerHTML = [
           "hex: " + color.hexString,
           "rgb: " + color.rgbString,
         ].join("<br>");
     });
+
+    //Funktionen
+    function setAnimation(_name) {
+        $.ajax({
+            url: "setAnimation.php?animation=" + _name + "&speed=" + _speed + "&color=" + _color1 + "",
+            success: function () {
+            }
+        });
+    }//end setAnimation
 
 </script>
