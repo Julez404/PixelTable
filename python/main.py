@@ -34,13 +34,10 @@ def getPixelColumn(pixelIndex):
     return column
 
 # Set single pixel in specific color
-def setPixel():
-	f = open(".exchange","r")
-	f.readline()
-
-	row = f.readline()
-	column = f.readline()
-	color_hex = f.readline()
+def setPixel(parameters):
+	row = parameters[1]
+	column = parameters[2]
+	color_hex = parameters[3]
 	color_r = int( color_hex[0]+color_hex[1],16 )
 	color_g = int( color_hex[2]+color_hex[3],16 )
 	color_b = int( color_hex[4]+color_hex[5],16 )
@@ -48,27 +45,23 @@ def setPixel():
 
 	strip.setPixelColor(index,Color(color_r,color_g,color_b))
 	strip.show()
-	f.close()
-	f = open(".exchange","w")
-	f.close
+
+    delLastCommand()
 
 # Set all Pixel to a specific color
-def setAllPixel():
-	f = open(".exchange","r")
-	f.readline()
-	color_hex = f.readline()
+def setAllPixel(parameters):
+	color_hex = parameters[1]
 	color_r = int( color_hex[0]+color_hex[1],16 )
 	color_g = int( color_hex[2]+color_hex[3],16 )
 	color_b = int( color_hex[4]+color_hex[5],16 )
 	for x in range(0, LED_COUNT):
 		strip.setPixelColor(x,Color(color_r,color_g,color_b))
 	strip.show()
-	f.close()
-	f = open(".exchange","w")
-	f.close
+
+    delLastCommand()
 
 # Start a predefined animation
-def setAnimation():
+def setAnimation(parameters):
     f = open(".exchange","r")
     state = f.readline()
     animation = f.readline()
@@ -87,7 +80,7 @@ def setAnimation():
     f.close
 
 # Return current state of Pixels as string
-def getPixelValues():
+def getPixelValues(parameters):
     f = open(".readback","w")
     for i in range (0,LED_COUNT):
         f.write(str(getPixelRow(i))+"_"+str(getPixelColumn(i))+"_"+"%06X" % strip.getPixelColor(i)+"-")
