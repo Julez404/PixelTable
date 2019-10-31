@@ -7,7 +7,7 @@ def getCommand():
     last_read = f.readline()
 
     # Check if new Command is there
-    if (last_read == ("--COMMAND-BEGIN--" + '\n'):
+    if (last_read == ("--COMMAND-BEGIN--" + '\n')):
         iterations = 0
         command = []
 
@@ -22,7 +22,7 @@ def getCommand():
         # Check if reading was successfull or max Limit was reached
         if (last_read == ("--COMMAND-END--" + '\n')):
             return command
-        else
+        else:
             command = ["NONE"]
             return command
 
