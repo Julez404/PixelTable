@@ -53,6 +53,13 @@
 </div>
 
 <script>
+    data0 = "name0_color1_color2_text_speed"; //delete this
+    data1 = "name1_color1__text_speed"; //delete this
+    data2 = "name2_color2__text_speed"; //delete this
+    data3 = "name3_3__"; //delete this
+    data4 = "name4___text_speed"; //delete this
+    data5 = "name5___text_speed"; //delete this
+
     //Variables
     var _speed = "50";
     var animation_name = "";
@@ -78,6 +85,8 @@
 
     //Funktionen
     $(document).ready(function () {
+        $('#div_Farbauswahl').hide();
+        $('#div_Animationsoptionen').hide();
         getAllAnimations();
     });  //end document ready
 
@@ -120,7 +129,7 @@
         // start copy
         data = data.split("_");
         for (i = 0; data[i] != ""; i++) {
-            $("#list-tab-Animationen").append("<a class='list-group-item list-group-item-action' onclick='getAnimationParameter(this.id);' id'data[i]' data-toggle='list' href='#list-" + data[i] + "' role='tab' aria-controls='" + data[i] + "'>" + data[i] + "</a>");
+            $("#list-tab-Animationen").append("<a class='list-group-item list-group-item-action' onclick='getAnimationParameter(this.id,data"+i+");' id'data[i]' data-toggle='list' href='#list-" + data[i] + "' role='tab' aria-controls='" + data[i] + "'>" + data[i] + "</a>");
         }
         //this in success
 
@@ -132,27 +141,26 @@
         });
     }//end set_runningMagazine
 
-    function getAnimationParameter(_id) {
-        data = "name_color1_color2_text_speed"; //delete this
-
+    function getAnimationParameter(_id,data) {
+       
         // start copy
         data = data.split("_");
         
-
-        if (data[0]) {
-            alert(data[0]);
+        //show / hide DIVs
+        if (data[0]) { //name
+           
         }
-        if (data[1]) {
-            alert(data[1]);
+        if (data[1] || data[2]) { //color 1 or 2
+           
+            $('#div_Farbauswahl').fadeIn(500);
+        }else{
+            $('#div_Farbauswahl').hide();
         }
-        if (data[2]) {
-            alert(data[2]);
-        }
-        if (data[3]) {
-            alert(data[3]);
-        }
-        if (data[4]) {
-            alert(data[4]);
+        if (data[3] || data[4]) { //text or speed
+           
+            $('#div_Animationsoptionen').fadeIn(500);
+        } else {
+            $('#div_Animationsoptionen').hide();
         }
 
 
