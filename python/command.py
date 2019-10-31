@@ -38,6 +38,7 @@ def getCommand():
 
     # No new command -> Return Command array with NONE as command
     else:
+        f.close()
         command = ["NONE"]
         return command
 
