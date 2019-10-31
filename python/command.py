@@ -2,6 +2,16 @@ import sys
 
 MAX_PARAMETERS = 10
 
+def delFirstLine(file):
+    f.seek(0)
+    f.readline()
+    data = f.read()
+    f.seek(0)
+    f.write(data)
+    f.truncate()
+    f.seek(0)
+
+
 def getCommand():
     f = open("/var/www/pixel/python/.command", "r")
     last_read = f.readline()
@@ -39,5 +49,13 @@ def setNewCommand(command):
     f.write("--COMMAND-END--" + '\n')
     f.close()
 
-def delLatestCommand():
-    return "TEST"
+def delLastCommand():
+    f = open("/var/www/pixel/python/.command", "r+")
+    last_read = f.readline()
+
+    while (last_read != ("--COMMAND-END--" + '\n')):
+        delFirstLine(f)
+        last_read = f.readline()
+
+    delFirstLine(f)
+    f.close()
