@@ -14,10 +14,10 @@ if (
         isInt(sys.argv[2]) and (strLengthIs(sys.argv[2],1) or strLengthIs(sys.argv[2],2)) and
         isHex(sys.argv[3]) and strLengthIs(sys.argv[3],6)
     ):
-    command = ["setPixel" + '\n']
-    command.append(sys.argv[1] + '\n')
-    command.append(sys.argv[2] + '\n')
-    command.append(sys.argv[3] + '\n')
+    command = ["setPixel"]
+    command.append(sys.argv[1])
+    command.append(sys.argv[2])
+    command.append(sys.argv[3])
     setNewCommand(command)
 else:
     f = open("/var/www/pixel/python/.error", "a")

@@ -8,7 +8,7 @@ import time
 # Expected Input
 # None
 
-command = ["getPixelValues" + '\n']
+command = ["getPixelValues"]
 setNewCommand(command)
 
 time.sleep(.1)
