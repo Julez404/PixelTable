@@ -74,8 +74,7 @@ def setAnimation(parameters):
         state = f.readline()
         animation = f.readline()
         f.close()
-    f = open(".exchange","w")
-    f.close
+        delLastCommand()
 
 # Return current state of Pixels as string
 def getPixelValues(parameters):
@@ -83,8 +82,7 @@ def getPixelValues(parameters):
     for i in range (0,LED_COUNT):
         f.write(str(getPixelRow(i))+"_"+str(getPixelColumn(i))+"_"+"%06X" % strip.getPixelColor(i)+"-")
     f.close()
-    f = open(".exchange","w")
-    f.close
+    delLastCommand()
 
 # Main loop
 while True:
