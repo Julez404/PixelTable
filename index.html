@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <title>PixelTable</title>
@@ -346,12 +346,6 @@
                                         <a class="list-group-item list-group-item-action" onclick="animation_name = this.id" id="Regenbogen1" data-toggle="list" href="#list-home" role="tab" aria-controls="home">Regenbogen</a>
                                         <a class="list-group-item list-group-item-action" onclick="animation_name = this.id" id="theaterChase1" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">theaterChase</a>
                                         <a class="list-group-item list-group-item-action" onclick="animation_name = this.id" id="Laufschrift1" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">Laufschrift</a>
-                                        <a class="list-group-item list-group-item-action" onclick="alert(this.id);" id="Regenbogen2" data-toggle="list" href="#list-home" role="tab" aria-controls="home">Regenbogen</a>
-                                        <a class="list-group-item list-group-item-action" onclick="alert(this.id);" id="theaterChase2" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">theaterChase</a>
-                                        <a class="list-group-item list-group-item-action" onclick="alert(this.id);" id="Laufschrift2" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">Laufschrift</a>
-                                        <a class="list-group-item list-group-item-action" onclick="alert(this.id);" id="Regenbogen3" data-toggle="list" href="#list-home" role="tab" aria-controls="home">Regenbogen</a>
-                                        <a class="list-group-item list-group-item-action" onclick="alert(this.id);" id="theaterChase3" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">theaterChase</a>
-                                        <a class="list-group-item list-group-item-action" onclick="alert(this.id);" id="Laufschrift3" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">Laufschrift</a>
                                     </div>
                                 </div>
                                 <br />
@@ -362,24 +356,22 @@
                                 </div>
                             </div>
                         </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="column">
-                        <div class="card" style="align-items: center;">
+                        <div class="card">
                             <div class="card-body">
                                 <h5>Farbauswahl</h5>
                                 <hr />
-                                <div class="colorPicker1">
-                                </div>
-                                <div class="col-md-12" style="text-align:center">
-                                    <div id="values" style="padding: 8px;">
+                                <div class="row">
+                                    <div class="col-md-6" style="text-align:center">
+                                        <div class="colorPicker1" style="margin-left:auto; margin-right:auto;">
+                                        </div>
                                     </div>
-                                </div>
+                                    <div class="col-md-6" style="text-align:center">
+                                        <div id="values1" style="padding: 8px;">
+                                        </div>
+                                    </div>
+</div>
                             </div>
                         </div>
-                    </div>
                         <div class="card">
                             <div class="card-body">
                                 <h5>Animationsoptionen</h5>
@@ -410,6 +402,8 @@
     //Animations
     var _speed = "50";
     var animation_name = "";
+    var values1 = document.getElementById("values1");
+    var colorPicker1 = new iro.ColorPicker(".colorPicker1", {
         // color picker options
         // Option guide: https://iro.js.org/guide.html#color-picker-options
         width: 280,
@@ -421,6 +415,7 @@
     //Standbild
     var values = document.getElementById("values");
     var _color = "";
+    var _color1 = "";
     var colorPicker = new iro.ColorPicker(".colorPicker", {
         // color picker options
         // Option guide: https://iro.js.org/guide.html#color-picker-options
@@ -445,6 +440,17 @@
             // Show the current color in different formats
             // Using the selected color: https://iro.js.org/guide.html#selected-color-api
             values.innerHTML = [
+              "hex: " + color.hexString,
+              "rgb: " + color.rgbString,
+            ].join("<br>");
+        });
+
+        colorPicker1.on(["color:init", "color:change"], function (color) {
+            var hex = colorPicker1.color.hexString;
+            _color1 = hex.slice(1, 7);
+            // Show the current color in different formats
+            // Using the selected color: https://iro.js.org/guide.html#selected-color-api
+            values1.innerHTML = [
               "hex: " + color.hexString,
               "rgb: " + color.rgbString,
             ].join("<br>");
