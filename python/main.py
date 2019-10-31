@@ -62,12 +62,11 @@ def setAllPixel(parameters):
 def setAnimation(parameters):
     state = parameters[0]
     animation = parameters[1]
-    while (state == ("setAnimation")):
-        if (animation == ("rainbow")):
+    while (state == ("setAnimation"+'\n')):
+        if (animation == ("rainbow"+'\n')):
             rainbow(strip)
-        if (animation == ("theaterChaseRainbow")):
+        if (animation == ("theaterChaseRainbow"+'\n')):
             theaterChaseRainbow(strip)
-
         parameters = getCommand()
         state = parameters[0]
         animation = parameters[1]
