@@ -65,6 +65,7 @@ def savePicture(led_strip,command):
         f = open(".savedPictures", "a")
         f.write("name=" + command[1])
         f.write(getPixelValues(led_strip))
+        f.write('\n')
         f.close()
     delLastCommand()
 
