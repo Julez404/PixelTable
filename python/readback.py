@@ -11,6 +11,12 @@ def readbackSet(data):
     f.write(data)
     f.close()
 
+def readbackGet():
+    returnString
+    f = open(".readback", "w")
+    returnString = f.read()
+    f.close()
+
 def readbackClear():
     f = open(".readback", "w")
     f.close()
