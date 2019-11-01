@@ -74,4 +74,4 @@ def getAllPicturse(command):
     readbackSet(allPictures)
 
 def delPicture(command):
-    Do Something = 0
+    Do_Something = 0
