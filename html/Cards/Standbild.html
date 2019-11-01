@@ -250,7 +250,7 @@
                                 <div class="btn-group">
                                     <button class="btn btn-secondary" type="button" id="btn_set_all_Pxl" onclick="set_all_Pixel()"> <i class="fa fa-laptop"></i> <i class="fa fa-arrow-right"> </i> <i class="fa fa-th"></i> </button>
                                     <button class="btn btn-primary" type="button" id="btn_get_GridValues" onclick="get_GridValues()"> <i class="fa fa-th"></i> <i class="fa fa-arrow-right"> </i> <i class="fa fa-laptop"></i> </button>
-                                    <button class="btn btn-success" type="button" id="btn_get_color" onclick="getcolor()"><i class="fa fa-eye-dropper"></i></button>
+                                    <button class="btn btn-success" type="button" id="btn_get_color" onclick="eye_dropper = '1';"><i class="fa fa-eye-dropper"></i></button>
                                 </div>
                             </div>
                         </div>
@@ -302,7 +302,8 @@
     var values = document.getElementById("values");
     var _color = "";
     var isDown = false;   // Tracks status of mouse button
-   
+    var eye_dropper = "";
+
     //ColorPicker
     var colorPicker = new iro.ColorPicker(".colorPicker", {
         width: 280,
@@ -341,16 +342,34 @@
     });
 
     function set_Pixel(_id) {
+        if (eye_dropper == "") {
+            var res = _id.split("_");
+            _row = res[1];
+            _column = res[2];
+            $.ajax({
+                url: "setPixel.php?row=" + _row + "&column=" + _column + "&color=" + _color + "",
+                success: function () {
+                    colorGridPixel(_id);
+                }
+            });
+        } else {
+            get_Pixel(_id);
+        }
+    }//end set_Pixl
+
+    function get_Pixel(_id) {
         var res = _id.split("_");
         _row = res[1];
         _column = res[2];
         $.ajax({
-            url: "setPixel.php?row=" + _row + "&column=" + _column + "&color=" + _color + "",
-            success: function () {
-                colorGridPixel(_id);
+            url: "getPixel.php?row=" + _row + "&column=" + _column,
+            success: function (data) {
+                data = data.split("_");
+                colorPicker.color.set(data[2]);
+                eye_dropper = "";
             }
         });
-    }//end set_Pixl
+    }   //end get_Pixl
 
     function set_all_Pixel() {
         $.ajax({
@@ -396,5 +415,6 @@
             document.getElementById(_id).style.backgroundColor = _set_color;
         }
     }//end colorGridPixelfromData
+
 
 </script>
