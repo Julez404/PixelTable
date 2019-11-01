@@ -410,10 +410,10 @@
     }//end colorGridPixelfromData
 
     function getAllStaticPictures() {
-        var data = "batterie_test_A1_A2_A3_A4_A5_A6_"; //delete this
+        var data = "batterie~test~A1~A2~A3~A4~A5~A6~"; //delete this
 
         // start copy
-        data = data.split("_");
+        data = data.split("~");
         for (i = 0; data[i] != ""; i++) {
             $("#list-tab-StaticPictures").append("<a class='list-group-item list-group-item-action' onclick='getAnimationParameter(this.id,data" + i + ");' id'data[i]' data-toggle='list' href='#list-" + data[i] + "' role='tab' aria-controls='" + data[i] + "'>" + data[i] + "</a>");
         }
