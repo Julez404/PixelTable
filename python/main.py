@@ -38,8 +38,10 @@ while True:
         PixelValuesToWeb(led_strip,command)
     if command[0] == ("savePicture"):
         savePicture(led_strip,command)
+        delLastCommand()
     if command[0] == ("getAllPictures"):
         getAllPictures(led_strip,command)
+        delLastCommand()
     if command[0] == ("setPicture"):
         setPicture(led_strip,command)
         delLastCommand()
