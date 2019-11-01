@@ -61,6 +61,7 @@ def setPicture(led_strip,command):
             return None
         last_read = f.readline()
         last_read = f.readline()
+    readbackSet(command[1])
     f.close()
 
 def getAllPictures(strip,command):
