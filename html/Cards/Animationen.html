@@ -12,8 +12,8 @@
                     </div>
                     <br />
                     <br />
-                    <hr />
-                    <div class="col" style="text-align:center">
+                    <div id="div_btn_Animation_setzen" class="col" style="text-align:center">
+                        <hr />
                         <button class="btn btn-primary btn-md " type="button" id="btn_set_animation" onclick="setAnimation(animation_name)"><i class="fa fa-upload"></i> Animation setzen</button>
                     </div>
                 </div>
@@ -92,6 +92,7 @@
     $(document).ready(function () {
         $('#div_Farbauswahl').hide();
         $('#div_Animationsoptionen').hide();
+        $('#div_btn_Animation_setzen').hide();
         getAllAnimations();
     });  //end document ready
 
@@ -153,6 +154,9 @@
 
         //show / hide DIVs
         if (data[0]) { //name
+            $('#div_btn_Animation_setzen').fadeIn(500);
+        } else {
+            $('#div_btn_Animation_setzen').hide();
 
         }
         if (data[1] || data[2]) { //color 1 or 2
