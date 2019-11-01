@@ -88,7 +88,7 @@ def setPicture(command):
     f.close()
     delLastCommand()
 
-def getAllPicturse(strip,command):
+def getAllPictures(strip,command):
     f = open(".savedPictures", "r")
     data = []
     last_read = f.readline()
