@@ -59,7 +59,7 @@ def PixelValuesToWeb(strip,parameters):
     delLastCommand()
 
 
-def setPixelByString(strip,data_string)
+def setPixelByString(strip,data_string):
     string = data_string.rstrip("-")
     string = string.split("-")
 
