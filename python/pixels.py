@@ -60,18 +60,21 @@ def PixelValuesToWeb(strip,parameters):
 
 
 def setPixelByString(strip,data_string):
-    string = data_string.rstrip("-")
-    string = string.split("-")
-    count = 0
-    for x in string:
-        color_hex = x.split("_")
-        color_hex = color_hex[2]
-        color_r = int( color_hex[0]+color_hex[1],16 )
-        color_g = int( color_hex[2]+color_hex[3],16 )
-        color_b = int( color_hex[4]+color_hex[5],16 )
-        strip.setPixelColor(count,Color(color_r,color_g,color_b))
-        count = count + 1
-    strip.show()
+    readbackSet(data_string)
+    while(True)
+        pass
+    #string = data_string.rstrip("-")
+    #string = string.split("-")
+    #count = 0
+    #for x in string:
+    #    color_hex = x.split("_")
+    #    color_hex = color_hex[2]
+    #    color_r = int( color_hex[0]+color_hex[1],16 )
+    #    color_g = int( color_hex[2]+color_hex[3],16 )
+    #    color_b = int( color_hex[4]+color_hex[5],16 )
+    #    strip.setPixelColor(count,Color(color_r,color_g,color_b))
+    #    count = count + 1
+    #strip.show()
 
 
 
