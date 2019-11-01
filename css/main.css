@@ -118,3 +118,7 @@ body {
 #Standbild_Grid {
     padding-right: 30px;
 }
+
+.custom-range{
+    min-width:246px;
+}
