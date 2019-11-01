@@ -64,14 +64,21 @@ def setPixelByString(strip,data_string):
     string = string.split("-")
     count = 0
     for x in string:
-        row = getPixelRow(count)
-        col = getPixelColumn(count)
-        color = x.split("_")
-        color = color[2]
-        parameter = []
-        parameter.append("setPixelByString")
-        parameter.append(row)
-        parameter.append(col)
-        parameter.append(color)
-        setPixel(strip, parameter)
+        color_hex = x.split("_")
+        color_hex = color_hex[2]
+        color_r = int( color_hex[0]+color_hex[1],16 )
+        color_g = int( color_hex[2]+color_hex[3],16 )
+        color_b = int( color_hex[4]+color_hex[5],16 )
+        strip.setPixelColor(count,Color(color_r,color_g,color_b))
         count = count + 1
+    strip.show()
+
+
+
+#row = getPixelRow(count)
+#col = getPixelColumn(count)
+#parameter = ["Entry1"]
+#parameter = parameter.append(row)
+#parameter = parameter.append(col)
+#parameter = parameter.append(color)
+#setPixel(strip, parameter)
