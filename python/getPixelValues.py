@@ -2,18 +2,16 @@
 
 from validData import *
 from command import *
+from readback import *
 import sys
 import time
 
 # Expected Input
 # None
 
-command = ["getPixelValues"]
+command = ["PixelValuesToWeb"]
 setNewCommand(command)
 
 time.sleep(.1)
 
-f = open("/var/www/pixel/python/.readback", "r")
-Pixel_Values = f.readline()
-f.close()
-print(Pixel_Values)
+print(readbackGet())

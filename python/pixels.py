@@ -1,5 +1,6 @@
 import time
 from rpi_ws281x import *
+from readback import *
 from command import *
 import sys
 
@@ -43,9 +44,12 @@ def setAllPixel(strip,parameters):
     delLastCommand()
 
 # Return current state of Pixels as string
-def getPixelValues(strip,parameters):
-    f = open(".readback","w")
+def getPixelValues(strip):
+    allPixelValues = ""
     for i in range (0,LED_COUNT):
-        f.write(str(getPixelRow(i))+"_"+str(getPixelColumn(i))+"_"+"%06X" % strip.getPixelColor(i)+"-")
-    f.close()
+        allPixelvalues.apped(str(getPixelRow(i))+"_"+str(getPixelColumn(i))+"_"+"%06X" % strip.getPixelColor(i)+"-")
+
+# Prints current state of pixel to readback
+def PixelValuesToWeb(strip,parameters):
+    readbackSet(getPixelValues(strip))
     delLastCommand()
