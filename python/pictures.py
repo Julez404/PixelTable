@@ -34,7 +34,7 @@ def extractNames(data_array):
     while (count != size):
         name.append(data_array[count]+"_")
         count = count + 2;
-    return = name;
+    return name;
 
 def savePicture(command):
     # Check if name is already taken
