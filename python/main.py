@@ -35,8 +35,8 @@ while True:
         setAnimation(led_strip,command)
     if command[0] == ("PixelValuesToWeb"+'\n'):
         PixelValuesToWeb(led_strip,command)
-#    if command[0] == ("savePicture"+'\n')
-#        savePicture(Test)
+    if command[0] == ("savePicture"+'\n')
+        savePicture(led_strip,command)
 
 
 EOF = ""
@@ -70,12 +70,12 @@ def extractNames(data_array):
         count = count + 2;
     return name;
 
-def savePicture(command):
+def savePicture(led_strip,command):
     # Check if name is already taken
     if (nameIsAvailable(command[1])):
         f = open(".savedPictures", "a")
         f.write("name=" + command[1] + '\n')
-        f.write(getPixelValues())
+        f.write(getPixelValues(led_strip))
         f.close()
 
 def setPicture(command):
