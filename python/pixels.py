@@ -66,7 +66,7 @@ def setPixelByString(strip,data_string):
     count = 0
     for x in string:
         row = getPixelRow(count)
-        col = getPixelCol(count)
+        col = getPixelColumn(count)
         color = x.split("_")
         color = color[2]
         setPixel(strip, ["",row,col,color])
