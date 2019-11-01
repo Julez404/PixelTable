@@ -79,7 +79,7 @@ def getAllPictures(strip,command):
 def delPicture(strip, command):
     f = open(".savedPictures", "r")
     data = f.read()
-    test = open(".savedPictures", "w+")
+    test = open("bilder", "w+")
     test.write(data)
     test.close()
     f.close()
