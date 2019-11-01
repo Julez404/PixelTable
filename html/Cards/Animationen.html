@@ -35,15 +35,20 @@
                     <h5>Animationsoptionen</h5>
                     <hr />
                     <div class="col">
-                        <label for="customRange1">Speed</label>
-                        <input type="range" class="custom-range" min="1" onchange="_speed = this.value" id="customRange1">
-                        <hr />
-                        <label for="customRange1">Laufschrift</label>
-                        <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Kam mit einem Messer zur Schießerei" aria-label="" aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                                <button class="btn btn-outline-success" type="button">Speichern</button>
+                        <div id="div_Speed">
+                            <label for="customRange1">Speed</label>
+                            <input type="range" class="custom-range" min="1" onchange="_speed = this.value" id="customRange1">
+                            <hr />
+                        </div>
+                        <div id="div_Textfeld">
+                            <label for="customRange1">Laufschrift</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Kam mit einem Messer zur Schießerei" aria-label="" aria-describedby="basic-addon2">
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-success" type="button">Speichern</button>
+                                </div>
                             </div>
+                            <hr />
                         </div>
                     </div>
                 </div>
@@ -54,8 +59,8 @@
 
 <script>
     data0 = "name0_color1_color2_text_speed"; //delete this
-    data1 = "name1_color1__text_speed"; //delete this
-    data2 = "name2_color2__text_speed"; //delete this
+    data1 = "name1_color1__text_"; //delete this
+    data2 = "name2_color2___speed"; //delete this
     data3 = "name3_3__"; //delete this
     data4 = "name4___text_speed"; //delete this
     data5 = "name5___text_speed"; //delete this
@@ -129,7 +134,7 @@
         // start copy
         data = data.split("_");
         for (i = 0; data[i] != ""; i++) {
-            $("#list-tab-Animationen").append("<a class='list-group-item list-group-item-action' onclick='getAnimationParameter(this.id,data"+i+");' id'data[i]' data-toggle='list' href='#list-" + data[i] + "' role='tab' aria-controls='" + data[i] + "'>" + data[i] + "</a>");
+            $("#list-tab-Animationen").append("<a class='list-group-item list-group-item-action' onclick='getAnimationParameter(this.id,data" + i + ");' id'data[i]' data-toggle='list' href='#list-" + data[i] + "' role='tab' aria-controls='" + data[i] + "'>" + data[i] + "</a>");
         }
         //this in success
 
@@ -141,28 +146,44 @@
         });
     }//end set_runningMagazine
 
-    function getAnimationParameter(_id,data) {
-       
+    function getAnimationParameter(_id, data) {
+
         // start copy
         data = data.split("_");
-        
+
         //show / hide DIVs
         if (data[0]) { //name
-           
+
         }
         if (data[1] || data[2]) { //color 1 or 2
-           
             $('#div_Farbauswahl').fadeIn(500);
-        }else{
+            if (data[1]) {
+                //    $("#list-tab-Animationen").append("<a class='list-group-item list-group-item-action' onclick='getAnimationParameter(this.id,data" + i + ");' id'data[i]' data-toggle='list' href='#list-" + data[i] + "' role='tab' aria-controls='" + data[i] + "'>" + data[i] + "</a>");
+            } else {
+            }
+            if (data[2]) {
+                //    $("#list-tab-Animationen").append("<a class='list-group-item list-group-item-action' onclick='getAnimationParameter(this.id,data" + i + ");' id'data[i]' data-toggle='list' href='#list-" + data[i] + "' role='tab' aria-controls='" + data[i] + "'>" + data[i] + "</a>");
+            } else {
+            }
+        } else {
             $('#div_Farbauswahl').hide();
         }
+
         if (data[3] || data[4]) { //text or speed
-           
             $('#div_Animationsoptionen').fadeIn(500);
+            if (data[3]) {
+                $('#div_Textfeld').fadeIn();
+            } else {
+                $('#div_Textfeld').fadeOut();
+            }
+            if (data[4]) {
+                $('#div_Speed').fadeIn();
+            } else {
+                $('#div_Speed').fadeOut();
+            }
         } else {
             $('#div_Animationsoptionen').hide();
         }
-
 
         //this in success
         $.ajax({
