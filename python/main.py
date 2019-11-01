@@ -4,6 +4,7 @@ from rpi_ws281x import *
 from random import randint
 from animations import *
 from command import *
+from pixels import *
 import sys
 import time
 
