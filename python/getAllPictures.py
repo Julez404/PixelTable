@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 
 from command import *
+from readback import *
 from validData import *
 import time
 import sys
