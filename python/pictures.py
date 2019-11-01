@@ -59,8 +59,7 @@ def setPicture(led_strip,command):
 
         # Check if name is found
         if string_check == command[1]:
-            led_values = f.readline()
-            readbackSet(led_values)
+            readbackSet(f.readline())
             f.close()
             delLastCommand()
             return None
