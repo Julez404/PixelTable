@@ -8,7 +8,7 @@ import sys
 
 def readbackSet(data):
     f = open(".readback", "w")
-    f.write(data)
+    f.write(str(data))
     f.close()
 
 def readbackGet():
