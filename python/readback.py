@@ -12,7 +12,7 @@ def readbackSet(data):
     f.close()
 
 def readbackGet():
-    returnString
+    returnString = ""
     f = open(".readback", "r")
     returnString = f.read()
     f.close()
