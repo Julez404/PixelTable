@@ -14,7 +14,7 @@
                     <br />
                     <div id="div_btn_Animation_setzen" class="col" style="text-align:center">
                         <hr />
-                        <button class="btn btn-primary btn-md " type="button" id="btn_set_animation" onclick="setAnimation(animation_name)"><i class="fa fa-upload"></i> Animation setzen</button>
+                        <button class="btn btn-primary btn-md " type="button" id="btn_set_animation" onclick="setAnimation()"><i class="fa fa-upload"></i> Animation setzen</button>
                     </div>
                 </div>
             </div>
@@ -81,6 +81,7 @@
     data5 = "name5___text_speed"; //delete this
 
     //Variables
+    var animationname = "";
     var animationcolor1 = "";
     var animationcolor2 = "";
     var _speed = "50";
@@ -172,7 +173,9 @@
         //show / hide DIVs
         if (data[0]) { //name
             $('#div_btn_Animation_setzen').fadeIn(500);
+            animation_name = data[0];
         } else {
+            alert("Kein Name gegeben");
             $('#div_btn_Animation_setzen').hide();
 
         }
