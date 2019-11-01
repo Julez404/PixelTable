@@ -408,18 +408,13 @@
 
     function getAllStaticPictures() {
         var data = "batterie~test~A1~A2~A3~A4~A5~A6~"; //delete this
-
-        // start copy
         data = data.split("~");
         for (i = 0; data[i] != ""; i++) {
             $("#list-tab-StaticPictures").append("<a class='list-group-item list-group-item-action' onclick='getAnimationParameter(this.id,data" + i + ");' id'data[i]' data-toggle='list' href='#list-" + data[i] + "' role='tab' aria-controls='" + data[i] + "'>" + data[i] + "</a>");
         }
-        //this in success
-
         $.ajax({
-            url: "", // URL Here
-            success: function (data) {
-                //copy in here
+            url: "getAllPictures.php",
+            success: function (data) {            
             }
         });
     }//end getAllStaticPictures
