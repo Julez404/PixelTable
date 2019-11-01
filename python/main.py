@@ -54,7 +54,7 @@ def extractNames(data_array):
     name = ""
     count = 0
     while (count != size):
-        name.append(data_array[count]+"_")
+        name += (data_array[count]+"_")
         count = count + 2;
     delLastCommand()
     return name;
@@ -88,7 +88,7 @@ def setPicture(command):
     f.close()
     delLastCommand()
 
-def getAllPicturse(command):
+def getAllPicturse(strip,command):
     f = open(".savedPictures", "r")
     data = []
     last_read = f.readline()
@@ -123,3 +123,5 @@ while True:
         PixelValuesToWeb(led_strip,command)
     if command[0] == ("savePicture"+'\n'):
         savePicture(led_strip,command)
+    if command[0] == ("getAllPictures"+'\n'):
+        getAllPictures(led_strip,command)
