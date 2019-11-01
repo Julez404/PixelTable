@@ -239,8 +239,14 @@
                             <div class="colorPicker">
                             </div>
                             <div class="col-md-12" style="text-align:center">
-                                <div id="values" style="padding: 8px;">
+                                <br />
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroup-sizing-default">Hex </span>
+                                    </div>
+                                    <input id="animationcolor_input" type="text" onchange="colorPicker.color.set(this.value)" class="form-control" placeholder="#ff00ff" aria-label="" aria-describedby="basic-addon2">
                                 </div>
+                                <br />
                                 <div class="btn-group">
                                     <button class="btn btn-secondary" type="button" id="btn_set_all_Pxl" onclick="set_all_Pixel()"> <i class="fa fa-laptop"></i> <i class="fa fa-arrow-right"> </i> <i class="fa fa-th"></i> </button>
                                     <button class="btn btn-primary" type="button" id="btn_get_GridValues" onclick="get_GridValues()"> <i class="fa fa-th"></i> <i class="fa fa-arrow-right"> </i> <i class="fa fa-laptop"></i> </button>
@@ -309,9 +315,7 @@
     colorPicker.on(["color:init", "color:change"], function (color) {
         var hex = colorPicker.color.hexString;
         _color = hex.slice(1, 7);
-        values.innerHTML = [
-          "hex: " + color.hexString,
-        ].join("<br>");
+        $('#animationcolor_input').val(hex);
     });
 
     $(document).ready(function () {
