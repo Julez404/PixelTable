@@ -73,7 +73,7 @@ def getAllPictures(strip,command):
     data = []
     last_read = f.readline()
     while(last_read != EOF):
-        data.append(last_read)
+        data.append(last_read.rstrip('\n'))
         last_read = f.readline()
     f.close()
     allPictures = extractNames(data)
