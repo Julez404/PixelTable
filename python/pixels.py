@@ -74,5 +74,5 @@ def setPixelByString(strip,data_string):
         parameter = parameter.append(row)
         parameter = parameter.append(col)
         parameter = parameter.append(color)
-        setPixel(strip, ["",parameter)
+        setPixel(strip, parameter)
         count = count + 1
