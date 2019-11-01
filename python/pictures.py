@@ -51,9 +51,9 @@ def setPicture(led_strip,command):
     count = 0
     last_read = f.readline()
     while (last_read != EOF):
-        string_check = last_read.lstrip("name=")
-        string_check = last_read.rstrip('\n')
-        count = count +1
+        string_check = last_read
+        string_check = string_check.lstrip("name=")
+        string_check = string_check.rstrip('\n')
         # Check if name is found
         if string_check == command[1]:
             readbackSet(f.readline())
@@ -61,7 +61,6 @@ def setPicture(led_strip,command):
             return None
         last_read = f.readline()
         last_read = f.readline()
-    readbackSet(str(count))
     f.close()
 
 def getAllPictures(strip,command):
