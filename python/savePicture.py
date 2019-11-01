@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 
+from command import *
 from validData import *
 import sys
 
