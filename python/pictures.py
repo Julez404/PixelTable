@@ -44,6 +44,7 @@ def savePicture(led_strip,command):
     if (nameIsAvailable(command[1])):
         f = open(".savedPictures", "a")
         f.write("name=" + command[1])
+        f.write('\n')
         f.write(getPixelValues(led_strip))
         f.write('\n')
         f.close()
