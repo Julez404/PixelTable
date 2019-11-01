@@ -5,7 +5,7 @@ from pixels import *
 from readback import *
 import sys
 
-EOF = ""
+EOF = None
 # Commands
 # [1] Name
 
