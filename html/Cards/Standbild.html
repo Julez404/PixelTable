@@ -266,12 +266,9 @@
                                 </div>
                             </div>
                             <hr />
-                            <div class="col">
-                                <div class="btn-group">
-                                    <button class="btn btn-primary btn-md " type="button" id="btn_set_all_Pxl" onclick="set_all_Pixel()"><i class="fa fa-upload"></i> Bild setzen</button>
-                                    <button class="btn btn-danger btn-md" type="button" id="btn_set_all_Pxl" onclick="set_all_Pixel()"><i class="fa fa-trash"></i> Bild löschen</button>
+                            <div class="col" style="text-align:center;">
+                                <button class="btn btn-danger btn-md" type="button" id="btn_set_all_Pxl" onclick="set_all_Pixel()"><i class="fa fa-trash"></i> Bild löschen</button>
                                 </div>
-                            </div>
                             <hr />
                             <h5>Neues Bild</h5>
                             <div class="input-group">
@@ -428,8 +425,8 @@
     }//end getAllStaticPictures
 
     function saveStaticPicture() {
-       $.ajax({
-            url: "savePicture.php?picture=" + newPictureName.value + "", 
+        $.ajax({
+            url: "savePicture.php?picture=" + newPictureName.value + "",
             success: function (data) {
             }
         });
