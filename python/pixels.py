@@ -51,6 +51,7 @@ def getPixelValues(strip):
     allPixelValues = ""
     for i in range (0,config.LED_COUNT):
         allPixelValues += (str(getPixelRow(i))+"_"+str(getPixelColumn(i))+"_"+"%06X" % strip.getPixelColor(i)+"-")
+    return allPixelValues
 
 # Prints current state of pixel to readback
 def PixelValuesToWeb(strip,parameters):
