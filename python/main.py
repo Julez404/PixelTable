@@ -22,21 +22,7 @@ import time
 led_strip = Adafruit_NeoPixel(config.LED_COUNT, config.LED_PIN, config.LED_FREQ_HZ,config.LED_DMA,config.LED_INVERT,config.LED_BRIGHTNESS,config.LED_CHANNEL)
 led_strip.begin()
 
-# Main loop
-while True:
-    time.sleep(.01)				# Delay Betwee Commands
-    command = getCommand()
 
-    if command[0] == ("setPixel"+'\n'):
-        setPixel(led_strip,command)
-    if command[0] == ("setAllPixel"+'\n'):
-        setAllPixel(led_strip,command)
-    if command[0] == ("setAnimation"+'\n'):
-        setAnimation(led_strip,command)
-    if command[0] == ("PixelValuesToWeb"+'\n'):
-        PixelValuesToWeb(led_strip,command)
-    if command[0] == ("savePicture"+'\n')
-        savePicture(led_strip,command)
 
 
 EOF = ""
@@ -54,11 +40,13 @@ def nameIsAvailable(name):
 
         # Name taken -> Return false
         if saved_name == name:
+            delLastCommand()
             f.close()
             return False
         last_read = f.readline()
         last_read = f.readline()
     f.close()
+    delLastCommand()
     return True
 
 def extractNames(data_array):
@@ -68,6 +56,7 @@ def extractNames(data_array):
     while (count != size):
         name.append(data_array[count]+"_")
         count = count + 2;
+    delLastCommand()
     return name;
 
 def savePicture(led_strip,command):
@@ -77,6 +66,7 @@ def savePicture(led_strip,command):
         f.write("name=" + command[1] + '\n')
         f.write(getPixelValues(led_strip))
         f.close()
+    delLastCommand()
 
 def setPicture(command):
     f = open(".savedPictures", "r")
@@ -95,6 +85,7 @@ def setPicture(command):
         last_read = f.readline()
         last_read = f.readline()
     f.close()
+    delLastCommand()
 
 def getAllPicturse(command):
     f = open(".savedPictures", "r")
@@ -106,6 +97,28 @@ def getAllPicturse(command):
     f.close()
     allPictures = extractNames(data)
     readbackSet(allPictures)
+    delLastCommand()
 
 def delPicture(command):
     Do_Something = 0
+    delLastCommand()
+
+
+
+
+
+# Main loop
+while True:
+    time.sleep(.01)				# Delay Betwee Commands
+    command = getCommand()
+
+    if command[0] == ("setPixel"+'\n'):
+        setPixel(led_strip,command)
+    if command[0] == ("setAllPixel"+'\n'):
+        setAllPixel(led_strip,command)
+    if command[0] == ("setAnimation"+'\n'):
+        setAnimation(led_strip,command)
+    if command[0] == ("PixelValuesToWeb"+'\n'):
+        PixelValuesToWeb(led_strip,command)
+    if command[0] == ("savePicture"+'\n')
+        savePicture(led_strip,command)
