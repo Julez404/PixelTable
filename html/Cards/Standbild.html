@@ -268,13 +268,13 @@
                             <hr />
                             <div class="col" style="text-align:center;">
                                 <button class="btn btn-danger btn-md" type="button" id="btn_set_all_Pxl" onclick="set_all_Pixel()"><i class="fa fa-trash"></i> Bild löschen</button>
-                                </div>
+                            </div>
                             <hr />
                             <h5>Neues Bild</h5>
                             <div class="input-group">
                                 <input type="text" id="newPictureName" class="form-control" placeholder="Chess The Mess" aria-label="" aria-describedby="basic-addon2">
                                 <div class="input-group-append">
-                                    <button class="btn btn-outline-success" type="button" onclick="saveStaticPicture()">Speichern</button>
+                                    <button class="btn btn-outline-success" type="button" onclick="checkString()">Speichern</button>
                                 </div>
                             </div>
                         </div>
@@ -414,17 +414,31 @@
         }
         $.ajax({
             url: "getAllPictures.php",
-            success: function (data) {            
+            success: function (data) {
             }
         });
     }//end getAllStaticPictures
 
-    function saveStaticPicture() {
+    function saveStaticPicture(new_name) {
         $.ajax({
-            url: "savePicture.php?picture=" + newPictureName.value + "",
+            url: "savePicture.php?picture=" + new_name + "",
             success: function (data) {
             }
         });
     }//end getStaticPicture
 
+    function checkString() {
+        var name_origin = newPictureName.value;
+        var name = name_origin;
+        name = name.replace(/0/g, ""); name = name.replace(/1/g, ""); name = name.replace(/2/g, ""); name = name.replace(/3/g, ""); name = name.replace(/4/g, ""); name = name.replace(/5/g, ""); name = name.replace(/6/g, ""); name = name.replace(/7/g, ""); name = name.replace(/8/g, ""); name = name.replace(/9/g, "");
+        name = name.replace(/a/g, ""); name = name.replace(/b/g, ""); name = name.replace(/c/g, ""); name = name.replace(/d/g, ""); name = name.replace(/e/g, ""); name = name.replace(/f/g, ""); name = name.replace(/g/g, ""); name = name.replace(/h/g, ""); name = name.replace(/i/g, ""); name = name.replace(/j/g, ""); name = name.replace(/k/g, ""); name = name.replace(/l/g, ""); name = name.replace(/m/g, ""); name = name.replace(/n/g, ""); name = name.replace(/o/g, ""); name = name.replace(/p/g, ""); name = name.replace(/q/g, ""); name = name.replace(/r/g, ""); name = name.replace(/s/g, ""); name = name.replace(/t/g, ""); name = name.replace(/u/g, ""); name = name.replace(/v/g, ""); name = name.replace(/w/g, ""); name = name.replace(/x/g, ""); name = name.replace(/y/g, ""); name = name.replace(/z/g, "");
+        name = name.replace(/A/g, ""); name = name.replace(/B/g, ""); name = name.replace(/C/g, ""); name = name.replace(/D/g, ""); name = name.replace(/E/g, ""); name = name.replace(/F/g, ""); name = name.replace(/G/g, ""); name = name.replace(/H/g, ""); name = name.replace(/I/g, ""); name = name.replace(/J/g, ""); name = name.replace(/K/g, ""); name = name.replace(/L/g, ""); name = name.replace(/M/g, ""); name = name.replace(/N/g, ""); name = name.replace(/O/g, ""); name = name.replace(/P/g, ""); name = name.replace(/Q/g, ""); name = name.replace(/R/g, ""); name = name.replace(/S/g, ""); name = name.replace(/T/g, ""); name = name.replace(/U/g, ""); name = name.replace(/V/g, ""); name = name.replace(/W/g, ""); name = name.replace(/X/g, ""); name = name.replace(/Y/g, ""); name = name.replace(/Z/g, "");
+        name = name.replace(/-/g, ""); name = name.replace(/_/g, "");
+        if (name == "") {
+            saveStaticPicture(name_origin);
+        } else {
+            alert("Dont use the following Symbols: " + name);
+        }
+
+    }
 </script>
