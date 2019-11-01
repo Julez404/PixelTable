@@ -14,9 +14,9 @@ if (isValidPictureName(sys.argv[1])):
     command.append(sys.argv[1])
     setNewCommand(command)
 
-    time.sleep(.1)
-
+    time.sleep(.2)
     print(readbackGet())
+
 else:
     f = open("/var/www/pixel/python/.error", "a")
     f.write(sys.argv[0] + '\n')
