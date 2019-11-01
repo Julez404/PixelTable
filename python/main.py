@@ -28,15 +28,15 @@ while True:
     time.sleep(.01)				# Delay Betwee Commands
     command = getCommand()
 
-    if command[0] == ("setPixel"+'\n'):
+    if command[0] == ("setPixel"):
         setPixel(led_strip,command)
-    if command[0] == ("setAllPixel"+'\n'):
+    if command[0] == ("setAllPixel"):
         setAllPixel(led_strip,command)
-    if command[0] == ("setAnimation"+'\n'):
+    if command[0] == ("setAnimation"):
         setAnimation(led_strip,command)
-    if command[0] == ("PixelValuesToWeb"+'\n'):
+    if command[0] == ("PixelValuesToWeb"):
         PixelValuesToWeb(led_strip,command)
-    if command[0] == ("savePicture"+'\n'):
+    if command[0] == ("savePicture"):
         savePicture(led_strip,command)
-    if command[0] == ("getAllPictures"+'\n'):
+    if command[0] == ("getAllPictures"):
         getAllPictures(led_strip,command)
