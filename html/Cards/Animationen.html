@@ -1,0 +1,233 @@
+﻿<div class="container-fluid">
+    <div id="Animationen">
+        <br />
+        <div class="row justify-content-center">
+            <div id="div_Animationswahl" class="card">
+                <div class="card-body">
+                    <h5>Animationswahl</h5>
+                    <hr />
+                    <div class="col">
+                        <div class="list-group" id="list-tab-Animationen" role="tablist">
+                        </div>
+                    </div>
+                    <br />
+                    <br />
+                    <div id="div_btn_Animation_setzen" class="col" style="text-align:center">
+                        <hr />
+                        <button class="btn btn-primary btn-md " type="button" id="btn_set_animation" onclick="setAnimation()"><i class="fa fa-upload"></i> Animation setzen</button>
+                    </div>
+                </div>
+            </div>
+            <div id="div_Farbauswahl" class="card">
+                <div class="card-body">
+                    <h5>Farbauswahl</h5>
+                    <hr />
+                    <div class="colorPicker1" style="margin-left:auto; margin-right:auto;">
+                    </div>
+                    <div class="col" style="text-align:center">
+                        <div id="values1" style="padding: 8px;">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">Hex </span>
+                            </div>
+                            <input id="animationcolor1_input" type="text" onchange="colorPicker1.color.set(this.value)" class="form-control" placeholder="#ff00ff" aria-label="" aria-describedby="basic-addon2">
+                        </div>
+                        <br />
+                        <div class="input-group">
+                            <input id="animationcolor1_input" type="text" onchange="colorPicker1.color.set(this.value)" class="form-control" placeholder="#00ff00" aria-label="" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-secondary" type="button" id="btn_set_animation" onclick="animationcolor1 = _color1; $('#animationcolor1_input').val(animationcolor1);"><i class="fa fa-tint"></i> </button>
+                            </div>
+                        </div>
+                        <br />
+                        <div class="input-group">
+                            <input id="animationcolor2_input" type="text" onchange="colorPicker1.color.set(this.value)" class="form-control" placeholder="#ff00ff" aria-label="" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-secondary" type="button" id="btn_set_animation" onclick="animationcolor2 = _color1; $('#animationcolor2_input').val(animationcolor2);"><i class="fa fa-tint"></i> </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="div_Animationsoptionen" class="card">
+                <div class="card-body">
+                    <h5>Animationsoptionen</h5>
+                    <hr />
+                    <div class="col">
+                        <div id="div_Speed">
+                            <label for="customRange1">Speed</label>
+                            <input type="range" class="custom-range" min="1" onchange="_speed = this.value" id="customRange1">
+                            <hr />
+                        </div>
+                        <div id="div_Textfeld">
+                            <label for="customRange1">Laufschrift</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Kam mit einem Messer zur Schießerei" aria-label="" aria-describedby="basic-addon2">
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-success" type="button">Speichern</button>
+                                </div>
+                            </div>
+                            <hr />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    data0 = "name0_color1_color2_text_speed"; //delete this
+    data1 = "name1_color1__text_"; //delete this
+    data2 = "name2_color2___speed"; //delete this
+    data3 = "name3_3__"; //delete this
+    data4 = "name4___text_speed"; //delete this
+    data5 = "name5___text_speed"; //delete this
+
+    //Variables
+    var animationname = "";
+    var animationcolor1 = "";
+    var animationcolor2 = "";
+    var _speed = "50";
+    var animation_name = "";
+    var values1 = document.getElementById("values1");
+    var _color1 = "";
+
+    //ColorPicker
+    var colorPicker1 = new iro.ColorPicker(".colorPicker1", {
+        width: 280,
+        height: 280,
+        color: "rgb(255, 255, 255)",
+        borderWidth: 1,
+        borderColor: "#fff",
+    });
+
+    colorPicker1.on(["color:init", "color:change"], function (color) {
+        var hex = colorPicker1.color.hexString;
+        _color1 = hex.slice(1, 7);
+        $('#animationcolor1_input').val(hex);
+    });
+
+    //Funktionen
+    $(document).ready(function () {
+        $('#div_Farbauswahl').hide();
+        $('#div_Animationsoptionen').hide();
+        $('#div_btn_Animation_setzen').hide();
+        getAllAnimations();
+    });  //end document ready
+
+    function setAnimation(_name) {
+        $.ajax({
+            url: "setAnimation.php?animation=" + _name + "&speed=" + _speed + "&color=" + _color1 + "",
+            success: function () {
+            }
+        });
+    }//end setAnimation
+
+    function set_animation_Rainbow() {
+        $.ajax({
+            url: "setAnimation.php?animation=rainbow",
+            success: function () {
+            }
+        });
+    }//end set_animation_Rainbow
+
+    function set_animation_theaterChase() {
+        $.ajax({
+            url: "setAnimation.php?animation=theaterChaseRainbow",
+            success: function () {
+            }
+        });
+    }//end set_animation_theaterChase
+
+    function set_runningMagazine() {
+        var runningText = document.getElementById("input_set_runningMagazine").value;
+        $.ajax({
+            url: "runningMagazine.php?message=" + runningText + "",
+            success: function () {
+            }
+        });
+    }//end set_runningMagazine
+
+    function getAllAnimations() {
+        var data = "name1_name2_name3_name4_name5_name6_name7_name8_"; //delete this
+
+        // start copy
+        data = data.split("_");
+        for (i = 0; data[i] != ""; i++) {
+            $("#list-tab-Animationen").append("<a class='list-group-item list-group-item-action' onclick='getAnimationParameter(this.id,data" + i + ");' id'data[i]' data-toggle='list' href='#list-" + data[i] + "' role='tab' aria-controls='" + data[i] + "'>" + data[i] + "</a>");
+        }
+        //this in success
+
+        $.ajax({
+            url: "", // URL Here
+            success: function (data) {
+                //copy in here
+            }
+        });
+    }//end set_runningMagazine
+
+    function getAnimationParameter(_id, data) {
+
+        // start copy
+        data = data.split("_");
+
+        //show / hide DIVs
+        if (data[0]) { //name
+            $('#div_btn_Animation_setzen').fadeIn(500);
+            animation_name = data[0];
+        } else {
+            alert("Kein Name gegeben");
+            $('#div_btn_Animation_setzen').hide();
+
+        }
+        if (data[1] || data[2]) { //color 1 or 2
+            $('#div_Farbauswahl').fadeIn(500);
+            if (data[1]) {
+                //    $("#list-tab-Animationen").append("<a class='list-group-item list-group-item-action' onclick='getAnimationParameter(this.id,data" + i + ");' id'data[i]' data-toggle='list' href='#list-" + data[i] + "' role='tab' aria-controls='" + data[i] + "'>" + data[i] + "</a>");
+            } else {
+            }
+            if (data[2]) {
+                //    $("#list-tab-Animationen").append("<a class='list-group-item list-group-item-action' onclick='getAnimationParameter(this.id,data" + i + ");' id'data[i]' data-toggle='list' href='#list-" + data[i] + "' role='tab' aria-controls='" + data[i] + "'>" + data[i] + "</a>");
+            } else {
+            }
+        } else {
+            $('#div_Farbauswahl').hide();
+        }
+
+        if (data[3] || data[4]) { //text or speed
+            $('#div_Animationsoptionen').fadeIn(500);
+            if (data[3]) {
+                $('#div_Textfeld').fadeIn();
+            } else {
+                $('#div_Textfeld').fadeOut();
+            }
+            if (data[4]) {
+                $('#div_Speed').fadeIn();
+            } else {
+                $('#div_Speed').fadeOut();
+            }
+        } else {
+            $('#div_Animationsoptionen').hide();
+        }
+
+        //this in success
+        $.ajax({
+            url: "",
+            success: function (data) {
+            }
+        });
+    }//end set_runningMagazine
+
+    function setAnimation() {
+        $.ajax({
+            url: "",
+            success: function () {
+            }
+        });
+    }//end set_runningMagazine
+
+</script>
