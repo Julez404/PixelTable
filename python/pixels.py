@@ -62,7 +62,6 @@ def PixelValuesToWeb(strip,parameters):
 def setPixelByString(strip,data_string):
     string = data_string.rstrip("-")
     string = string.split("-")
-    setAllPixel(strip,["","00FF00"])
     count = 0
     for x in string:
         row = getPixelRow(count)
