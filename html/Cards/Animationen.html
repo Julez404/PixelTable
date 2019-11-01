@@ -30,16 +30,16 @@
                     </div>
                     <div class="col">
                         <div class="input-group">
-                            <input type="text" class="form-control" placeholder="#00ff00" aria-label="" aria-describedby="basic-addon2">
+                            <input id="animationcolor1_input"type="text" disabled class="form-control" placeholder="#00ff00" aria-label="" aria-describedby="basic-addon2">
                             <div class="input-group-append">
-                                <button class="btn btn-secondary" type="button" id="btn_set_animation" onclick="setAnimation(animation_name)"><i class="fa fa-tint"></i> </button>
+                                <button class="btn btn-secondary" type="button" id="btn_set_animation" onclick="animationcolor1 = _color1; $('#animationcolor1_input').val(animationcolor1);"><i class="fa fa-tint"></i> </button>
                             </div>
                         </div>
                         <br />
                         <div class="input-group">
-                            <input type="text" class="form-control" placeholder="#ff00ff" aria-label="" aria-describedby="basic-addon2">
+                            <input id="animationcolor2_input" type="text" disabled class="form-control" placeholder="#ff00ff" aria-label="" aria-describedby="basic-addon2">
                             <div class="input-group-append">
-                                <button class="btn btn-secondary" type="button" id="btn_set_animation" onclick="setAnimation(animation_name)"><i class="fa fa-tint"></i> </button>
+                                <button class="btn btn-secondary" type="button" id="btn_set_animation" onclick="animationcolor2 = _color1; $('#animationcolor2_input').val(animationcolor2);"><i class="fa fa-tint"></i> </button>
                             </div>
                         </div>
                     </div>
@@ -81,6 +81,8 @@
     data5 = "name5___text_speed"; //delete this
 
     //Variables
+    var animationcolor1 = "";
+    var animationcolor2 = "";
     var _speed = "50";
     var animation_name = "";
     var values1 = document.getElementById("values1");
