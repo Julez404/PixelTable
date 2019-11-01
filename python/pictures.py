@@ -76,7 +76,7 @@ def getAllPictures(strip,command):
     allPictures = extractNames(data)
     readbackSet(allPictures)
 
-def delPicture(command):
+def delPicture(strip, command):
     f = open(".savedPictures", "r")
     data = f.read()
     print(data)
