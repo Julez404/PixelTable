@@ -29,7 +29,7 @@ def getCommand():
 
         f.close()
 
-        for i in command
+        for i in command:
             command[i] = command[i].rstrip('\n')
 
         # Check if reading was successfull or max Limit was reached
