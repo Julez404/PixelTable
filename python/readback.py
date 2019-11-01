@@ -13,9 +13,10 @@ def readbackSet(data):
 
 def readbackGet():
     returnString
-    f = open(".readback", "w")
+    f = open(".readback", "r")
     returnString = f.read()
     f.close()
+    return returnString
 
 def readbackClear():
     f = open(".readback", "w")
