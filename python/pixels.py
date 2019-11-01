@@ -69,9 +69,9 @@ def setPixelByString(strip,data_string):
         col = getPixelColumn(count)
         color = x.split("_")
         color = color[2]
-        parameter = ["Entry1"]
-        parameter = parameter.append(row)
-        parameter = parameter.append(col)
-        parameter = parameter.append(color)
+        parameter = []
+        parameter.append(row)
+        parameter.append(col)
+        parameter.append(color)
         setPixel(strip, parameter)
         count = count + 1
