@@ -62,7 +62,7 @@ def PixelValuesToWeb(strip,parameters):
 def setPixelByString(strip,data_string):
     readbackSet(data_string)
     while(True):
-        pass
+        time.sleep(30)
     #string = data_string.rstrip("-")
     #string = string.split("-")
     #count = 0
