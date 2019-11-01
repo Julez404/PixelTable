@@ -1,15 +1,15 @@
 #!/usr/bin/python3
 
-from validData import *
 from command import *
 from readback import *
-import sys
+from validData import *
 import time
+import sys
 
 # Expected Input
-# None
+# 1: Name (isValidPictureName)
 
-command = ["PixelValuesToWeb"]
+command = ["getAllPictures"]
 setNewCommand(command)
 
 time.sleep(.1)

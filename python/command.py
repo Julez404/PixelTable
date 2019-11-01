@@ -29,6 +29,9 @@ def getCommand():
 
         f.close()
 
+        for i in range(len(command)):
+            command[i] = command[i].rstrip('\n')
+
         # Check if reading was successfull or max Limit was reached
         if (last_read == ("--COMMAND-END--" + '\n')):
             return command

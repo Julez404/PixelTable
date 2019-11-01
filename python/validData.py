@@ -22,3 +22,7 @@ def strLengthIs(str,size):
         return True
     else:
         return False
+
+# Check for valid picture name
+def isValidPictureName(name):
+    return True
