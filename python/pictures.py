@@ -34,7 +34,7 @@ def extractNames(data_array):
     name = ""
     count = 0
     while (count != size):
-        name += (data_array[count]+"_")
+        name += (data_array[count].lstrip("name=")+"_")
         count = count + 2;
     delLastCommand()
     return name;
