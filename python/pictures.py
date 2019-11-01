@@ -66,7 +66,7 @@ def getAllPicturse(command):
     f = open(".savedPictures", "r")
     data = []
     last_read = f.readline()
-    while(last_read != EOF)
+    while(last_read != EOF):
         data.append(last_read)
         last_read = f.readline()
     f.close()
