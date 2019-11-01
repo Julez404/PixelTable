@@ -16,7 +16,7 @@ def nameIsAvailable(name):
     last_read = f.readline()
     while last_read != EOF:
         saved_name = last_read.lstrip("name=")
-        saved_name = last_read.rstrip('\n')
+        saved_name = saved_name.rstrip('\n')
 
         # Name taken -> Return false
         if saved_name == name:
