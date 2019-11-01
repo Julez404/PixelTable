@@ -275,9 +275,9 @@
                             <hr />
                             <h5>Neues Bild</h5>
                             <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Chess The Mess" aria-label="" aria-describedby="basic-addon2">
+                                <input type="text" id="newPictureName" class="form-control" placeholder="Chess The Mess" aria-label="" aria-describedby="basic-addon2">
                                 <div class="input-group-append">
-                                    <button class="btn btn-outline-success" type="button">Speichern</button>
+                                    <button class="btn btn-outline-success" type="button" onclick="saveStaticPicture()">Speichern</button>
                                 </div>
                             </div>
                         </div>
@@ -425,6 +425,14 @@
                 //copy in here
             }
         });
-    }//end set_runningMagazine
+    }//end getAllStaticPictures
+
+    function saveStaticPicture() {
+       $.ajax({
+            url: "savePicture.php?picture=" + newPictureName.value + "", 
+            success: function (data) {
+            }
+        });
+    }//end getStaticPicture
 
 </script>
