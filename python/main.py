@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 
 from rpi_ws281x import *
+import config
 from random import randint
 from animations import *
 from command import *
@@ -8,16 +9,16 @@ from pixels import *
 import sys
 import time
 
-LED_COUNT = 200
-LED_PIN = 18
-LED_FREQ_HZ = 800000
-LED_DMA = 10
-LED_BRIGHTNESS = 255
-LED_INVERT = False
-LED_CHANNEL = 0
-LED_COLUMN_COUNT = 20
+#LED_COUNT = 200
+#LED_PIN = 18
+#LED_FREQ_HZ = 800000
+#LED_DMA = 10
+#LED_BRIGHTNESS = 255
+#LED_INVERT = False
+#LED_CHANNEL = 0
+#LED_COLUMN_COUNT = 20
 
-led_strip = Adafruit_NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ,LED_DMA,LED_INVERT,LED_BRIGHTNESS,LED_CHANNEL)
+led_strip = Adafruit_NeoPixel(config.LED_COUNT, config.LED_PIN, config.LED_FREQ_HZ,config.LED_DMA,config.LED_INVERT,config.LED_BRIGHTNESS,LED_CHANNEL)
 led_strip.begin()
 
 # Main loop
