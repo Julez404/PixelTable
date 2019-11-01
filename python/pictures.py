@@ -32,7 +32,7 @@ def extractNames(data_array):
     name = ""
     count = 0
     while (count != size):
-        name += (data_array[count].lstrip("name=")+'~')
+        name += (data_array[count].lstrip("name=")+"~")
         count = count + 2;
     return name;
 
