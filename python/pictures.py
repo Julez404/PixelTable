@@ -56,12 +56,13 @@ def setPicture(led_strip,command):
         string_check = string_check.rstrip('\n')
         # Check if name is found
         if string_check == command[1]:
-            readbackSet(f.readline())
+            led_values = f.readline()
+            readbackSet(led_values)
+            setPixelByString(led_values)
             f.close()
             return None
         last_read = f.readline()
         last_read = f.readline()
-    readbackSet(command[1])
     f.close()
 
 def getAllPictures(strip,command):
