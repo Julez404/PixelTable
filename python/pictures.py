@@ -58,7 +58,7 @@ def setPicture(led_strip,command):
         if string_check == command[1]:
             led_values = f.readline()
             readbackSet(led_values)
-            setPixelByString(led_values)
+            setPixelByString(strin,led_values)
             f.close()
             return None
         last_read = f.readline()

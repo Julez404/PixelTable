@@ -57,3 +57,17 @@ def getPixelValues(strip):
 def PixelValuesToWeb(strip,parameters):
     readbackSet(getPixelValues(strip))
     delLastCommand()
+
+
+def setPixelByString(strip,data_string)
+    string = data_string.rstrip("-")
+    string = string.split("-")
+
+    count = 0
+    for x in string:
+        row = getPixelRow(count)
+        col = getPixelCol(count)
+        color = x.split("_")
+        color = color[2]
+        setPixel(strip, [,row,col,color])
+        count = count + 1
