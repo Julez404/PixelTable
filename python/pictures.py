@@ -48,7 +48,7 @@ def setPicture(command):
     f = open(".savedPictures", "r")
 
     last_read = f.readline()
-    while last_read != EOF:
+    while (last_read != EOF):
         string_check = last_read.lstrip("name=")
         string_check = last_read.rstrip('\n')
 
