@@ -63,7 +63,7 @@ def savePicture(led_strip,command):
     # Check if name is already taken
     if (nameIsAvailable(command[1])):
         f = open(".savedPictures", "a")
-        f.write("name=" + command[1] + '\n')
+        f.write("name=" + command[1])
         f.write(getPixelValues(led_strip))
         f.close()
     delLastCommand()
