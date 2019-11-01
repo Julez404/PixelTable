@@ -42,3 +42,4 @@ while True:
         getAllPictures(led_strip,command)
     if command[0] == ("setPicture"):
         setPicture(led_strip,command)
+        delLastCommand()

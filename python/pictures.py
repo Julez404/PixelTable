@@ -20,13 +20,11 @@ def nameIsAvailable(name):
 
         # Name taken -> Return false
         if saved_name == name:
-            delLastCommand()
             f.close()
             return False
         last_read = f.readline()
         last_read = f.readline()
     f.close()
-    delLastCommand()
     return True
 
 def extractNames(data_array):
@@ -36,7 +34,6 @@ def extractNames(data_array):
     while (count != size):
         name += (data_array[count].lstrip("name=")+"_")
         count = count + 2;
-    delLastCommand()
     return name;
 
 def savePicture(led_strip,command):
@@ -48,7 +45,6 @@ def savePicture(led_strip,command):
         f.write(getPixelValues(led_strip))
         f.write('\n')
         f.close()
-    delLastCommand()
 
 def setPicture(led_strip,command):
     f = open(".savedPictures", "r")
@@ -62,12 +58,10 @@ def setPicture(led_strip,command):
         if string_check == command[1]:
             readbackSet(f.readline())
             f.close()
-            delLastCommand()
             return None
         last_read = f.readline()
         last_read = f.readline()
     f.close()
-    delLastCommand()
 
 def getAllPictures(strip,command):
     f = open(".savedPictures", "r")
@@ -79,8 +73,6 @@ def getAllPictures(strip,command):
     f.close()
     allPictures = extractNames(data)
     readbackSet(allPictures)
-    delLastCommand()
 
 def delPicture(command):
     Do_Something = 0
-    delLastCommand()
