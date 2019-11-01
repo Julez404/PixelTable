@@ -61,7 +61,9 @@ def setPicture(led_strip,command):
         if string_check == command[1]:
             led_values = f.readline()
             readbackSet(led_values)
-            break
+            f.close()
+            delLastCommand()
+            return None
         last_read = f.readline()
         last_read = f.readline()
     f.close()
