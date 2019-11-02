@@ -15,3 +15,4 @@ setNewCommand(command)
 time.sleep(.1)
 
 print(readbackGet())
+readbackClear()

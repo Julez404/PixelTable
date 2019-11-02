@@ -16,6 +16,7 @@ if (isValidPictureName(sys.argv[1])):
 
     time.sleep(.2)
     print(readbackGet())
+    readbackClear()
 
 else:
     f = open("/var/www/pixel/python/.error", "a")
