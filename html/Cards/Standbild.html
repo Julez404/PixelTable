@@ -310,6 +310,7 @@
     });
 
     $(document).ready(function () {
+        get_GridValues();
         getAllStaticPictures();
         colorPicker.on('input:end', function (color) {
             var hex = colorPicker.color.hexString;
