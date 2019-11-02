@@ -417,7 +417,7 @@
         $.ajax({
             url: "getAllPictures.php",
             success: function (data) {
-                data = "Array ( [0] => ~batterie~test~A1~A2~A3~A4~A5~A6~"; //delete this
+              //  data = "Array ( [0] => ~batterie~test~A1~A2~A3~A4~A5~A6~"; //delete this
                 if (data.length <= 10) {
                     alert("Keine Bilder vorhanden");
                 } else {
@@ -425,7 +425,7 @@
                     for (i = 0; i < data.length - 1; i++) {
                         if (i == 0) {
                         } else {
-                            $("#list-tab-StaticPictures").append("<a class='list-group-item list-group-item-action' onclick='setStaticPicture(this.id);' id="+data[i]+" data-toggle='list' href='#list-" + data[i] + "' role='tab' aria-controls='" + data[i] + "'>" + data[i] + "</a>");
+                            $("#list-tab-StaticPictures").append("<a class='list-group-item list-group-item-action' onclick='setStaticPicture(this.id);' id=" + data[i] + " data-toggle='list' href='#list-" + data[i] + "' role='tab' aria-controls='" + data[i] + "'>" + data[i] + "</a>");
                         }
                     }
                 }
@@ -442,7 +442,6 @@
     }//end getStaticPicture
 
     function setStaticPicture(name) {
-        alert(name);
         $.ajax({
             url: "setPicture.php?picture=" + name + "",
             success: function (data) {
