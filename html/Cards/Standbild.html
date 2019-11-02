@@ -311,11 +311,11 @@
 
     $(document).ready(function () {
         getAllStaticPictures();
-        get_GridValues();
         colorPicker.on('input:end', function (color) {
             var hex = colorPicker.color.hexString;
             _color = hex.slice(1, 7);
         });
+        get_GridValues();
     });  //end document ready
 
     //Funktionen
