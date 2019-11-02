@@ -410,6 +410,7 @@
         $.ajax({
             url: "getAllPictures.php",
             success: function (data) {
+                data = data.substring(19);
                 data = data.split("~");
                 for (i = 0; data[i] != ""; i++) {
                     $("#list-tab-StaticPictures").append("<a class='list-group-item list-group-item-action' onclick='getAnimationParameter(this.id,data" + i + ");' id'data[i]' data-toggle='list' href='#list-" + data[i] + "' role='tab' aria-controls='" + data[i] + "'>" + data[i] + "</a>");
