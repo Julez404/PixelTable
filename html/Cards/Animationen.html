@@ -59,13 +59,13 @@
                     <div class="col">
                         <div id="div_Speed">
                             <label for="customRange1">Speed</label>
-                            <input type="range" class="custom-range" min="1" onchange="_speed = this.value" id="customRange1">
+                            <input type="range" class="custom-range" min="1" onchange="animation_speed = this.value; setAnimation();" id="customRange1">
                             <hr />
                         </div>
                         <div id="div_Textfeld">
                             <label for="customRange1">Laufschrift</label>
                             <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Kam mit einem Messer zur Schießerei" aria-label="" aria-describedby="basic-addon2">
+                                <input type="text" class="form-control" placeholder="Kam mit einem Messer zur Schießerei" onchange="animation_laufschrift = this.value; setAnimation()"; aria-label="" aria-describedby="basic-addon2">
                                 <div class="input-group-append">
                                     <button class="btn btn-outline-success" type="button">Speichern</button>
                                 </div>
@@ -80,19 +80,13 @@
 </div>
 
 <script>
-    data0 = "name0_color1_color2_text_speed"; //delete this
-    data1 = "name1_color1__text_"; //delete this
-    data2 = "name2_color2___speed"; //delete this
-    data3 = "name3_3__"; //delete this
-    data4 = "name4___text_speed"; //delete this
-    data5 = "name5___text_speed"; //delete this
 
     //Variables
-    var animationname = "";
     var animationcolor1 = "";
     var animationcolor2 = "";
-    var _speed = "50";
+    var animation_speed = "50";
     var animation_name = "";
+    var animation_laufschrift = "";
     var values1 = document.getElementById("values1");
     var _color1 = "";
 
@@ -121,7 +115,7 @@
 
     function setAnimation(_name) {
         $.ajax({
-            url: "setAnimation.php?animation=" + _name + "&speed=" + _speed + "&color=" + _color1 + "",
+            url: "setAnimation.php?animation=" + _name + "&speed=" + animation_speed + "&color=" + _color1 + "",
             success: function () {
             }
         });
@@ -153,78 +147,64 @@
     }//end set_runningMagazine
 
     function getAllAnimations() {
-        var data = "name1_name2_name3_name4_name5_name6_name7_name8_"; //delete this
-
-        // start copy
-        data = data.split("_");
-        for (i = 0; data[i] != ""; i++) {
-            $("#list-tab-Animationen").append("<a class='list-group-item list-group-item-action' onclick='getAnimationParameter(this.id,data" + i + ");' id'data[i]' data-toggle='list' href='#list-" + data[i] + "' role='tab' aria-controls='" + data[i] + "'>" + data[i] + "</a>");
-        }
-        //this in success
-
         $.ajax({
-            url: "", // URL Here
+            url: "getAllAnimations.php",
             success: function (data) {
-                //copy in here
+                data = data.split("~");
+                for (i = 0; data[i] != ""; i++) {
+                    $("#list-tab-Animationen").append("<a class='list-group-item list-group-item-action'    onclick='getAnimationParameter(this.id);'   id=" + data[i] + " data-toggle='list' href='#list-" + data[i] + "' role='tab' aria-controls='" + data[i] + "'>" + data[i] + "</a>");
+                }
             }
         });
     }//end set_runningMagazine
 
-    function getAnimationParameter(_id, data) {
-
-        // start copy
-        data = data.split("_");
-
-        //show / hide DIVs
-        if (data[0]) { //name
-            $('#div_btn_Animation_setzen').fadeIn(500);
-            animation_name = data[0];
-        } else {
-            alert("Kein Name gegeben");
-            $('#div_btn_Animation_setzen').hide();
-
-        }
-        if (data[1] || data[2]) { //color 1 or 2
-            $('#div_Farbauswahl').fadeIn(500);
-            if (data[1]) {
-                //    $("#list-tab-Animationen").append("<a class='list-group-item list-group-item-action' onclick='getAnimationParameter(this.id,data" + i + ");' id'data[i]' data-toggle='list' href='#list-" + data[i] + "' role='tab' aria-controls='" + data[i] + "'>" + data[i] + "</a>");
-            } else {
-            }
-            if (data[2]) {
-                //    $("#list-tab-Animationen").append("<a class='list-group-item list-group-item-action' onclick='getAnimationParameter(this.id,data" + i + ");' id'data[i]' data-toggle='list' href='#list-" + data[i] + "' role='tab' aria-controls='" + data[i] + "'>" + data[i] + "</a>");
-            } else {
-            }
-        } else {
-            $('#div_Farbauswahl').hide();
-        }
-
-        if (data[3] || data[4]) { //text or speed
-            $('#div_Animationsoptionen').fadeIn(500);
-            if (data[3]) {
-                $('#div_Textfeld').fadeIn();
-            } else {
-                $('#div_Textfeld').fadeOut();
-            }
-            if (data[4]) {
-                $('#div_Speed').fadeIn();
-            } else {
-                $('#div_Speed').fadeOut();
-            }
-        } else {
-            $('#div_Animationsoptionen').hide();
-        }
-
-        //this in success
+    function getAnimationParameter(_id) {
         $.ajax({
-            url: "",
+            url: "getAnimationParameter.php?animation=" + _id + "",
             success: function (data) {
+                data = data.split("_");
+
+                //show / hide DIVs
+                if (data[0]) { //name
+                    $('#div_btn_Animation_setzen').fadeIn(500);
+                    animation_name = data[0];
+                } else {
+                    alert("Kein Name gegeben");
+                    $('#div_btn_Animation_setzen').hide();
+                }
+                if (data[1] || data[2]) { //color 1 or 2
+                    $('#div_Farbauswahl').fadeIn(500);
+                    if (data[1]) {
+                    } else {
+                    }
+                    if (data[2]) {
+                    } else {
+                    }
+                } else {
+                    $('#div_Farbauswahl').hide();
+                }
+                if (data[3] || data[4]) { //text or speed
+                    $('#div_Animationsoptionen').fadeIn(500);
+                    if (data[3]) {
+                        $('#div_Textfeld').fadeIn();
+                    } else {
+                        $('#div_Textfeld').fadeOut();
+                    }
+                    if (data[4]) {
+                        $('#div_Speed').fadeIn();
+                    } else {
+                        $('#div_Speed').fadeOut();
+                    }
+                } else {
+                    $('#div_Animationsoptionen').hide();
+                }
             }
         });
-    }//end set_runningMagazine
+    }//end getAnimationParameter
 
     function setAnimation() {
         $.ajax({
-            url: "",
+            url: "setAnimation.php",
             success: function () {
             }
         });
