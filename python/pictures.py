@@ -83,11 +83,11 @@ def delPicture(strip, command):
     f.close()
 
     #Write to temporary File
-    temp = open(".temp", "w")
+    temp = open(".temp", "r+")
     temp.write(data)
 
     #Read from Temp and Store to .savedPictues
-    f = open(".test", "w+")
+    f = open(".test", "w")
     f.write("This is a Test")
     temp.seek(0)
     last_read = temp.readline()
