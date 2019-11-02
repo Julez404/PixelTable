@@ -77,9 +77,26 @@ def getAllPictures(strip,command):
     readbackSet(allPictures)
 
 def delPicture(strip, command):
+    # Read stored Pictures
     f = open(".savedPictures", "r")
     data = f.read()
-    test = open("bilder", "w+")
-    test.write(data)
-    test.close()
+    f.close()
+
+    #Write to temporary File
+    temp = open(".temp", "w")
+    temp.write(data)
+
+    #Read from Temp and Store to .savedPictues
+    f = open(".test", "w")
+    temp.seek(0)
+    last_read = temp.readline()
+    while last_read != EOF:
+        if(last_read == command[1]):
+            temp.readline()
+            last_read = temp.readline()
+        else:
+            f.write(last_read)
+            f.write(temp.readline())
+            last_read = temp.readline()
+    temp.close()
     f.close()
