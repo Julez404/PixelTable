@@ -1,4 +1,4 @@
-﻿<div id="Standbild" style="visibility:visible" class="column">
+<div id="Standbild" style="visibility:visible" class="column">
     <br />
     <div class="row justify-content-center">
         <div id="Standbild_Grid">
@@ -439,7 +439,7 @@
             success: function (data) {
             }
         });
-    }//end getStaticPicture
+    }//end saveStaticPicture
 
     function setStaticPicture(name) {
         $.ajax({
@@ -448,7 +448,7 @@
                 get_GridValues();
             }
         });
-    }//end getStaticPicture
+    }//end setStaticPicture
 
     function checkString() {
         var name_origin = newPictureName.value;
