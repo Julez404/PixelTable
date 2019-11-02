@@ -55,7 +55,7 @@ def getPixelValues(strip):
 
 # Prints current state of pixel to readback
 def PixelValuesToWeb(strip,parameters):
-    readbackSet(getPixelValues(strip))
+    readbackSet("-"+getPixelValues(strip))
     delLastCommand()
 
 
@@ -72,4 +72,3 @@ def setPixelByString(strip,data_string):
         strip.setPixelColor(count,Color(color_r,color_g,color_b))
         count = count + 1
     strip.show()
-

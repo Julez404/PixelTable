@@ -74,7 +74,7 @@ def getAllPictures(strip,command):
         last_read = f.readline()
     f.close()
     allPictures = extractNames(data)
-    readbackSet(allPictures)
+    readbackSet("~"+allPictures)
 
 def delPicture(strip, command):
     # Read stored Pictures
