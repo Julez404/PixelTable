@@ -8,7 +8,7 @@ import sys
 # 1: Name (isValidPictureName)
 
 if (isValidPictureName(sys.argv[1])):
-    command = ["savePicture"]
+    command = ["delPicture"]
     command.append(sys.argv[1])
     setNewCommand(command)
 else:
