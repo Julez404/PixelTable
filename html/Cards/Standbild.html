@@ -416,8 +416,7 @@
 
     function getAllStaticPictures() {
         //   removeStaticpictureList
-        $("#list-tab-StaticPictures").remove();
-        alert("removed");
+        $("#list-tab-StaticPictures").empty();
         $.ajax({
             url: "getAllPictures.php",
             success: function (data) {
@@ -431,7 +430,7 @@
                         } else {
                             $("#list-tab-StaticPictures").append("<a class='list-group-item list-group-item-action' onclick='setStaticPicture(this.id);' id=" + data[i] + " data-toggle='list' href='#list-" + data[i] + "' role='tab' aria-controls='" + data[i] + "'>" + data[i] + "</a>");
                         }
-                    } alert("added");
+                    }
                 }
             }
         });
