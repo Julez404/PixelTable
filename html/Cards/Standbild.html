@@ -409,8 +409,7 @@
                 var _id = "LED_" + h_array[0] + "_" + h_array[1];
                 var _set_color = "#" + h_array[2];
                 document.getElementById(_id).style.backgroundColor = _set_color;
-
-            }
+}
         }
     }//end colorGridPixelfromData
 
@@ -420,7 +419,7 @@
             success: function (data) {
                 //data = "Array ( [0] => ~batterie~test~A1~A2~A3~A4~A5~A6~"; //delete this
                 if (data.length <= 10) {
-                    alert("Keine Bilder orhanden");
+                    alert("Keine Bilder vorhanden");
                 } else {
                     data = data.split("~");
                     for (i = 0; i < data.length - 1; i++) {
@@ -454,6 +453,5 @@
         } else {
             alert("Folgende Symbole sind nicht erlaubt: " + name);
         }
-
-    }
+}
 </script>
