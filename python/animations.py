@@ -73,3 +73,24 @@ def setAnimation(parameters):
         state = parameters[0]
         animation = parameters[1]
     delLastCommand()
+
+def extractNames(data_array):
+    size = len(data_array)
+    name = ""
+    count = 0
+    while (count != size):
+        name += (data_array[count].lstrip("name=")+"~")
+        count = count + 2;
+    return name;
+
+
+def getAllAnimations(strip,command):
+    f = open(".savedAnimations", "r")
+    data = []
+    last_read = f.readline()
+    while(last_read != EOF):
+        data.append(last_read.rstrip('\n'))
+        last_read = f.readline()
+    f.close()
+    allAnimations = extractNames(data)
+    readbackSet("~"+allAnimations)

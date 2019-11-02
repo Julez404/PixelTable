@@ -48,3 +48,6 @@ while True:
     if command[0] == ("delPicture"):
         delPicture(led_strip,command)
         delLastCommand()
+    if command[0] == ("getAllAnimations"):
+        getAllAnimations(led_strip,command)
+        delLastCommand()
