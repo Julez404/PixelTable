@@ -453,7 +453,6 @@
     }//end setStaticPicture
 
     function delStaticPicture() {
-        alert(curr_picture);
         $.ajax({
             url: "delPicture.php?picture=" + curr_picture + "",
             success: function (data) {
