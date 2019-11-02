@@ -425,7 +425,7 @@
                     for (i = 0; i < data.length - 1; i++) {
                         if (i == 0) {
                         } else {
-                            $("#list-tab-StaticPictures").append("<a class='list-group-item list-group-item-action' onclick='getAnimationParameter(this.id,data" + i + ");' id'data[i]' data-toggle='list' href='#list-" + data[i] + "' role='tab' aria-controls='" + data[i] + "'>" + data[i] + "</a>");
+                            $("#list-tab-StaticPictures").append("<a class='list-group-item list-group-item-action' onclick='setStaticPicture(this.id);' id="+data[i]+" data-toggle='list' href='#list-" + data[i] + "' role='tab' aria-controls='" + data[i] + "'>" + data[i] + "</a>");
                         }
                     }
                 }
@@ -437,6 +437,16 @@
         $.ajax({
             url: "savePicture.php?picture=" + new_name + "",
             success: function (data) {
+            }
+        });
+    }//end getStaticPicture
+
+    function setStaticPicture(name) {
+        alert(name);
+        $.ajax({
+            url: "setPicture.php?picture=" + name + "",
+            success: function (data) {
+                get_GridValues();
             }
         });
     }//end getStaticPicture
