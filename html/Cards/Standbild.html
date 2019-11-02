@@ -315,7 +315,6 @@
             var hex = colorPicker.color.hexString;
             _color = hex.slice(1, 7);
         });
-        get_GridValues();
     });  //end document ready
 
     //Funktionen
@@ -433,6 +432,7 @@
                         }
                     }
                 }
+                get_GridValues();
             }
         });
     }//end getAllStaticPictures
