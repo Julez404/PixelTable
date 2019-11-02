@@ -1,8 +1,11 @@
 #!/usr/bin/python3
 
 import time
+from readback import *
 from rpi_ws281x import *
 import sys
+
+EOF = ""
 
 def colorWipe(strip, color, wait_ms=50):
     """Wipe color across display a pixel at a time."""
@@ -78,9 +81,10 @@ def extractNames(data_array):
     size = len(data_array)
     name = ""
     count = 0
-    while (count != size):
-        name += (data_array[count].lstrip("name=")+"~")
-        count = count + 2;
+    while (count < size):
+        if(data_array[count][0] == "n"):
+            name += (data_array[count].lstrip("name=")+"~")
+        count = count + 1 ;
     return name;
 
 

@@ -1,6 +1,6 @@
 <?php
 
-exec("./python/getAllAnimations",$output);
+exec("./python/getAllAnimations.py",$output);
 print_r($output);
 
 ?>
