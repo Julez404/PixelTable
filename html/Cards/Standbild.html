@@ -1,4 +1,4 @@
-<div id="Standbild" style="visibility:visible" class="column">
+﻿<div id="Standbild" style="visibility:visible" class="column">
     <br />
     <div class="row justify-content-center">
         <div id="Standbild_Grid">
@@ -267,7 +267,7 @@
                             </div>
                             <hr />
                             <div class="col" style="text-align:center;">
-                                <button class="btn btn-danger btn-md" type="button" id="btn_set_all_Pxl" onclick="set_all_Pixel()"><i class="fa fa-trash"></i> Bild löschen</button>
+                                <button class="btn btn-danger btn-md" type="button" id="btn_set_all_Pxl" onclick="delStaticPicture()"><i class="fa fa-trash"></i> Bild löschen</button>
                             </div>
                             <hr />
                             <h5>Neues Bild</h5>
@@ -292,6 +292,7 @@
     var _color = "";
     var isDown = false;   // Tracks status of mouse button
     var eye_dropper = "";
+    var curr_picture = "";
 
     //ColorPicker
     var colorPicker = new iro.ColorPicker(".colorPicker", {
@@ -445,10 +446,22 @@
         $.ajax({
             url: "setPicture.php?picture=" + name + "",
             success: function (data) {
+                curr_picture = name;
                 get_GridValues();
             }
         });
     }//end setStaticPicture
+
+    function delStaticPicture() {
+        alert(curr_picture);
+        $.ajax({
+            url: "delPicture.php?picture=" + curr_picture + "",
+            success: function (data) {
+                get_GridValues();
+                
+            }
+        });
+    }//end delStaticPicture
 
     function checkString() {
         var name_origin = newPictureName.value;
