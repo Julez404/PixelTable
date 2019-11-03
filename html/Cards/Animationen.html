@@ -195,6 +195,7 @@
     }//end getAnimationParameter
 
     function setAnimation() {
+        alert("setAnimation.php?animation=" + animation_name + "&color1=" + animationcolor1 + "&color2=" + animationcolor2 + "&text=" + animation_laufschrift + "&speed=" + animation_speed + "");
         $.ajax({
             url: "setAnimation.php?animation=" + animation_name + "&color1=" + animationcolor1 + "&color2=" + animationcolor2 + "&text=" + animation_laufschrift + "&speed=" + animation_speed + "",
             success: function () {
