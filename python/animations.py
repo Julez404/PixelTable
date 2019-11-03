@@ -102,6 +102,7 @@ def getAllAnimations(strip,command):
 def getAnimationParameter(strip,parameters):
     f = open(".savedAnimations", "r")
     data = []
+    ret_string = ""
     last_read = f.readline()
     while(last_read != EOF):
         check_string = last_read.lstrip("name=")
@@ -120,10 +121,9 @@ def getAnimationParameter(strip,parameters):
                 data.append(last_read)
                 last_read = f.readline()
                 last_read = last_read.rstrip('\n')
+            for i in range(len(data)):
+                ret_string += ("~"+data[i])
+                ret_string += "~"
         last_read = f.readline()
     f.close()
-    ret_string = ""
-    for i in range(len(data)):
-        ret_string += ("~"+data[i])
-    ret_string += "~"
     readbackSet(ret_string)
