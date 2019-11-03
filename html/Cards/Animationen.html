@@ -149,14 +149,14 @@
     function getAllAnimations() {
         $.ajax({
             url: "getAllAnimations.php",
-            success: function (data) {
+            success: function (AllAnimations) {
         //        data = "Array ( [0] => ~rainbow1~theaterChaseRainbow1~rainbow2~theaterChaseRainbow2~rainbow3~theaterChaseRainbow3~ )";
-                if (data.length <= 10) {
+                if (AllAnimations.length <= 10) {
                     alert("Keine Animationen vorhanden");
                 } else {
-                    data = data.split("~");
-                    for (i = 1; i < data.length - 1; i++) {
-                        $("#list-tab-Animationen").append("<a class='list-group-item list-group-item-action'    onclick='getAnimationParameter(this.id);'   id=" + data[i] + " data-toggle='list' href='#list-" + data[i] + "' role='tab' aria-controls='" + data[i] + "'>" + data[i] + "</a>");
+                    AllAnimations = AllAnimations.split("~");
+                    for (i = 1; i < AllAnimations.length - 1; i++) {
+                        $("#list-tab-Animationen").append("<a class='list-group-item list-group-item-action'    onclick='getAnimationParameter(this.id);'   id=" + AllAnimations[i] + " data-toggle='list' href='#list-" + AllAnimations[i] + "' role='tab' aria-controls='" + AllAnimations[i] + "'>" + AllAnimations[i] + "</a>");
                     }
                 }
             }
