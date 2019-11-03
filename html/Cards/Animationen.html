@@ -151,7 +151,7 @@
             url: "getAllAnimations.php",
             success: function (data) {
                 if (data.length <= 10) {
-                    alert("Keine Bilder vorhanden");
+                    alert("Keine Animationen vorhanden");
                 } else {
                     data = data.split("~");
                     for (i = 0; i < data.length - 1; i++) {
