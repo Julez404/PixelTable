@@ -6,6 +6,7 @@ from readback import *
 from command import *
 import sys
 
+SPEED_MAX = 101
 EOF = ""
 
 def colorWipe(strip, color, wait_ms=50):
@@ -81,7 +82,7 @@ def setAnimation(strip, parameters):
     COLOR1 = int(parameters[2],16)
     COLOR2 = int(parameters[3],16)
     TEXT = parameters[4]
-    SPEED = int(parameters[5])
+    SPEED = SPEED_MAX-int(parameters[5])
     while (state == ("setAnimation")):
         if (animation == ("colorWipe")):
             colorWipe(strip, COLOR1, SPEED)
