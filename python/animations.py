@@ -98,3 +98,32 @@ def getAllAnimations(strip,command):
     f.close()
     allAnimations = extractNames(data)
     readbackSet("~"+allAnimations)
+
+def getAnimationParameter(strip,parameters):
+    f = open(".savedAnimations", "r")
+    data = []
+    last_read = f.readline()
+    while(last_read != EOF):
+        check_string = last_read.lstrip("name=")
+        check_string = check_string.rstrip('\n')
+        if (check_string == parameters[1]):
+            last_read = f.readline()
+            last_read = last_read.rstrip('\n')
+
+            # As long as parameters are read
+            while (
+                    (last_read == "color1") or
+                    (last_read == "color2") or
+                    (last_read == "text") or
+                    (last_read == "speed")
+                ):
+                data.append(last_read)
+                last_read = f.readline()
+                last_read = last_read.rstrip('\n')
+        last_read = f.readline()
+    f.close()
+    ret_string = ""
+    for i in range(len(data)):
+        ret_string += ("~"+data[i])
+    ret_string += "~"
+    readbackSet(ret_string)
