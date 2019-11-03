@@ -63,3 +63,9 @@ def delLastCommand():
 
     delFirstLine(f)
     f.close()
+
+def CommandsAvailable():
+    f = open("/var/www/pixel/python/.command", "r")
+    string = f.read()
+    f.close()
+    return string.count("--COMMAND-BEGIN--")
