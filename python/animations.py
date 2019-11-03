@@ -1,8 +1,9 @@
 #!/usr/bin/python3
 
 import time
-from readback import *
 from rpi_ws281x import *
+from readback import *
+from command import *
 import sys
 
 EOF = ""
@@ -106,7 +107,6 @@ def extractNames(data_array):
             name += (data_array[count].lstrip("name=")+"~")
         count = count + 1 ;
     return name;
-
 
 def getAllAnimations(strip,command):
     f = open(".savedAnimations", "r")
