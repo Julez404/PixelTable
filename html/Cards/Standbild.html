@@ -417,7 +417,6 @@
         $.ajax({
             url: "getAllPictures.php",
             success: function (data) {
-                alert("Bilddaten: " + data);
                 //  data = "Array ( [0] => ~batterie~test~A1~A2~A3~A4~A5~A6~"; //delete this
                 if (data.length <= 10) {
                     alert("Keine Bilder vorhanden");

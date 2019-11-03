@@ -146,11 +146,11 @@
     }//end set_runningMagazine
 
     function getAllAnimations() {
+        $("#list-tab-Animationen").empty();
         $.ajax({
             url: "getAllAnimations.php",
             success: function (AllAnimations) {
         //        data = "Array ( [0] => ~rainbow1~theaterChaseRainbow1~rainbow2~theaterChaseRainbow2~rainbow3~theaterChaseRainbow3~ )";
-                alert("Animationsdaten: " + AllAnimations);
                 if (AllAnimations.length <= 10) {
                     alert("Keine Animationen vorhanden");
                 } else {
