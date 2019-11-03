@@ -127,6 +127,8 @@ def getAnimationParameter(strip,parameters):
         check_string = last_read.lstrip("name=")
         check_string = check_string.rstrip('\n')
         if (check_string == parameters[1]):
+            # Add Name of animation
+            ret_string = check_string
             last_read = f.readline()
             last_read = last_read.rstrip('\n')
 
@@ -137,7 +139,17 @@ def getAnimationParameter(strip,parameters):
                     (last_read == "text") or
                     (last_read == "speed")
                 ):
-                ret_string+="~"+last_read
+                if last_read == color1:
+                    ret_string += "~"+last_read
+                elif last_read == color2:
+                    ret_string += "~"+last_read
+                elif last_read == text:
+                    ret_string += "~"+last_read
+                elif last_read == speed:
+                    ret_string += "~"+last_read
+                else:
+                    ret_string += "~"
+                    
                 last_read = f.readline()
                 last_read = last_read.rstrip('\n')
             ret_string+="~"
