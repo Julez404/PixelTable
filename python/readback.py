@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 
 from rpi_ws281x import *
-from pixels import *
 import sys
 
 # File: .readback
