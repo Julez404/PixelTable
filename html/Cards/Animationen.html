@@ -65,7 +65,7 @@
                         <div id="div_Textfeld">
                             <label for="customRange1">Laufschrift</label>
                             <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Kam mit einem Messer zur Schießerei" onchange="animation_laufschrift = this.value; setAnimation()"; aria-label="" aria-describedby="basic-addon2">
+                                <input type="text" class="form-control" placeholder="Kam mit einem Messer zur Schießerei" onchange="animation_laufschrift = this.value; setAnimation()" ; aria-label="" aria-describedby="basic-addon2">
                                 <div class="input-group-append">
                                     <button class="btn btn-outline-success" type="button">Speichern</button>
                                 </div>
@@ -150,11 +150,12 @@
         $.ajax({
             url: "getAllAnimations.php",
             success: function (data) {
+        //        data = "Array ( [0] => ~rainbow1~theaterChaseRainbow1~rainbow2~theaterChaseRainbow2~rainbow3~theaterChaseRainbow3~ )";
                 if (data.length <= 10) {
                     alert("Keine Animationen vorhanden");
                 } else {
                     data = data.split("~");
-                    for (i = 0; i < data.length - 1; i++) {
+                    for (i = 1; i < data.length - 1; i++) {
                         $("#list-tab-Animationen").append("<a class='list-group-item list-group-item-action'    onclick='getAnimationParameter(this.id);'   id=" + data[i] + " data-toggle='list' href='#list-" + data[i] + "' role='tab' aria-controls='" + data[i] + "'>" + data[i] + "</a>");
                     }
                 }
