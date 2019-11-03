@@ -13,7 +13,7 @@ def colorWipe(strip, color, wait_ms=50):
     for i in range(strip.numPixels()):
         strip.setPixelColor(i, color)
         strip.show()
-        if(CommandsAvailable() > 1):
+        if(int(CommandsAvailable()) > 1):
             break
         time.sleep(wait_ms/1000.0)
 
@@ -24,7 +24,7 @@ def theaterChase(strip, color, wait_ms=50, iterations=10):
             for i in range(0, strip.numPixels(), 3):
                 strip.setPixelColor(i+q, color)
             strip.show()
-            if(CommandsAvailable() > 1):
+            if(int(CommandsAvailable()) > 1):
                 break
             time.sleep(wait_ms/1000.0)
             for i in range(0, strip.numPixels(), 3):
@@ -47,7 +47,7 @@ def rainbow(strip, wait_ms=20, iterations=1):
         for i in range(strip.numPixels()):
             strip.setPixelColor(i, wheel((i+j) & 255))
         strip.show()
-        if(CommandsAvailable() > 1):
+        if(int(CommandsAvailable()) > 1):
             break
         time.sleep(wait_ms/1000.0)
 
@@ -57,7 +57,7 @@ def rainbowCycle(strip, wait_ms=20, iterations=5):
         for i in range(strip.numPixels()):
             strip.setPixelColor(i, wheel((int(i * 256 / strip.numPixels()) + j) & 255))
         strip.show()
-        if(CommandsAvailable() > 1):
+        if(int(CommandsAvailable()) > 1):
             break
         time.sleep(wait_ms/1000.0)
 
@@ -68,7 +68,7 @@ def theaterChaseRainbow(strip, wait_ms=50):
             for i in range(0, strip.numPixels(), 3):
                 strip.setPixelColor(i+q, wheel((i+j) % 255))
             strip.show()
-            if(CommandsAvailable() > 1):
+            if(int(CommandsAvailable()) > 1):
                 break
             time.sleep(wait_ms/1000.0)
             for i in range(0, strip.numPixels(), 3):
@@ -78,10 +78,10 @@ def theaterChaseRainbow(strip, wait_ms=50):
 def setAnimation(strip, parameters):
     state = parameters[0]
     animation = parameters[1]
-    COLOR1 = parameters[2]
-    COLOR2 = parameters[3]
+    COLOR1 = int(parameters[2])
+    COLOR2 = int(parameters[3])
     TEXT = parameters[4]
-    SPEED = parameters[5]
+    SPEED = int(parameters[5])
     while (state == ("setAnimation")):
         if (animation == ("colorWipe")):
             colorWipe(strip, COLOR1, SPEED)
@@ -94,7 +94,7 @@ def setAnimation(strip, parameters):
         if (animation == ("theaterChaseRainbow")):
             theaterChaseRainbow(strip, SPEED)
 
-        if CommandsAvailable > 1:
+        if int(CommandsAvailable()) > 1:
             delLastCommand()
             state = "NONE"
 
@@ -128,9 +128,13 @@ def getAnimationParameter(strip,parameters):
         check_string = check_string.rstrip('\n')
         if (check_string == parameters[1]):
             # Add Name of animation
-            ret_string = check_string
+            ret_string = "~"+check_string
             last_read = f.readline()
             last_read = last_read.rstrip('\n')
+            color1 = 0
+            color2 = 0
+            text = 0
+            speed = 0
 
             # As long as parameters are read
             while (
@@ -139,20 +143,32 @@ def getAnimationParameter(strip,parameters):
                     (last_read == "text") or
                     (last_read == "speed")
                 ):
-                if last_read == color1:
-                    ret_string += "~"+last_read
-                elif last_read == color2:
-                    ret_string += "~"+last_read
-                elif last_read == text:
-                    ret_string += "~"+last_read
-                elif last_read == speed:
-                    ret_string += "~"+last_read
-                else:
-                    ret_string += "~"
-                    
+                if last_read == "color1":
+                    color1 = 1
+                elif last_read == "color2":
+                    color2 = 1
+                elif last_read == "text":
+                    text = 1
+                elif last_read == "speed":
+                    speed = 1
+
                 last_read = f.readline()
                 last_read = last_read.rstrip('\n')
+
+            ret_string += "~"
+            if color1:
+                ret_string += "color1"
+            ret_string += "~"
+            if color2:
+                ret_string += "color2"
+            ret_string += "~"
+            if text:
+                ret_string += "text"
+            ret_string += "~"
+            if speed:
+                ret_string += "speed"
             ret_string+="~"
+
         last_read = f.readline()
     f.close()
     readbackSet(ret_string)
