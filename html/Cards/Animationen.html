@@ -150,13 +150,17 @@
         $.ajax({
             url: "getAllAnimations.php",
             success: function (data) {
-                data = data.split("~");
-                for (i = 0; data[i] != ""; i++) {
-                    $("#list-tab-Animationen").append("<a class='list-group-item list-group-item-action'    onclick='getAnimationParameter(this.id);'   id=" + data[i] + " data-toggle='list' href='#list-" + data[i] + "' role='tab' aria-controls='" + data[i] + "'>" + data[i] + "</a>");
+                if (data.length <= 10) {
+                    alert("Keine Bilder vorhanden");
+                } else {
+                    data = data.split("~");
+                    for (i = 0; i < data.length - 1; i++) {
+                        $("#list-tab-Animationen").append("<a class='list-group-item list-group-item-action'    onclick='getAnimationParameter(this.id);'   id=" + data[i] + " data-toggle='list' href='#list-" + data[i] + "' role='tab' aria-controls='" + data[i] + "'>" + data[i] + "</a>");
+                    }
                 }
             }
         });
-    }//end set_runningMagazine
+    }//end getAllAnimations
 
     function getAnimationParameter(_id) {
         $.ajax({
