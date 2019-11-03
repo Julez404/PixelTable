@@ -78,8 +78,8 @@ def theaterChaseRainbow(strip, wait_ms=50):
 def setAnimation(strip, parameters):
     state = parameters[0]
     animation = parameters[1]
-    COLOR1 = int(parameters[2])
-    COLOR2 = int(parameters[3])
+    COLOR1 = int(parameters[2],16)
+    COLOR2 = int(parameters[3],16)
     TEXT = parameters[4]
     SPEED = int(parameters[5])
     while (state == ("setAnimation")):
