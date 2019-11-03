@@ -402,15 +402,12 @@
     }//end get_GridValues
 
     function colorGridPixelfromData(_array) {
-        for (i = 0; i < _array.length; i++) {
-            if (i == 0) {
-            } else {
-                var h_array = _array[i].split("_");
-                var _dataset = "LED_" + h_array[0] + "_" + h_array[1] + "_#" + h_array[2];
-                var _id = "LED_" + h_array[0] + "_" + h_array[1];
-                var _set_color = "#" + h_array[2];
-                document.getElementById(_id).style.backgroundColor = _set_color;
-            }
+        for (i = 1; i < _array.length; i++) {
+            var h_array = _array[i].split("_");
+            var _dataset = "LED_" + h_array[0] + "_" + h_array[1] + "_#" + h_array[2];
+            var _id = "LED_" + h_array[0] + "_" + h_array[1];
+            var _set_color = "#" + h_array[2];
+            document.getElementById(_id).style.backgroundColor = _set_color;
         }
     }//end colorGridPixelfromData
 
@@ -420,13 +417,14 @@
         $.ajax({
             url: "getAllPictures.php",
             success: function (data) {
+                alert("Bilddaten: " + data);
                 //  data = "Array ( [0] => ~batterie~test~A1~A2~A3~A4~A5~A6~"; //delete this
                 if (data.length <= 10) {
                     alert("Keine Bilder vorhanden");
                 } else {
                     data = data.split("~");
                     for (i = 1; i < data.length - 1; i++) {
-                            $("#list-tab-StaticPictures").append("<a class='list-group-item list-group-item-action' onclick='setStaticPicture(this.id);' id=" + data[i] + " data-toggle='list' href='#list-" + data[i] + "' role='tab' aria-controls='" + data[i] + "'>" + data[i] + "</a>");
+                        $("#list-tab-StaticPictures").append("<a class='list-group-item list-group-item-action' onclick='setStaticPicture(this.id);' id=" + data[i] + " data-toggle='list' href='#list-" + data[i] + "' role='tab' aria-controls='" + data[i] + "'>" + data[i] + "</a>");
                     }
                 }
                 get_GridValues();
