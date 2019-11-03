@@ -425,11 +425,8 @@
                     alert("Keine Bilder vorhanden");
                 } else {
                     data = data.split("~");
-                    for (i = 0; i < data.length - 1; i++) {
-                        if (i == 0) {
-                        } else {
+                    for (i = 1; i < data.length - 1; i++) {
                             $("#list-tab-StaticPictures").append("<a class='list-group-item list-group-item-action' onclick='setStaticPicture(this.id);' id=" + data[i] + " data-toggle='list' href='#list-" + data[i] + "' role='tab' aria-controls='" + data[i] + "'>" + data[i] + "</a>");
-                        }
                     }
                 }
                 get_GridValues();
