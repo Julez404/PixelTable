@@ -53,3 +53,6 @@ while True:
     if command[0] == ("getAllAnimations"):
         getAllAnimations(led_strip,command)
         delLastCommand()
+    if command[0] == ("getAnimationParameter"):
+        getAnimationParameter(led_strip,command)
+        delLastCommand()
