@@ -12,7 +12,7 @@ import sys
 command = ["getAllPictures"]
 setNewCommand(command)
 
-time.sleep(.1)
+time.sleep(.3)
 
 print(readbackGet())
 readbackClear()

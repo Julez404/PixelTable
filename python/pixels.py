@@ -58,6 +58,9 @@ def PixelValuesToWeb(strip,parameters):
     readbackSet("-"+getPixelValues(strip))
     delLastCommand()
 
+def PixelToWeb(strip, parameters):
+    readbackSet(parameters[1]+"_"+parameters[2]+"_"+"%06X" % strip.getPixelColor(getPixelIndex(int(parameters[1]),int(parameters[2])))+"_")
+    delLastCommand()
 
 def setPixelByString(strip,data_string):
     string = data_string.rstrip("-")

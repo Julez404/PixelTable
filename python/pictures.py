@@ -31,7 +31,7 @@ def extractNames(data_array):
     size = len(data_array)
     name = ""
     count = 0
-    while (count != size):
+    while (count < size):
         name += (data_array[count].lstrip("name=")+"~")
         count = count + 2;
     return name;
@@ -83,13 +83,13 @@ def delPicture(strip, command):
     f.close()
 
     #Write to temporary File
-    temp = open(".temp", "r+")
+    temp = open(".temp", "w")
     temp.write(data)
+    temp.close()
 
     #Read from Temp and Store to .savedPictues
     f = open(".savedPictures", "w")
-    f.write("This is a Test")
-    temp.seek(0)
+    temp = open(".temp", "r")
     last_read = temp.readline()
     while last_read != EOF:
         string_check = last_read

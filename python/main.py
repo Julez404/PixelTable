@@ -36,6 +36,8 @@ while True:
         setAnimation(led_strip,command)
     if command[0] == ("PixelValuesToWeb"):
         PixelValuesToWeb(led_strip,command)
+    if command[0] == ("PixelToWeb"):
+        PixelToWeb(led_strip,command)
     if command[0] == ("savePicture"):
         savePicture(led_strip,command)
         delLastCommand()
