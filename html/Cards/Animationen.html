@@ -120,22 +120,6 @@
         });
     }//end setAnimation
 
-    function set_animation_Rainbow() {
-        $.ajax({
-            url: "setAnimation.php?animation=rainbow",
-            success: function () {
-            }
-        });
-    }//end set_animation_Rainbow
-
-    function set_animation_theaterChase() {
-        $.ajax({
-            url: "setAnimation.php?animation=theaterChaseRainbow",
-            success: function () {
-            }
-        });
-    }//end set_animation_theaterChase
-
     function set_runningMagazine() {
         var runningText = document.getElementById("input_set_runningMagazine").value;
         $.ajax({
@@ -212,7 +196,7 @@
 
     function setAnimation() {
         $.ajax({
-            url: "setAnimation.php",
+            url: "setAnimation.php?animation=" + animation_name + "&color1=" + animationcolor1 + "&color2=" + animationcolor2 + "&text=" + animation_laufschrift + "&speed=" + animation_speed + "",
             success: function () {
             }
         });
