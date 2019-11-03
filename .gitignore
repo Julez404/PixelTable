@@ -4,3 +4,4 @@ python/__pycache__
 python/.readback
 python/.command
 python/.readback
+python/*.pyc
