@@ -156,32 +156,32 @@
                 } else {
                     data = data.split("~");
                     //show / hide DIVs
-                    if (data[0]) { //name
+                    if (data[1]) { //name
                         $('#div_btn_Animation_setzen').fadeIn(500);
                         animation_name = data[0];
                     } else {
                         alert("Kein Name gegeben");
                         $('#div_btn_Animation_setzen').hide();
                     }
-                    if (data[1] || data[2]) { //color 1 or 2
+                    if (data[2] || data[3]) { //color 1 or 2
                         $('#div_Farbauswahl').fadeIn(500);
-                        if (data[1]) {
+                        if (data[2]) {
                         } else {
                         }
-                        if (data[2]) {
+                        if (data[3]) {
                         } else {
                         }
                     } else {
                         $('#div_Farbauswahl').hide();
                     }
-                    if (data[3] || data[4]) { //text or speed
+                    if (data[4] || data[5]) { //text or speed
                         $('#div_Animationsoptionen').fadeIn(500);
-                        if (data[3]) {
+                        if (data[4]) {
                             $('#div_Textfeld').fadeIn();
                         } else {
                             $('#div_Textfeld').fadeOut();
                         }
-                        if (data[4]) {
+                        if (data[5]) {
                             $('#div_Speed').fadeIn();
                         } else {
                             $('#div_Speed').fadeOut();
