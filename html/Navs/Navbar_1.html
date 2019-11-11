@@ -9,6 +9,7 @@
                 <div class="row">
                     <div class="col"><a class="active" data-toggle="collapse" data-target="#navbarToggleExternalContent" id="Menue_Standbild" onclick="activeMenue(this.id);" href="#">Standbild</a></div>
                     <div class="col"><a class="inactive" data-toggle="collapse" data-target="#navbarToggleExternalContent" id="Menue_Animationen" onclick="activeMenue(this.id); getAllAnimations();" href="#">Animationen</a></div>
+                    <div class="col"><a class="inactive" data-toggle="collapse" data-target="#navbarToggleExternalContent" id="Menue_Uhr" onclick="activeMenue(this.id);" href="#">Uhr</a></div>
                     <div class="col"><a class="inactive" data-toggle="collapse" data-target="#navbarToggleExternalContent" id="Menue_Snake" onclick="activeMenue(this.id);" href="#">Snake</a></div>
                     <div class="col"><a class="inactive" data-toggle="collapse" data-target="#navbarToggleExternalContent" id="Menue_Tetris" onclick="activeMenue(this.id);" href="#">Tetris</a></div>
                 </div>
@@ -29,6 +30,7 @@
     $('#Import_Animationen').hide();
     $('#Import_Snake').hide();
     $('#Import_Tetris').hide();
+    $('#Import_Uhr').hide();
 
     function activeMenue(_id) {
         h_var1 = active.split("_");
