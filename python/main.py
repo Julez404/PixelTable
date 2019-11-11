@@ -28,9 +28,9 @@ led_strip.begin()
 while True:
     time.sleep(.01)				# Delay Betwee Commands
     command = getCommand()
-
+    if command[0] == ("setClock"):
     if command[0] == ("setPixel"):
-        setPixel(led_strip,command)
+        setPixelWeb(led_strip,command)
         delLastCommand()
     if command[0] == ("setAllPixel"):
         setAllPixel(led_strip,command)

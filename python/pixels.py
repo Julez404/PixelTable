@@ -22,7 +22,7 @@ def getPixelColumn(pixelIndex):
     return column
 
 # Set single pixel in specific color
-def setPixel(strip,parameters):
+def setPixelWeb(strip,parameters):
     row = parameters[1]
     column = parameters[2]
     color_hex = parameters[3]
@@ -30,6 +30,17 @@ def setPixel(strip,parameters):
     color_g = int( color_hex[2]+color_hex[3],16 )
     color_b = int( color_hex[4]+color_hex[5],16 )
     index = getPixelIndex(int(row),int(column))
+
+    strip.setPixelColor(index,Color(color_r,color_g,color_b))
+    strip.show()
+
+# Set single pixel in specific color
+def setPixel(strip,row,column,color_hex):
+    color_hex = str(color_hex)
+    color_r = int(color_hex[0]+color_hex[1],16)
+    color_g = int(color_hex[2]+color_hex[3],16)
+    color_b = int(color_hex[4]+color_hex[5],16)
+    index = getPixelIndex(row,column)
 
     strip.setPixelColor(index,Color(color_r,color_g,color_b))
     strip.show()
