@@ -2,7 +2,7 @@
 
 import time
 from number import setNumber
-from pixel import setPixel
+from pixels import clearPixelBuffer
 from pixel import clearPixelBuffer
 from command import CommandsAvailable
 
