@@ -3,6 +3,7 @@
 import time
 from number import setNumber
 from pixel import setPixel
+from pixel import clearPixelBuffer
 
 def clock(strip,parameters):
     while True:
