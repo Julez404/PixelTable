@@ -11,13 +11,8 @@ def clock(strip,parameters):
         clearPixelBuffer(strip)
 
         # print current date and time
-        print(time.strftime("%d.%m.%Y %H:%M:%S"))
-
         hours = time.strftime("%H")
         minutes = time.strftime("%M")
-
-        print(hours)
-        print(minutes)
 
         #set Doppelpunkt
         Offset_x = 0
@@ -40,7 +35,6 @@ def clock(strip,parameters):
             ziffer = 2
 
         setNumber(strip, Offset_x, Offset_y, ziffer, parameters[1])
-        print(ziffer)
 
 
         #set zweite Ziffer
@@ -81,7 +75,6 @@ def clock(strip,parameters):
 
 
         setNumber(strip, Offset_x, Offset_y, ziffer, parameters[1])
-        print(ziffer)
 
         #set dritte Ziffer
         Offset_x = 0
@@ -106,8 +99,7 @@ def clock(strip,parameters):
         elif (50 <= zahl <= 59):
             ziffer = 5
         setNumber(strip, Offset_x, Offset_y, ziffer, parameters[1])
-        print(ziffer)
-
+      
         #set vierte Ziffer
         Offset_x = 0
         Offset_y = 15
@@ -144,7 +136,6 @@ def clock(strip,parameters):
         elif compare == 4.5:
             ziffer = 9
         setNumber(strip, Offset_x, Offset_y, ziffer, parameters[1])
-        print(ziffer)
-
+       
         if int(CommandsAvailable()) > 1:
             break
