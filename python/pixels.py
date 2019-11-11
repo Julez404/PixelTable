@@ -22,7 +22,7 @@ def getPixelColumn(pixelIndex):
     return column
 
 # Clears the current Pixel buffer
-def clearPixelBuffer(strip)
+def clearPixelBuffer(strip):
     for x in range(0, config.LED_COUNT):
         strip.setPixelColor(x,Color(0,0,0))
 
