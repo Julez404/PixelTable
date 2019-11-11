@@ -8,7 +8,7 @@ from pixels import *
 from switchcase import switch
 
 
-def setNumber(strip,offset_x,offset_y,Number,farbe]):
+def setNumber(strip,offset_x,offset_y,Number,farbe):
     for case in switch(Number):
 
         if case(0):
