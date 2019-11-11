@@ -5,3 +5,4 @@ python/.readback
 python/.command
 python/.readback
 python/*.pyc
+python/fehlerUeberbrueckung.py
