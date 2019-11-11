@@ -21,6 +21,11 @@ def getPixelColumn(pixelIndex):
     column = pixelIndex - row*config.LED_COLUMN_COUNT
     return column
 
+# Clears the current Pixel buffer
+def clearPixelBuffer(strip)
+    for x in range(0, config.LED_COUNT):
+        strip.setPixelColor(x,Color(0,0,0))
+
 # Set single pixel in specific color
 def setPixelWeb(strip,parameters):
     row = parameters[1]
