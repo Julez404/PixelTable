@@ -3,7 +3,6 @@
 import time
 from number import setNumber
 from pixels import clearPixelBuffer
-from pixel import clearPixelBuffer
 from command import CommandsAvailable
 
 def clock(strip,parameters):
