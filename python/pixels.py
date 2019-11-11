@@ -33,7 +33,6 @@ def setPixel(strip,parameters):
 
     strip.setPixelColor(index,Color(color_r,color_g,color_b))
     strip.show()
-    delLastCommand()
 
 # Set all Pixel to a specific color
 def setAllPixel(strip,parameters):
@@ -44,7 +43,6 @@ def setAllPixel(strip,parameters):
     for x in range(0, config.LED_COUNT):
         strip.setPixelColor(x,Color(color_r,color_g,color_b))
     strip.show()
-    delLastCommand()
 
 # Return current state of Pixels as string
 def getPixelValues(strip):

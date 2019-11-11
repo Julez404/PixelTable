@@ -31,8 +31,10 @@ while True:
 
     if command[0] == ("setPixel"):
         setPixel(led_strip,command)
+        delLastCommand()
     if command[0] == ("setAllPixel"):
         setAllPixel(led_strip,command)
+        delLastCommand()
     if command[0] == ("setAnimation"):
         setAnimation(led_strip,command)
     if command[0] == ("PixelValuesToWeb"):
