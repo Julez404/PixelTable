@@ -6,7 +6,7 @@ from number import setNumber
 ziffer = 0
 colour = 1
 
-def clock(strip):
+def clock(strip,parameters):
     # print current date and time
     print(time.strftime("%d.%m.%Y %H:%M:%S"))
 
