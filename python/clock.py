@@ -4,6 +4,7 @@ import time
 from number import setNumber
 from pixel import setPixel
 from pixel import clearPixelBuffer
+from command import CommandsAvailable
 
 def clock(strip,parameters):
     while True:
@@ -145,3 +146,6 @@ def clock(strip,parameters):
             ziffer = 9
         setNumber(strip, Offset_x, Offset_y, ziffer, parameters[1])
         print(ziffer)
+
+        if int(CommandsAvailable()) > 1:
+            break
