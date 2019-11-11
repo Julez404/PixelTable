@@ -182,3 +182,9 @@ def setNumber(strip,offset_x,offset_y,Number,farbe):
             setPixel(strip,3+offset_x,3+offset_y,farbe)
             setPixel(strip,4+offset_x,3+offset_y,farbe)
             break
+        
+        if case(10):   #Doppelpunkte
+            setPixel(strip,3+offset_x,9+offset_y,farbe)
+            setPixel(strip,3+offset_x,10+offset_y,farbe)
+            setPixel(strip,5+offset_x,9+offset_y,farbe)
+            setPixel(strip,5+offset_x,10+offset_y,farbe)

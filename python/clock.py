@@ -2,6 +2,7 @@
 
 import time
 from number import setNumber
+from pixel import setPixel
 
 ziffer = 0
 colour = 1
