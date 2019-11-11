@@ -23,7 +23,7 @@ def clock(strip,parameters):
         Offset_x = 0
         Offset_y = 0
         ziffer = 10
-        setNumber(Offset_x, Offset_y, ziffer, colour)
+        setNumber(strip, Offset_x, Offset_y, ziffer, parameters[1])
 
         #set erste Ziffer
         Offset_x = 0
