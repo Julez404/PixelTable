@@ -7,6 +7,7 @@ from animations import *
 from command import *
 from pictures import *
 from pixels import *
+from clock import *
 import sys
 import time
 
