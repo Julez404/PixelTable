@@ -4,7 +4,7 @@ Created on Sat Nov  9 13:24:28 2019
 
 @author: ipenner
 """
-import setPixel
+from pixels import *
 from switchcase import switch
 
     
