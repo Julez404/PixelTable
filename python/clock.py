@@ -30,7 +30,7 @@ def clock(strip,parameters):
     elif (20 <= zahl <= 24):
         ziffer = 2
 
-    setNumber(strip, Offset_x, Offset_y, ziffer, colour)
+    setNumber(strip, Offset_x, Offset_y, ziffer, parameters[1])
     print(ziffer)
 
     #set zweite Ziffer
@@ -70,7 +70,7 @@ def clock(strip,parameters):
         ziffer = 9
 
 
-    setNumber(strip, Offset_x, Offset_y, ziffer, colour)
+    setNumber(strip, Offset_x, Offset_y, ziffer, parameters[1])
     print(ziffer)
 
     #set dritte Ziffer
@@ -95,7 +95,7 @@ def clock(strip,parameters):
 
     elif (50 <= zahl <= 59):
         ziffer = 5
-    setNumber(strip, Offset_x, Offset_y, ziffer, colour)
+    setNumber(strip, Offset_x, Offset_y, ziffer, parameters[1])
     print(ziffer)
 
     #set vierte Ziffer
@@ -133,5 +133,5 @@ def clock(strip,parameters):
 
     elif compare == 4.5:
         ziffer = 9
-    setNumber(strip, Offset_x, Offset_y, ziffer, colour)
+    setNumber(strip, Offset_x, Offset_y, ziffer, parameters[1])
     print(ziffer)
