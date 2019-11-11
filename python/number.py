@@ -74,7 +74,7 @@ def setNumber(strip,offset_x,offset_y,Number,farbe):
             setPixel(strip,4+offset_x,2+offset_y,farbe)
             setPixel(strip,4+offset_x,1+offset_y,farbe)
             setPixel(strip,8+offset_x,2+offset_y,farbe)
-            setPixel(strip,8+offset_x,3+offset_y,farbe)
+            setPixel(strip,8+offset_x,1+offset_y,farbe)
             break
 
         if case(4):
