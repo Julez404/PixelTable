@@ -1,0 +1,17 @@
+
+table.clock {
+    border: 1px solid #000000;
+    border-collapse: separate;
+    height: unset;
+    background-color: black;
+}
+
+table.clock td {
+    border: 1px solid #808080;
+
+}
+
+table.clock tr td {
+    width: 200px;
+    height: 200px;
+}
