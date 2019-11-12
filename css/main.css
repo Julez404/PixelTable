@@ -80,13 +80,13 @@ table.grid {
     background-color: black;
 }
 
-td {
+table.grid td {
     border: 1px solid #808080;
     cursor: pointer;
 }
 
-table tr td {
-                cursor: crosshair;
+table.grid tr td {
+    cursor: crosshair;
     width: 50px;
     height: 50px;
 }
