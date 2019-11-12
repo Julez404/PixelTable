@@ -8,48 +8,76 @@ from pixels import clearPixelBuffer
 from command import CommandsAvailable
 
 def clock(strip,parameters):
+    hours = time.strftime("%H")
+    minutes = time.strftime("%M")
+    
+    #set Doppelpunkt
+    Offset_x = 0
+    Offset_y = 0
+    ziffer = 10
+    setNumber(strip, 0, 0, ziffer, parameters[1])
+      
+    compare_ziffer_1 = 0
+    compare_ziffer_2 = 0
+    compare_ziffer_3 = 0
+    compare_ziffer_4 = 0
+    
+    ziffer_1 = getNumberOne(int(hours))
+    ziffer_2 = getNumberTwo(int(hours) - (ziffer_1 * 10))
+    ziffer_3 = getNumberOne(int(minutes))
+    ziffer_4 = getNumberTwo(int(minutes) - (ziffer_3 * 10))
+    
+    setNumber(strip, 0, 0, ziffer_1, parameters[1])
+    setNumber(strip, 0, 4, ziffer_2, parameters[1])
+    setNumber(strip, 0, 11, ziffer_3, parameters[1])
+    setNumber(strip, 0, 15, ziffer_4, parameters[1])
+    
     while True:
         #löschen
-        clearPixelBuffer(strip)
+        #clearPixelBuffer(strip)
 
         # print current date and time
         hours = time.strftime("%H")
         minutes = time.strftime("%M")
 
-        #set Doppelpunkt
-        Offset_x = 0
-        Offset_y = 0
-        ziffer = 10
-        setNumber(strip, Offset_x, Offset_y, ziffer, parameters[1])
 
         #set erste Ziffer
         Offset_x = 0
         Offset_y = 0
         zahl = int(hours)
-        ziffer = getNumberOne(zahl)
-        setNumber(strip, Offset_x, Offset_y, ziffer, parameters[1])
-
+        ziffer_1 = getNumberOne(zahl)
+        if(compare_ziffer_1 != ziffer_1):
+            setNumber(strip, Offset_x, Offset_y, ziffer_1, parameters[1])
+        compare_ziffer_1 = ziffer_1
+        
         #set zweite Ziffer
         Offset_x = 0
         Offset_y = 4
         zahl = zahl - (ziffer * 10)
-        ziffer = getNumberTwo(zahl)
-        setNumber(strip, Offset_x, Offset_y, ziffer, parameters[1])
+        ziffer_2 = getNumberTwo(zahl)
+        if(compare_ziffer_2 != ziffer_2):
+            setNumber(strip, Offset_x, Offset_y, ziffer_2, parameters[1])
+        compare_ziffer_2 = ziffer_2
 
         #set dritte Ziffer
         Offset_x = 0
         Offset_y = 11
         zahl = int(minutes)
-        ziffer = getNumberOne(zahl)
-        setNumber(strip, Offset_x, Offset_y, ziffer, parameters[1])
+        ziffer_3 = getNumberOne(zahl)
+        if(compare_ziffer_3 != ziffer_3):
+            setNumber(strip, Offset_x, Offset_y, ziffer_3, parameters[1])
+        compare_ziffer_3 = ziffer_3
       
         #set vierte Ziffer
         Offset_x = 0
         Offset_y = 15
         zahl = zahl - (ziffer * 10)
-        ziffer = getNumberTwo(zahl)
-        setNumber(strip, Offset_x, Offset_y, ziffer, parameters[1])
+        ziffer_4 = getNumberTwo(zahl)
+        if(compare_ziffer_4 != ziffer_4):
+            setNumber(strip, Offset_x, Offset_y, ziffer_4, parameters[1])
+        compare_ziffer_4 = ziffer_4
        
+
         if int(CommandsAvailable()) > 1:
             break
 
