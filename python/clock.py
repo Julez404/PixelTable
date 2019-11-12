@@ -4,7 +4,6 @@ import time
 from number import setNumber
 from getClockParameters import getNumberOne
 from getClockParameters import getNumberTwo
-from pixels import clearPixelBuffer
 from command import CommandsAvailable
 
 def clock(strip,parameters):
