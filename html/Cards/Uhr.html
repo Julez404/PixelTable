@@ -81,7 +81,7 @@
                
             }
         });
-    }//end setTimer
+    }//end stopTimer
 
     function clearTimer() {
         // alert(v_timer_h + v_timer_min + v_timer_sek);
@@ -91,7 +91,7 @@
                 
             }
         });
-    }//end setTimer
+    }//end clearTimer
 
     function startStoppuhr() {
         // alert(v_timer_h + v_timer_min + v_timer_sek);
@@ -111,15 +111,25 @@
              
             }
         });
-    }//end startStoppuhr
+    }//end stopStoppuhr
 
     function resetStoppuhr() {
         // alert(v_timer_h + v_timer_min + v_timer_sek);
         $.ajax({
             url: "resetStopwatch.php",
             success: function () {
-                
+
             }
         });
-    }//end startStoppuhr
+    }//end resetStoppuhr
+
+    function setClock() {
+        // alert(v_timer_h + v_timer_min + v_timer_sek);
+        $.ajax({
+            url: "setClock.php?color=FFFFFF",
+            success: function () {
+
+            }
+        });
+    }//end setClock
 </script>
