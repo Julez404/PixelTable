@@ -33,6 +33,8 @@
         </div>
         <div class="input-group-append">
             <button class="btn btn-success" onclick="setTimer();" type="button">Go!</button>
+            <button class="btn btn-primary" onclick="stopTimer();" type="button">Stop!</button>
+            <button class="btn btn-danger" onclick="clearTimer();" type="button">Clear!</button>
         </div>
     </div>
 </div>
@@ -62,14 +64,62 @@
 
 
     function setTimer() {
-       // alert(v_timer_h + v_timer_min + v_timer_sek);
+        // alert(v_timer_h + v_timer_min + v_timer_sek);
         $.ajax({
             url: "setTimer.php?hour=" + v_timer_h + "&minutes=" + v_timer_min + "&seconds=" + v_timer_sek + "",
-            
-
             success: function () {
-                alert("uff tata");
+              
             }
         });
-    }//end set_runningMagazine
+    }//end setTimer
+
+    function stopTimer() {
+        // alert(v_timer_h + v_timer_min + v_timer_sek);
+        $.ajax({
+            url: "stopTimer.php",
+            success: function () {
+               
+            }
+        });
+    }//end setTimer
+
+    function clearTimer() {
+        // alert(v_timer_h + v_timer_min + v_timer_sek);
+        $.ajax({
+            url: "clearTimer.php",
+            success: function () {
+                
+            }
+        });
+    }//end setTimer
+
+    function startStoppuhr() {
+        // alert(v_timer_h + v_timer_min + v_timer_sek);
+        $.ajax({
+            url: "startStopwatch.php",
+            success: function () {
+               
+            }
+        });
+    }//end startStoppuhr
+
+    function stopStoppuhr() {
+        // alert(v_timer_h + v_timer_min + v_timer_sek);
+        $.ajax({
+            url: "stopStopwatch.php",
+            success: function () {
+             
+            }
+        });
+    }//end startStoppuhr
+
+    function resetStoppuhr() {
+        // alert(v_timer_h + v_timer_min + v_timer_sek);
+        $.ajax({
+            url: "resetStopwatch.php",
+            success: function () {
+                
+            }
+        });
+    }//end startStoppuhr
 </script>
