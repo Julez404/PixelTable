@@ -46,7 +46,7 @@ def clock(strip,parameters):
         zahl = int(hours)
         ziffer_1 = getNumberOne(zahl)
         if(compare_ziffer_1 != ziffer_1):
-            setNumber(strip, 0, 0, compare_ziffer_1, 000000)
+            setNumber(strip, 0, 0, compare_ziffer_1, "000000")
             setNumber(strip, Offset_x, Offset_y, ziffer_1, parameters[1])
         compare_ziffer_1 = ziffer_1
         
@@ -56,7 +56,7 @@ def clock(strip,parameters):
         zahl = zahl - (ziffer_1 * 10)
         ziffer_2 = getNumberTwo(zahl)
         if(compare_ziffer_2 != ziffer_2):
-            setNumber(strip, 0, 0, compare_ziffer_2, 000000)
+            setNumber(strip, 0, 0, compare_ziffer_2, "000000")
             setNumber(strip, Offset_x, Offset_y, ziffer_2, parameters[1])
         compare_ziffer_2 = ziffer_2
 
@@ -66,7 +66,7 @@ def clock(strip,parameters):
         zahl = int(minutes)
         ziffer_3 = getNumberOne(zahl)
         if(compare_ziffer_3 != ziffer_3):
-            setNumber(strip, 0, 0, compare_ziffer_3, 000000)
+            setNumber(strip, 0, 0, compare_ziffer_3, "000000")
             setNumber(strip, Offset_x, Offset_y, ziffer_3, parameters[1])
         compare_ziffer_3 = ziffer_3
       
@@ -76,7 +76,7 @@ def clock(strip,parameters):
         zahl = zahl - (ziffer_3 * 10)
         ziffer_4 = getNumberTwo(zahl)
         if(compare_ziffer_4 != ziffer_4):
-            setNumber(strip, 0, 0, compare_ziffer_4, 000000)
+            setNumber(strip, 0, 0, compare_ziffer_4, "000000")
             setNumber(strip, Offset_x, Offset_y, ziffer_4, parameters[1])
         compare_ziffer_4 = ziffer_4
        
