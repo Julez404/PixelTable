@@ -7,9 +7,6 @@
     width: 100%;
 }
 
-
-
-
 img {
     width: 70px;
     height: 70px;
@@ -19,7 +16,6 @@ img {
     width: 400px;
     height: 200px;
 }
-
 
 .a {
     background-color: white;
@@ -43,7 +39,6 @@ img {
         text-decoration: none;
     }
 
-
         #sidebar a.active {
             font-size: 30px;
             color: white;
@@ -51,7 +46,6 @@ img {
             border-bottom-color: white;
             border-bottom-width: 1px;
         }
-
 
         /* Links on mouse-over */
         #sidebar a:hover:not(.active) {
@@ -80,20 +74,18 @@ table.grid {
     background-color: black;
 }
 
-table.grid td {
-    border: 1px solid #808080;
-    cursor: pointer;
-}
+    table.grid td {
+        border: 1px solid #808080;
+        cursor: pointer;
+    }
 
-table.grid tr td {
-    cursor: crosshair;
-    width: 50px;
-    height: 50px;
-}
+    table.grid tr td {
+        cursor: crosshair;
+        width: 50px;
+        height: 50px;
+    }
 
-body {
-    background-color: #F2F5F6;
-}
+
 
 .card-deck {
     width: 100%;
@@ -106,10 +98,6 @@ body {
     -webkit-overflow-scrolling: touch;
 }
 
-body {
-    overflow-x: hidden !important;
-}
-
 .card {
     margin: 5px;
     min-width: 330px !important;
@@ -120,6 +108,11 @@ body {
     padding-right: 30px;
 }
 
-.custom-range{
-    min-width:246px;
+.custom-range {
+    min-width: 246px;
+}
+
+body {
+    overflow-x: hidden !important;
+     background-color: #F2F5F6;
 }
