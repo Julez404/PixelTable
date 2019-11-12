@@ -1,135 +1,131 @@
 ﻿<h5>Stoppuhr</h5>
 <div class="col-md-2" id="Stoppuhr">
     <div class="input-group mb-3">
-        <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
-        <div class="input-group-append">
-            <span class="input-group-text"> h </span>
-        </div>
-        <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
-        <div class="input-group-append">
-            <span class="input-group-text"> min </span>
-        </div>
-        <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
-        <div class="input-group-append">
-            <span class="input-group-text"> sek </span>
-        </div>
-    </div>
-</div>
-<hr />
-<h5>Timer</h5>
-<div class="col-md-3" id="Timer">
-    <div class="input-group mb-3">
-        <input id="Timer_h" onchange="v_timer_h= this.value" type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
-        <div class="input-group-append">
-            <span class="input-group-text"> h </span>
-        </div>
-        <input id="Timer_min" onchange="v_timer_min= this.value" type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
-        <div class="input-group-append">
-            <span class="input-group-text"> min </span>
-        </div>
-        <input id="Timer_sek" onchange="v_timer_sek= this.value" type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
-        <div class="input-group-append">
-            <span class="input-group-text"> sek </span>
+        <div class="input-group-prepend">
+            <button class="btn btn-success" onclick="startStopwatch();" type="button">Go!</button>
         </div>
         <div class="input-group-append">
-            <button class="btn btn-success" onclick="setTimer();" type="button">Go!</button>
-            <button class="btn btn-primary" onclick="stopTimer();" type="button">Stop!</button>
-            <button class="btn btn-danger" onclick="clearTimer();" type="button">Clear!</button>
-        </div>
-    </div>
-</div>
-<hr />
-<h5>Uhrzeit</h5>
-<div class="col-md-2" id="Uhrzeit">
-    <div class="input-group mb-3">
-        <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
-        <div class="input-group-append">
-            <span class="input-group-text"> h </span>
-        </div>
-        <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
-        <div class="input-group-append">
-            <span class="input-group-text"> min </span>
-        </div>
-        <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
-        <div class="input-group-append">
-            <span class="input-group-text"> sek </span>
+            <button class="btn btn-primary" onclick="stopStopwatch();" type="button">Stop!</button>
+            <button class="btn btn-danger" onclick="resetStopwatch();" type="button">Reset!</button>
         </div>
     </div>
 </div>
 
-<script>
-    var v_timer_h = "0";
-    var v_timer_min = "0";
-    var v_timer_sek = "0";
+    <hr />
+    <h5>Timer</h5>
+    <div class="col-md-3" id="Timer">
+        <div class="input-group mb-3">
+            <input id="Timer_h" onchange="v_timer_h= this.value" type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+            <div class="input-group-append">
+                <span class="input-group-text"> h </span>
+            </div>
+            <input id="Timer_min" onchange="v_timer_min= this.value" type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+            <div class="input-group-append">
+                <span class="input-group-text"> min </span>
+            </div>
+            <input id="Timer_sek" onchange="v_timer_sek= this.value" type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+            <div class="input-group-append">
+                <span class="input-group-text"> sek </span>
+            </div>
+            <div class="input-group-append">
+                <button class="btn btn-success" onclick="setTimer();" type="button">Go!</button>
+                <button class="btn btn-primary" onclick="stopTimer();" type="button">Stop!</button>
+                <button class="btn btn-danger" onclick="clearTimer();" type="button">Clear!</button>
+            </div>
+        </div>
+    </div>
+    <hr />
+    <h5>Uhrzeit</h5>
+    <div class="col-md-2" id="Uhrzeit">
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+            <div class="input-group-append">
+                <span class="input-group-text"> h </span>
+            </div>
+            <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+            <div class="input-group-append">
+                <span class="input-group-text"> min </span>
+            </div>
+            <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+            <div class="input-group-append">
+                <span class="input-group-text"> sek </span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var v_timer_h = "0";
+        var v_timer_min = "0";
+        var v_timer_sek = "0";
 
 
-    function setTimer() {
-        // alert(v_timer_h + v_timer_min + v_timer_sek);
-        $.ajax({
-            url: "setTimer.php?hour=" + v_timer_h + "&minutes=" + v_timer_min + "&seconds=" + v_timer_sek + "",
-            success: function () {
-              
-            }
-        });
-    }//end setTimer
+        function setTimer() {
+            // alert(v_timer_h + v_timer_min + v_timer_sek);
+            $.ajax({
+                url: "setTimer.php?hour=" + v_timer_h + "&minutes=" + v_timer_min + "&seconds=" + v_timer_sek + "",
+                success: function () {
 
-    function stopTimer() {
-        // alert(v_timer_h + v_timer_min + v_timer_sek);
-        $.ajax({
-            url: "stopTimer.php",
-            success: function () {
-               
-            }
-        });
-    }//end stopTimer
+                }
+            });
+        }//end setTimer
 
-    function clearTimer() {
-        // alert(v_timer_h + v_timer_min + v_timer_sek);
-        $.ajax({
-            url: "clearTimer.php",
-            success: function () {
-                
-            }
-        });
-    }//end clearTimer
+        function stopTimer() {
+            // alert(v_timer_h + v_timer_min + v_timer_sek);
+            $.ajax({
+                url: "stopTimer.php",
+                success: function () {
 
-    function startStoppuhr() {
-        // alert(v_timer_h + v_timer_min + v_timer_sek);
-        $.ajax({
-            url: "startStopwatch.php",
-            success: function () {
-               
-            }
-        });
-    }//end startStoppuhr
+                }
+            });
+        }//end stopTimer
 
-    function stopStoppuhr() {
-        // alert(v_timer_h + v_timer_min + v_timer_sek);
-        $.ajax({
-            url: "stopStopwatch.php",
-            success: function () {
-             
-            }
-        });
-    }//end stopStoppuhr
+        function clearTimer() {
+            // alert(v_timer_h + v_timer_min + v_timer_sek);
+            $.ajax({
+                url: "clearTimer.php",
+                success: function () {
 
-    function resetStoppuhr() {
-        // alert(v_timer_h + v_timer_min + v_timer_sek);
-        $.ajax({
-            url: "resetStopwatch.php",
-            success: function () {
+                }
+            });
+        }//end clearTimer
 
-            }
-        });
-    }//end resetStoppuhr
+        function startStopwatch() {
+            // alert(v_timer_h + v_timer_min + v_timer_sek);
+            $.ajax({
+                url: "startStopwatch.php",
+                success: function () {
 
-    function setClock() {
-        // alert(v_timer_h + v_timer_min + v_timer_sek);
-        $.ajax({
-            url: "setClock.php?color=FFFFFF",
-            success: function () {
+                }
+            });
+        }//end startStoppuhr
 
-            }
-        });
-    }//end setClock
-</script>
+        function stopStopwatch() {
+            // alert(v_timer_h + v_timer_min + v_timer_sek);
+            $.ajax({
+                url: "stopStopwatch.php",
+                success: function () {
+
+                }
+            });
+        }//end stopStoppuhr
+
+        function resetStopwatch() {
+            // alert(v_timer_h + v_timer_min + v_timer_sek);
+            $.ajax({
+                url: "resetStopwatch.php",
+                success: function () {
+
+                }
+            });
+        }//end resetStoppuhr
+
+        function setClock() {
+            // alert(v_timer_h + v_timer_min + v_timer_sek);
+            $.ajax({
+                url: "setClock.php?color=FFFFFF",
+                success: function () {
+
+                }
+            });
+        }//end setClock
+    </script>
