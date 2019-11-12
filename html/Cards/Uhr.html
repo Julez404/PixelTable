@@ -38,20 +38,11 @@
     <h5>Uhrzeit</h5>
     <div class="col-md-2" id="Uhrzeit">
         <div class="input-group mb-3">
-            <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
-            <div class="input-group-append">
-                <span class="input-group-text"> h </span>
-            </div>
-            <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
-            <div class="input-group-append">
-                <span class="input-group-text"> min </span>
-            </div>
-            <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
-            <div class="input-group-append">
-                <span class="input-group-text"> sek </span>
+            <div class="input-group-prepend">
+                <button class="btn btn-success" onclick="setClock();" type="button">Go!</button>
             </div>
         </div>
-    </div>
+        </div>
 
     <script>
         var v_timer_h = "0";
