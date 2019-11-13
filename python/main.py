@@ -37,10 +37,8 @@ while True:
         showTimer(led_strip,command)
     if command[0] == ("setStopwatch"):
         showStopWatch(led_strip,command)
-        delLastCommand()
     if command[0] == ("setAlarm"):
         showAlarmClock(led_strip,command)
-        delLastCommand()
     if command[0] == ("stopTimer"):
         delLastCommand()
     if command[0] == ("resetStopwatch"):
