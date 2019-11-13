@@ -1,9 +1,9 @@
 ﻿<div id="Menue_Clock">
     <div class="row">
-        <div class="col"><a class="active"   id="ClockMenue_Stoppuhr"   onclick="activeClockMenue(this.id);" href="#">Stoppuhr</a></div>
-        <div class="col"><a class="inactive" id="ClockMenue_Timer"      onclick="activeClockMenue(this.id);" href="#">Timer</a></div>
-        <div class="col"><a class="inactive" id="ClockMenue_Uhrzeit"    onclick="activeClockMenue(this.id);" href="#">Uhrzeit</a></div>
-        <div class="col"><a class="inactive" id="ClockMenue_Wecker"     onclick="activeClockMenue(this.id);" href="#">Wecker</a></div>
+        <div class="col"><a class="active" id="ClockMenue_Stoppuhr" onclick="activeClockMenue(this.id);" href="#">Stoppuhr</a></div>
+        <div class="col"><a class="inactive" id="ClockMenue_Timer" onclick="activeClockMenue(this.id);" href="#">Timer</a></div>
+        <div class="col"><a class="inactive" id="ClockMenue_Uhrzeit" onclick="activeClockMenue(this.id);" href="#">Uhrzeit</a></div>
+        <div class="col"><a class="inactive" id="ClockMenue_Wecker" onclick="activeClockMenue(this.id);" href="#">Wecker</a></div>
     </div>
 </div>
 
@@ -15,6 +15,34 @@
     <br />
     <br />
     <br />
+    <div class="modal fade " id="colorwheelmodal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-header" style="text-align:center;">
+                    <h5>Farbauswahl</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <hr />
+                <div class="colorPicker2" style="margin-left:auto; margin-right:auto;">
+                </div>
+                <div class="col" style="text-align:center">
+                    <div id="values2" style="padding: 8px;">
+                    </div>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <div class="col-md-6 ">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">Hex </span>
+                            </div>
+                            <input id="animationcolor_input2" type="text" onchange="colorPicker2.color.set(this.value)" class="form-control" placeholder="#ff00ff" aria-label="" aria-describedby="basic-addon2">
+                        </div>
+                    </div>
+                </div>
+                <br />
+            </div>
+        </div>
+    </div>
     <div id="div_Stoppuhr">
         <div class="d-flex justify-content-center">
             <div class="d-flex flex-column">
@@ -28,6 +56,7 @@
                         <div class="input-group-append">
                             <button class="btn btn-primary btn-lg" onclick="stopStopwatch();" type="button">Stop!</button>
                             <button class="btn btn-danger btn-lg" onclick="resetStopwatch();" type="button">Reset!</button>
+                            <button class="btn btn-info btn-lg" data-toggle="modal" data-target="#colorwheelmodal"><i class="fa fa-tint"></i> </button>
                         </div>
                     </div>
                 </div>
@@ -106,12 +135,33 @@
     var v_alarm_h = "0";
     var v_alarm_min = "0";
     var activeClock = "ClockMenue_Stoppuhr";
+    var _color2 = "";
 
     $('#div_Stoppuhr').show();
     $('#div_Timer').hide();
     $('#div_Uhrzeit').hide();
     $('#div_Wecker').hide();
 
+
+    //ColorPicker
+    var colorPicker2 = new iro.ColorPicker(".colorPicker2", {
+        width: 280,
+        height: 280,
+        color: "rgb(255, 255, 255)",
+        borderWidth: 1,
+        borderColor: "#fff",
+    });
+
+    colorPicker2.on(["color:init", "color:change"], function (color) {
+        var hex = colorPicker2.color.hexString;
+        _color2 = hex.slice(1, 7);
+        $('#animationcolor_input2').val(hex);
+    });
+
+    colorPicker2.on('input:end', function (color) {
+        var hex = colorPicker2.color.hexString;
+        _color2 = hex.slice(1, 7);
+    });
 
     function activeClockMenue(_id) {
         h_var1 = activeClock.split("_");
