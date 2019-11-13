@@ -136,7 +136,7 @@
         </div>
     </div>
 </div>
-</div>
+
 
 <script>
     var v_timer_h = "0";
@@ -201,8 +201,15 @@
         // alert(v_timer_h + v_timer_min + v_timer_sek);
         $.ajax({
             url: "stopTimer.php",
-            success: function () {
-
+            success: function (data) {
+                if (data.length <= 10) {
+                    alert("Keine Timer Daten vorhanden");
+                } else {
+                    data = data.split("~");
+                    $('#Timer_h').val(data[1]);
+                    $('#Timer_min').val(data[2]);
+                    $('#Timer_sek').val(data[3]);
+                }
             }
         });
     }//end stopTimer
