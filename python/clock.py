@@ -127,7 +127,7 @@ def showTimer(strip,parameters):
     
     
     while True:
-        time.sleep(1)
+        time.sleep(0.77)
         if(ziffer_6 > 0):
             ziffer_6 = ziffer_6 - 1
             
