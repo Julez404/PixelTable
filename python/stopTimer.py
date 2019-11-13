@@ -2,6 +2,8 @@
 
 from validData import *
 from command import *
+import time
+from readback import *
 import sys
 
 # Expected Input
@@ -9,7 +11,7 @@ import sys
 command = ["stopTimer"]
 setNewCommand(command)
 
-time.sleep(.3)
+time.sleep(0.1)
 
 print(readbackGet())
 readbackClear()
