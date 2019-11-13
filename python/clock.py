@@ -403,15 +403,23 @@ def showStopWatch(strip, parameters):
                         setNumber(strip, 0, 11, 0, parameters[1])
                         setNumber(strip, 0, 15, 0, parameters[1])
                         break
+                    
+                    elif (command[0] == ("setStopwatch")):
+                        continue
+                    
                     elif (int(CommandsAvailable()) > 1):
                         break
+                    
                 if(command[0] == ("setStopwatch")):
                     delLastCommand()
                     continue
                 elif (command[0] == ("resetStopwatch")):
                     delLastCommand()
                     break
-                        
+            
+            elif (command[0] == ("setStopwatch")):
+                continue
+            
             elif (command[0] == ("resetStopwatch")):
                 clearPixelBuffer(strip)
                 setNumber(strip, 0, 0, 0, parameters[1])
