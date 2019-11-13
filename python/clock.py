@@ -389,11 +389,40 @@ def showStopWatch(strip, parameters):
     
         if (int(CommandsAvailable()) > 1):
             delLastCommand()
-            #command = getCommand()
-            #if command[0] == ("stopTimer"):
-             #  readbackSet("~"+str(ziffer_1)+str(ziffer_2)+"~"+str(ziffer_3)+str(ziffer_4)+"~"+str(ziffer_5)+str(ziffer_6)+"~")
-            #   delLastCommand()   
-            break   
+            command = getCommand()
+            if (command[0] == ("stopStopwatch")):
+                delLastCommand()
+                while True:
+                    command = getCommand()
+                    if (command[0] == ("setStopwatch")):
+                        break
+                    elif (command[0] == ("resetStopwatch")):
+                        clearPixelBuffer(strip)
+                        setNumber(strip, 0, 0, 0, parameters[1])
+                        setNumber(strip, 0, 4, 0, parameters[1])
+                        setNumber(strip, 0, 1, 0, parameters[1])
+                        setNumber(strip, 0, 15, 0, parameters[1])
+                        break
+                    elif (int(CommandsAvailable()) > 1):
+                        break
+                if(command[0] == ("setStopwatch")):
+                    delLastCommand()
+                    continue
+                elif (command[0] == ("resetStopwatch")):
+                    delLastCommand()
+                    break
+                        
+            elif (command[0] == ("resetStopwatch")):
+                clearPixelBuffer(strip)
+                setNumber(strip, 0, 0, 0, parameters[1])
+                setNumber(strip, 0, 4, 0, parameters[1])
+                setNumber(strip, 0, 1, 0, parameters[1])
+                setNumber(strip, 0, 15, 0, parameters[1])
+                delLastCommand() 
+                break
+                 
+            else:
+                break   
 
 
 
