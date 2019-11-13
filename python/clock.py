@@ -228,7 +228,7 @@ def showTimer(strip,parameters):
             delLastCommand()
             command = getCommand()
             if command[0] == ("stopTimer"):
-               readbackSet("~str(ziffer_1)+str(ziffer_2)~str(ziffer_3)+str(ziffer_4)~str(ziffer_5)+str(ziffer_6)~")
+               readbackSet("~"+str(ziffer_1)+str(ziffer_2)+"~"+str(ziffer_3)+str(ziffer_4)+"~"+str(ziffer_5)+str(ziffer_6)+"~")
                delLastCommand()   
             break
                
