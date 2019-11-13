@@ -6,6 +6,9 @@ from getClockParameters import getNumberOne
 from getClockParameters import getNumberTwo
 from command import CommandsAvailable
 from pixels import clearPixelBuffer
+from command import delLastCommand
+from command import getCommand
+from readback import readbackSet
 
 def clock(strip,parameters):
     #löschen
@@ -214,6 +217,15 @@ def showTimer(strip,parameters):
                 setNumber(strip, 0, 15, compare_ziffer_4, "000000")
                 setNumber(strip, 0, 15, ziffer_4, parameters[1])
                 compare_ziffer_4 = ziffer_4
+           
+        #schauen, ob ein Command noch eingetroffen ist    
+        if int(CommandsAvailable()) > 1:
+            delLastCommand()
+            command = getCommand()
+            if command[0] == ("stopTimer"):
+               readbackSet("~str(ziffer_1)+str(ziffer_2)~str(ziffer_3)+str(ziffer_4)~str(ziffer_5)+str(ziffer_6)~")
+               delLastCommand()
+            break
                
     
     
