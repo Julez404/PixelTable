@@ -128,7 +128,7 @@ def showTimer(strip,parameters):
     compare_sekunde = 0
     while True:
         #time.sleep(0.77)
-        sekunde = getNumberOne(int(time.strftime("%S")))
+        sekunde = int(time.strftime("%S")) - 10 * getNumberOne(int(time.strftime("%S")))
         if(compare_sekunde != sekunde):
             compare_sekunde = sekunde
             if(ziffer_6 > 0):
