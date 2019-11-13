@@ -2,7 +2,7 @@
 
 $color = $_GET['color'];
 
-exec("./python/startStopwatch.py $color",$output);
+exec("./python/setStopwatch.py $color",$output);
 print_r($output);
 
 ?>

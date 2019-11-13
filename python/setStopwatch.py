@@ -10,7 +10,7 @@ import sys
 if (
         isHex(sys.argv[1]) and strLengthIs(sys.argv[1],6)
     ):
-    command = ["startStopwatch"]
+    command = ["setStopwatch"]
     command.append(sys.argv[1])
     setNewCommand(command)
 else:
