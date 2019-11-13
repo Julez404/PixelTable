@@ -28,21 +28,25 @@ led_strip.begin()
 while True:
     time.sleep(.01)				# Delay Betwee Commands
     command = getCommand()
+
+    # CLOCK
     if command[0] == ("setClock"):
         clock(led_strip,command)
         delLastCommand()
+
+    # PIXELS
     if command[0] == ("setPixel"):
         setPixelWeb(led_strip,command)
         delLastCommand()
     if command[0] == ("setAllPixel"):
         setAllPixel(led_strip,command)
         delLastCommand()
-    if command[0] == ("setAnimation"):
-        setAnimation(led_strip,command)
     if command[0] == ("PixelValuesToWeb"):
         PixelValuesToWeb(led_strip,command)
     if command[0] == ("PixelToWeb"):
         PixelToWeb(led_strip,command)
+
+    # PICTURES
     if command[0] == ("savePicture"):
         savePicture(led_strip,command)
         delLastCommand()
@@ -55,6 +59,10 @@ while True:
     if command[0] == ("delPicture"):
         delPicture(led_strip,command)
         delLastCommand()
+
+    # Animations
+    if command[0] == ("setAnimation"):
+        setAnimation(led_strip,command)
     if command[0] == ("getAllAnimations"):
         getAllAnimations(led_strip,command)
         delLastCommand()
