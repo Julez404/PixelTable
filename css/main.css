@@ -117,3 +117,9 @@ body {
      background-color: #F2F5F6;
 }
 
+.btn-info{
+    background-color:white !important;
+    color: #1a20c7 !important;
+    background-image:url(/img/btn.bmp);
+    background-size:50px;
+}
