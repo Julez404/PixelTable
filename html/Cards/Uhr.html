@@ -85,6 +85,7 @@
                         <div class="input-group-append">
                             <button class="btn btn-success btn-lg" onclick="setTimer();" type="button">Go!</button>
                             <button class="btn btn-primary btn-lg" onclick="stopTimer();" type="button">Stop!</button>
+                            <button class="btn btn-info btn-lg" data-toggle="modal" data-target="#colorwheelmodal"><i class="fa fa-tint"></i> </button>
                         </div>
                     </div>
                 </div>
@@ -97,35 +98,44 @@
                 <h3>Uhrzeit</h3>
                 <br />
                 <div class="column" id="Uhrzeit">
-                    <button class="btn btn-success btn-lg" onclick="setClock();" type="button">Go!</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div id="div_Wecker">
-        <div class="d-flex justify-content-center">
-            <div class="d-flex flex-column">
-                <h3>Wecker</h3>
-                <br />
-                <div class="column" id="Wecker">
                     <div class="input-group input-group-lg mb-3">
-                        <input id="Wecker_h" onchange="v_alarm_h = this.value" type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
-                        <div class="input-group-append">
-                            <span class="input-group-text"> h </span>
-                        </div>
-                        <input id="Wecker_min" onchange="v_alarm_min = this.value" type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
-                        <div class="input-group-append">
-                            <span class="input-group-text"> min </span>
+                        <div class="input-group-prepend">
+                            <button class="btn btn-success btn-lg" onclick="setClock();" type="button">Go!</button>
                         </div>
                         <div class="input-group-append">
-                            <button class="btn btn-success btn-lg" onclick="setTimer();" type="button">An</button>
-                            <button class="btn btn-danger btn-lg" onclick="clearTimer();" type="button">Aus</button>
+                            <button class="btn btn-info btn-lg" data-toggle="modal" data-target="#colorwheelmodal"><i class="fa fa-tint"></i> </button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
+<div id="div_Wecker">
+    <div class="d-flex justify-content-center">
+        <div class="d-flex flex-column">
+            <h3>Wecker</h3>
+            <br />
+            <div class="column" id="Wecker">
+                <div class="input-group input-group-lg mb-3">
+                    <input id="Wecker_h" onchange="v_alarm_h = this.value" type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+                    <div class="input-group-append">
+                        <span class="input-group-text"> h </span>
+                    </div>
+                    <input id="Wecker_min" onchange="v_alarm_min = this.value" type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+                    <div class="input-group-append">
+                        <span class="input-group-text"> min </span>
+                    </div>
+                    <div class="input-group-append">
+                        <button class="btn btn-success btn-lg" onclick="setTimer();" type="button">An</button>
+                        <button class="btn btn-danger btn-lg" onclick="clearTimer();" type="button">Aus</button>
+                        <button class="btn btn-info btn-lg" data-toggle="modal" data-target="#colorwheelmodal"><i class="fa fa-tint"></i> </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </div>
 
 <script>
@@ -180,7 +190,7 @@
     function setTimer() {
         // alert(v_timer_h + v_timer_min + v_timer_sek);
         $.ajax({
-            url: "setTimer.php?color="+_color2+"&hours=" + v_timer_h + "&minutes=" + v_timer_min + "&seconds=" + v_timer_sek + "",
+            url: "setTimer.php?color=" + _color2 + "&hours=" + v_timer_h + "&minutes=" + v_timer_min + "&seconds=" + v_timer_sek + "",
             success: function () {
 
             }
@@ -200,7 +210,7 @@
     function startStopwatch() {
         // alert(v_timer_h + v_timer_min + v_timer_sek);
         $.ajax({
-            url: "startStopwatch.php?color="+_color2,
+            url: "startStopwatch.php?color=" + _color2,
             success: function () {
 
             }
@@ -230,7 +240,7 @@
     function setClock() {
         // alert(v_timer_h + v_timer_min + v_timer_sek);
         $.ajax({
-            url: "setClock.php?color="+_color2,
+            url: "setClock.php?color=" + _color2,
             success: function () {
 
             }
