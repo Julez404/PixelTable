@@ -90,27 +90,23 @@ def clock(strip,parameters):
 
 
 
-def showTimer(first_number_hours, second_number_hours,
-              first_number_minutes, second_number_minutes, 
-              first_number_secondes, second_number_secondes,
-              strip,parameters):
+def showTimer(strip,parameters):
     
-
-    ziffer_1 = first_number_hours
-    ziffer_2 = second_number_hours
-    ziffer_3 = first_number_minutes
-    ziffer_4 = second_number_minutes
-    ziffer_5 = first_number_secondes
-    ziffer_6 = second_number_secondes
+    ziffer_1 = getNumberOne(int(parameters[2]))
+    ziffer_2 = int(parameters[2]) - 10*ziffer_1
+    ziffer_3 = getNumberOne(int(parameters[3]))
+    ziffer_4 = int(parameters[3]) - 10*ziffer_3
+    ziffer_5 = getNumberOne(int(parameters[4]))
+    ziffer_6 = int(parameters[4]) - 10*ziffer_5
         
-    compare_ziffer_1 = first_number_hours
-    compare_ziffer_2 = second_number_hours
-    compare_ziffer_3 = first_number_minutes
-    compare_ziffer_4 = second_number_minutes
-    compare_ziffer_5 = first_number_secondes
-    compare_ziffer_6 = second_number_secondes
+    compare_ziffer_1 = getNumberOne(int(parameters[2]))
+    compare_ziffer_2 = int(parameters[2]) - 10*ziffer_1
+    compare_ziffer_3 = getNumberOne(int(parameters[3]))
+    compare_ziffer_4 = int(parameters[3]) - 10*ziffer_3
+    compare_ziffer_5 = getNumberOne(int(parameters[4]))
+    compare_ziffer_6 = int(parameters[4]) - 10*ziffer_5
     
-    if((first_number_hours == 0) and (second_number_hours == 0)): 
+    if((ziffer_1 == 0) and (ziffer_2 == 0)): 
             setNumber(strip, 0, 0, 10, parameters[1])
             setNumber(strip, 0, 0, ziffer_3, parameters[1])
             setNumber(strip, 0, 4, ziffer_4, parameters[1])
