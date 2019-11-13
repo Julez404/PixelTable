@@ -56,7 +56,6 @@
                         <div class="input-group-append">
                             <button class="btn btn-success btn-lg" onclick="setTimer();" type="button">Go!</button>
                             <button class="btn btn-primary btn-lg" onclick="stopTimer();" type="button">Stop!</button>
-                            <button class="btn btn-danger btn-lg" onclick="clearTimer();" type="button">Clear!</button>
                         </div>
                     </div>
                 </div>
@@ -81,17 +80,13 @@
                 <br />
                 <div class="column" id="Wecker">
                     <div class="input-group input-group-lg mb-3">
-                        <input id="Timer_h" onchange="v_alarm_h = this.value" type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+                        <input id="Wecker_h" onchange="v_alarm_h = this.value" type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
                         <div class="input-group-append">
                             <span class="input-group-text"> h </span>
                         </div>
-                        <input id="Timer_min" onchange="v_alarm_min = this.value" type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+                        <input id="Wecker_min" onchange="v_alarm_min = this.value" type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
                         <div class="input-group-append">
                             <span class="input-group-text"> min </span>
-                        </div>
-                        <input id="Timer_sek" onchange="v_alarm_sek = this.value" type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
-                        <div class="input-group-append">
-                            <span class="input-group-text"> sek </span>
                         </div>
                         <div class="input-group-append">
                             <button class="btn btn-success btn-lg" onclick="setTimer();" type="button">An</button>
@@ -110,9 +105,8 @@
     var v_timer_sek = "0";
     var v_alarm_h = "0";
     var v_alarm_min = "0";
-    var v_alarm_sek = "0";
-
     var activeClock = "ClockMenue_Stoppuhr";
+
     $('#div_Stoppuhr').show();
     $('#div_Timer').hide();
     $('#div_Uhrzeit').hide();
@@ -152,16 +146,6 @@
             }
         });
     }//end stopTimer
-
-    function clearTimer() {
-        // alert(v_timer_h + v_timer_min + v_timer_sek);
-        $.ajax({
-            url: "clearTimer.php",
-            success: function () {
-
-            }
-        });
-    }//end clearTimer
 
     function startStopwatch() {
         // alert(v_timer_h + v_timer_min + v_timer_sek);
