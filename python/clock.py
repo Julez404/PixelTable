@@ -387,7 +387,13 @@ def showStopWatch(strip, parameters):
                     setNumber(strip, 0, 15, ziffer_4, parameters[1])
                     compare_ziffer_4 = ziffer_4
     
-    
+        if (int(CommandsAvailable()) > 1):
+            delLastCommand()
+            #command = getCommand()
+            #if command[0] == ("stopTimer"):
+             #  readbackSet("~"+str(ziffer_1)+str(ziffer_2)+"~"+str(ziffer_3)+str(ziffer_4)+"~"+str(ziffer_5)+str(ziffer_6)+"~")
+            #   delLastCommand()   
+            break   
 
 
 
