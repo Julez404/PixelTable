@@ -206,10 +206,14 @@
                     alert("Keine Timer Daten vorhanden");
                 } else {
                     data = data.split("~");
+                    v_timer_h = data[1];
+                    v_timer_min = data[2];
+                    v_timer_sek = data[3];
                     $('#Timer_h').val(data[1]);
                     $('#Timer_min').val(data[2]);
                     $('#Timer_sek').val(data[3]);
                 }
+
             }
         });
     }//end stopTimer
