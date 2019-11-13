@@ -417,6 +417,8 @@ def showStopWatch(strip, parameters):
                 elif (command[0] == ("resetStopwatch")):
                     delLastCommand()
                     break
+                else:
+                    break
             
             elif (command[0] == ("setStopwatch")):
                 delLastCommand()
