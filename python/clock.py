@@ -401,7 +401,7 @@ def showStopWatch(strip, parameters):
                     delLastCommand()
                     command = getCommand()
                     if command[0] == "setStopwatch":
-                        state = RUNNING
+                        STATE = RUNNING
                     elif command[0] == "resetStopwatch":
                         clearPixelBuffer(strip)
                         setNumber(strip, 0, 0, 0, parameters[1])
@@ -419,7 +419,7 @@ def showStopWatch(strip, parameters):
                     delLastCommand()
                     command = getCommand()
                     if command[0] == "setStopwatch":
-                        state = RUNNING
+                        STATE = RUNNING
                     elif command[0] == "resetStopwatch":
                         clearPixelBuffer(strip)
                         setNumber(strip, 0, 0, 0, parameters[1])
@@ -431,8 +431,3 @@ def showStopWatch(strip, parameters):
                     else:
                         STATE = END
                 break
-
-
-
-    
-    
