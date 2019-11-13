@@ -33,6 +33,15 @@ while True:
     if command[0] == ("setClock"):
         clock(led_strip,command)
         delLastCommand()
+    if command[0] == ("setTimer"):
+        showTimer(led_strip,command)
+        delLastCommand()
+    if command[0] == ("setStopwatch"):
+        showStopWatch(led_strip,command)
+        delLastCommand()
+    if command[0] == ("setAlarm"):
+        showAlarmClock(led_strip,command)
+        delLastCommand()
 
     # PIXELS
     if command[0] == ("setPixel"):
