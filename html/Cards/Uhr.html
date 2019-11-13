@@ -130,7 +130,7 @@
     function setTimer() {
         // alert(v_timer_h + v_timer_min + v_timer_sek);
         $.ajax({
-            url: "setTimer.php?color=FFFFFF&hour=" + v_timer_h + "&minutes=" + v_timer_min + "&seconds=" + v_timer_sek + "",
+            url: "setTimer.php?color=FFFFFF&hours=" + v_timer_h + "&minutes=" + v_timer_min + "&seconds=" + v_timer_sek + "",
             success: function () {
 
             }
@@ -190,7 +190,7 @@
     function setAlarm() {
         // alert(v_timer_h + v_timer_min + v_timer_sek);
         $.ajax({
-            url: "setAlarm.php?color=FFFFFF&hour=" + v_alarm_h + "&minutes=" + v_alarm_min + "",
+            url: "setAlarm.php?color=FFFFFF&hours=" + v_alarm_h + "&minutes=" + v_alarm_min + "",
             success: function () {
 
             }
