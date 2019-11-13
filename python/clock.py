@@ -400,7 +400,7 @@ def showStopWatch(strip, parameters):
                         clearPixelBuffer(strip)
                         setNumber(strip, 0, 0, 0, parameters[1])
                         setNumber(strip, 0, 4, 0, parameters[1])
-                        setNumber(strip, 0, 1, 0, parameters[1])
+                        setNumber(strip, 0, 11, 0, parameters[1])
                         setNumber(strip, 0, 15, 0, parameters[1])
                         break
                     elif (int(CommandsAvailable()) > 1):
@@ -416,7 +416,7 @@ def showStopWatch(strip, parameters):
                 clearPixelBuffer(strip)
                 setNumber(strip, 0, 0, 0, parameters[1])
                 setNumber(strip, 0, 4, 0, parameters[1])
-                setNumber(strip, 0, 1, 0, parameters[1])
+                setNumber(strip, 0, 11, 0, parameters[1])
                 setNumber(strip, 0, 15, 0, parameters[1])
                 delLastCommand() 
                 break
