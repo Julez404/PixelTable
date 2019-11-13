@@ -35,7 +35,6 @@ while True:
         delLastCommand()
     if command[0] == ("setTimer"):
         showTimer(led_strip,command)
-        delLastCommand()
     if command[0] == ("setStopwatch"):
         showStopWatch(led_strip,command)
         delLastCommand()
