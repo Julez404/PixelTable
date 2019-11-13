@@ -9,7 +9,7 @@ import sys
 command = ["stopTimer"]
 setNewCommand(command)
 
-time.sleep(.1)
+time.sleep(.3)
 
 print(readbackGet())
 readbackClear()
