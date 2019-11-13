@@ -10,6 +10,7 @@ from pixels import clearPixelBuffer
 from command import delLastCommand
 from command import getCommand
 from readback import readbackSet
+from switchcase import switch
 
 def clock(strip,parameters):
     #löschen
@@ -401,13 +402,13 @@ def showStopWatch(strip, parameters):
                     command = getCommand()
                     if command[0] == "setStopwatch":
                         state = RUNNING
-                    else if command[0] == "resetStopwatch":
+                    elif command[0] == "resetStopwatch":
                         clearPixelBuffer(strip)
                         setNumber(strip, 0, 0, 0, parameters[1])
                         setNumber(strip, 0, 4, 0, parameters[1])
                         setNumber(strip, 0, 11, 0, parameters[1])
                         setNumber(strip, 0, 15, 0, parameters[1])
-                    else if command[0] == "stopStopwatch":
+                    elif command[0] == "stopStopwatch":
                         STATE = STOPPED
                     else:
                         STATE = END
@@ -419,14 +420,19 @@ def showStopWatch(strip, parameters):
                     command = getCommand()
                     if command[0] == "setStopwatch":
                         state = RUNNING
-                    else if command[0] == "resetStopwatch":
+                    elif command[0] == "resetStopwatch":
                         clearPixelBuffer(strip)
                         setNumber(strip, 0, 0, 0, parameters[1])
                         setNumber(strip, 0, 4, 0, parameters[1])
                         setNumber(strip, 0, 11, 0, parameters[1])
                         setNumber(strip, 0, 15, 0, parameters[1])
-                    else if command[0] == "stopStopwatch":
+                    elif command[0] == "stopStopwatch":
                         pass
                     else:
                         STATE = END
                 break
+
+
+
+    
+    
