@@ -404,7 +404,8 @@ def showStopWatch(strip, parameters):
                         setNumber(strip, 0, 15, 0, parameters[1])
                         break
                     
-                    elif (command[0] == ("setStopwatch")):
+                    elif (command[0] == ("stopStopwatch")):
+                        delLastCommand()
                         continue
                     
                     elif (int(CommandsAvailable()) > 1):
@@ -418,6 +419,7 @@ def showStopWatch(strip, parameters):
                     break
             
             elif (command[0] == ("setStopwatch")):
+                delLastCommand()
                 continue
             
             elif (command[0] == ("resetStopwatch")):
