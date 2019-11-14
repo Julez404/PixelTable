@@ -30,7 +30,7 @@
     $('#div_controller').hide();
 
     function setKey(_id) {
-        // alert(v_timer_h + v_timer_min + v_timer_sek);
+        //alert(_id);
         $.ajax({
             url: "setKey.php?key=" + _id + "",
             success: function () {
@@ -51,23 +51,22 @@
         });
     }//end setAlarm
 
-
     document.addEventListener("keydown", function (event) {
-        console.log(event.which);
-        var key = event.which;
+        console.log(event.key);
+        var key = event.key;
         if (snake_start == "1") {
 
             //       alert(key);
-            if (key == "37") {    //left
+            if (key == "ArrowLeft") {    //left
                 setKey("LEFT");
             }
-            if (key == "38") {    //up
+            if (key == "ArrowUp") {    //up
                 setKey("UP");
             }
-            if (key == "39") {    //right
+            if (key == "ArrowRight") {    //right
                 setKey("RIGHT");
             }
-            if (key == "40") {    //down
+            if (key == "ArrowDown") {    //down
                 setKey("DOWN");
             }
         }
