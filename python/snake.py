@@ -74,10 +74,6 @@ def newApple():
 
 # Move Snake in current direction
 def move():
-    # Check if Game is Running
-    if DIRECTION == NONE:
-        break
-
     # Get new Coordinates
     for case in switch(DIRECTION):
         if case(RIGHT):
@@ -167,7 +163,11 @@ def snake(strip,parameters):
     while True:
         readAllInputs()
         keyInputToDirection()
-        move()
+
+        # Dont move if direction is not set jet
+        if !(DIRECTION == NONE):
+            move()
+
         draw()
         sleep(speed_delay)
 
