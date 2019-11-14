@@ -408,6 +408,12 @@ def showStopWatch(strip, parameters):
                         setNumber(strip, 0, 4, 0, parameters[1])
                         setNumber(strip, 0, 11, 0, parameters[1])
                         setNumber(strip, 0, 15, 0, parameters[1])
+                        ziffer_1 = 0
+                        ziffer_2 = 0
+                        ziffer_3 = 0
+                        ziffer_4 = 0
+                        ziffer_5 = 0
+                        ziffer_6 = 0
                         compare_ziffer_1 = 0
                         compare_ziffer_2 = 0
                         compare_ziffer_3 = 0
@@ -432,6 +438,12 @@ def showStopWatch(strip, parameters):
                         setNumber(strip, 0, 4, 0, parameters[1])
                         setNumber(strip, 0, 11, 0, parameters[1])
                         setNumber(strip, 0, 15, 0, parameters[1])
+                        ziffer_1 = 0
+                        ziffer_2 = 0
+                        ziffer_3 = 0
+                        ziffer_4 = 0
+                        ziffer_5 = 0
+                        ziffer_6 = 0
                         compare_ziffer_1 = 0
                         compare_ziffer_2 = 0
                         compare_ziffer_3 = 0
