@@ -76,21 +76,23 @@ def newApple():
 def move():
     global x
     global y
+    global x_new
+    global y_new
     global STATE
 
     # Get new Coordinates
     for case in switch(DIRECTION):
         if case(RIGHT):
-            global x_new = x[len(x)-1]+1
+            x_new = x[len(x)-1]+1
             break
         if case(DOWN):
-            global y_new = y[len(y)-1]+1
+            y_new = y[len(y)-1]+1
             break
         if case(LEFT):
-            global x_new = x[len(x)-1]-1
+            x_new = x[len(x)-1]-1
             break
         if case(UP):
-            global y_new = y[len(y)-1]-1
+            y_new = y[len(y)-1]-1
             break
 
     # Game Over Check - Self Eaten
