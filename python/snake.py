@@ -11,20 +11,31 @@ from random import randint
 # Constants
 NO = 0
 YES = 1
+matrix = 0
 
 # Control
 RIGHT = 0
 LEFT = 1
 UP = 2
 DOWN = 3
+NONE = 4
+
+# Colors
 snake_color = "FFFFFF"
 apple_color = "FFFFFF"
+snake_color_r = 0xFF
+snake_color_g = 0xFF
+snake_color_b = 0xFF
+apple_color_r = 0xFF
+apple_color_g = 0xFF
+apple_color_b = 0xFF
 
 # STATE-Machine
 STATE = STOPPED
 STOPPED = 0
 RUNNING = 1
 OVER = 2
+speed_delay = 1
 
 
 # Snake Boddy, Start Coordinates
@@ -37,9 +48,11 @@ y_new = 0
 #
 apple = [13,4]
 
-DIRECTION = RIGHT
+DIRECTION = NONE
 
+#-----------------------------------------------------------------------------
 # Create new Apple on Field
+#-----------------------------------------------------------------------------
 def newApple():
     isTaken = NO
 
@@ -58,8 +71,13 @@ def newApple():
         else:
             isTaken = NO
 
+
 # Move Snake in current direction
 def move():
+    # Check if Game is Running
+    if DIRECTION == NONE:
+        break
+
     # Get new Coordinates
     for case in switch(DIRECTION):
         if case(RIGHT):
@@ -99,14 +117,60 @@ def move():
         x[len(x)-1] = x_new
         y[len(y)-1] = y_new
 
+
+def readAllInputs():
+    pass
+
+
+def keyInputToDirection():
+    pass
+
+
+def drawSnakeToBuffer():
+    for i in range(len(x)):
+        index = getPixelIndex(x[i],y[i])
+        matrix.setPixelColor(index,Color(snake_color_r,snake_color_g,snake_color_b))
+
+
+def drawApple():
+    index = getPixelIndex(apple[0],apple[1])
+    matrix.setPixelColor(index,Color(apple_color_r,apple_color_g,apple_color_b))
+
+
+def draw():
+    clearPixelBuffer(matrix)
+    drawSnakeToBuffer()
+    drawAppleToBuffer()
+    matrix.show()
+
+
+def importColors(colors):
+    snake_color = colors[1]
+    apple_color = colors[2]
+
+    snake_color_r = int(snake_color[0]+snake_color[1],16)
+    snake_color_g = int(snake_color[2]+snake_color[3],16)
+    snake_color_b = int(snake_color[4]+snake_color[5],16)
+
+    apple_color_r = int(apple_color[0]+apple_color[1],16)
+    apple_color_g = int(apple_color[2]+apple_color[3],16)
+    apple_color_b = int(apple_color[4]+apple_color[5],16)
+
+
 # Main function
 def snake(strip,parameters):
-    snake_color = parameters[1]
-    apple_color = parameters[2]
+    importColors(parameters)
+    matrix = strip
+    newApple()
 
     # Main Game Loop
     while True:
-        pass
-#        for case in switch(STATE):
-#            if case(RUNNING):
-#                pass
+        readAllInputs()
+        keyInputToDirection()
+        move()
+        draw()
+        sleep(speed_delay)
+
+        if int(CommandsAvailable()) > 1:
+            delLastCommand()
+            break
