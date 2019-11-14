@@ -61,7 +61,7 @@ def newApple():
         apple = [randint(0,config.LED_COLUMN_COUNT),randint(0,(config.LED_COUNT/config.LED_COLUMN_COUNT))]
 
         # Check if new Position is on snake
-        for i in range(x(len)):
+        for i in range(0,len(x)):
             if ((x[i] == apple[0]) and (y[i] == apple[1])):
                 isTaken = YES
 
