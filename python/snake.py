@@ -135,12 +135,12 @@ def readInputs():
     if isKeyPress(command):
         if command[1] == "UP":
             DIRECTION = UP
-        if command[1] == "UP":
-            DIRECTION = UP
-        if command[1] == "UP":
-            DIRECTION = UP
-        if command[1] == "UP":
-            DIRECTION = UP
+        if command[1] == "DOWN":
+            DIRECTION = DOWN
+        if command[1] == "RIGHT":
+            DIRECTION = RIGHT
+        if command[1] == "LEFT":
+            DIRECTION = LEFT
         print(DIRECTION)
     else:
         STATE = OVER
