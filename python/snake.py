@@ -34,7 +34,7 @@ STOPPED = 0
 RUNNING = 1
 OVER = 2
 STATE = STOPPED
-speed_delay = 1
+speed_delay = 0.5
 
 
 
@@ -79,7 +79,7 @@ def move():
 
     x_new = x[len(x)-1]
     y_new = y[len(y)-1]
-    
+
     # Get new Coordinates
     for case in switch(DIRECTION):
         if case(RIGHT):
