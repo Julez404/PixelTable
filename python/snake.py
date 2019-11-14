@@ -41,8 +41,6 @@ speed_delay = 1
 # Snake Boddy, Start Coordinates
 x = [5,6,7]
 y = [4,4,4]
-x_new = 0
-y_new = 0
 
 apple = [13,4]
 
@@ -76,8 +74,6 @@ def newApple():
 def move():
     global x
     global y
-    global x_new
-    global y_new
     global STATE
 
     # Get new Coordinates
