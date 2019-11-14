@@ -1,11 +1,30 @@
-﻿<button id="UP" onclick="setKey(this.id);">arrow-up</button>
-<button id="DOWN" onclick="setKey(this.id);">arrow-down</button>
-<button id="A" onclick="setKey(this.id);">A</button>
-<button id="B" onclick="setKey(this.id);">B</button>
-<button id="RIGHT" onclick="setKey(this.id);">arrow-right</button>
-<button id="LEFT" onclick="setKey(this.id);">arrow-left</button>
-
-
+﻿<div class="d-flex justify-content-center">
+    <div class="d-flex flex-column">
+        <div id="div_controller">
+            <div class="row">
+                <div id="div_action_keys">
+                    <div id="div_action_keys_up">
+                        <button id="UP" onclick="setKey(this.id);">arrow-up</button>
+                    </div>
+                    <div id="div_action_keys_right_left">
+                        <button id="LEFT" onclick="setKey(this.id);">arrow-left</button>
+                        <button id="RIGHT" onclick="setKey(this.id);">arrow-right</button>
+                    </div>
+                    <div id="div_action_keys_down">
+                        <button id="DOWN" onclick="setKey(this.id);">arrow-down</button>
+                    </div>
+                </div>
+                <div id="div_action_keys">
+                    <button id="A" onclick="setKey(this.id);">A</button>
+                    <button id="B" onclick="setKey(this.id);">B</button>
+                </div>
+            </div>
+        </div>
+        <br />
+        <br />
+        <button class="btn btn-success btn-lg" onclick="startSnake();" type="button">Go!</button>
+    </div>
+</div>
 <script>
 
     function setKey(_id) {
