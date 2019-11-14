@@ -1,0 +1,30 @@
+﻿<button id="UP" onclick="setKey(this.id);">arrow-up</button>
+<button id="DOWN" onclick="setKey(this.id);">arrow-down</button>
+<button id="A" onclick="setKey(this.id);">A</button>
+<button id="B" onclick="setKey(this.id);">B</button>
+<button id="RIGHT" onclick="setKey(this.id);">arrow-right</button>
+<button id="LEFT" onclick="setKey(this.id);">arrow-left</button>
+
+
+<script>
+
+    function setKey(_id) {
+        // alert(v_timer_h + v_timer_min + v_timer_sek);
+        alert(_id);
+        $.ajax({
+            url: "setKey.php?key=" + _id + "",
+            success: function () {
+            }
+        });
+    }//end setAlarm
+
+    function startSnake() {
+        // alert(v_timer_h + v_timer_min + v_timer_sek);
+        $.ajax({
+            url: "startSnake.php?color_snake=COLOR_SNAKE&color_apple=COLOR_APPLE",
+            success: function () {
+            }
+        });
+    }//end setAlarm
+
+</script>
