@@ -81,3 +81,7 @@ while True:
     if command[0] == ("getAnimationParameter"):
         getAnimationParameter(led_strip,command)
         delLastCommand()
+
+    # Game-Dummy
+    if command[0] == ("keyPressed"):
+        delLastCommand()

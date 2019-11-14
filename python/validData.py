@@ -26,3 +26,17 @@ def strLengthIs(str,size):
 # Check for valid picture name
 def isValidPictureName(name):
     return True
+
+# Check for valid Key input
+def isValidKey(key):
+    if (
+            key == "UP" or
+            key == "DOWN" or
+            key == "RIGHT" or
+            key == "LEFT" or
+            key == "A" or
+            key == "B"
+        ):
+        return True
+    else:
+        return False
