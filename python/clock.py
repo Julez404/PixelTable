@@ -408,6 +408,12 @@ def showStopWatch(strip, parameters):
                         setNumber(strip, 0, 4, 0, parameters[1])
                         setNumber(strip, 0, 11, 0, parameters[1])
                         setNumber(strip, 0, 15, 0, parameters[1])
+                        compare_ziffer_1 = 0
+                        compare_ziffer_2 = 0
+                        compare_ziffer_3 = 0
+                        compare_ziffer_4 = 0
+                        compare_ziffer_5 = 0
+                        compare_ziffer_6 = 0
                     elif command[0] == "stopStopwatch":
                         STATE = STOPPED
                     else:
@@ -426,6 +432,12 @@ def showStopWatch(strip, parameters):
                         setNumber(strip, 0, 4, 0, parameters[1])
                         setNumber(strip, 0, 11, 0, parameters[1])
                         setNumber(strip, 0, 15, 0, parameters[1])
+                        compare_ziffer_1 = 0
+                        compare_ziffer_2 = 0
+                        compare_ziffer_3 = 0
+                        compare_ziffer_4 = 0
+                        compare_ziffer_5 = 0
+                        compare_ziffer_6 = 0
                     elif command[0] == "stopStopwatch":
                         pass
                     else:
