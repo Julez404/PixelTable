@@ -124,6 +124,7 @@ def isKeyPress(command):
     if command[0] == "keyPressed":
         return True
     else:
+        print("not A KeyPress")
         return False
 
 
@@ -136,6 +137,7 @@ def readInputs():
     command = getCommand()
     if isKeyPress(command):
         DIRECTION = command[1]
+        print(DIRECTION)
     else:
         STATE = OVER
 
@@ -196,6 +198,7 @@ def snake(strip,parameters):
         command = getCommand()
         if (command[0] != "startSnake" and command[0] != "keyPressed"):
             STATE = OVER
+            print("Game Over at Start")
 
     # Main Game Loop
     while STATE != OVER:
@@ -203,3 +206,4 @@ def snake(strip,parameters):
         move()
         draw(strip)
         time.sleep(speed_delay)
+    print("Snake: Over")
