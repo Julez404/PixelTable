@@ -167,7 +167,7 @@ def snake(strip,parameters):
             move()
 
         draw(strip)
-        sleep(speed_delay)
+        time.sleep(speed_delay)
 
         if int(CommandsAvailable()) > 1:
             delLastCommand()
