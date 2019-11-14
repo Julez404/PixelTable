@@ -379,7 +379,7 @@ def showStopWatch(strip, parameters):
 
 
                     else:
-                        setNumber(0, 0, 10, parameters[1])
+                        setNumber(strip, 0, 0, 10, parameters[1])
                         if(compare_ziffer_1 != ziffer_1):
                             setNumber(strip, 0, 0, compare_ziffer_1, "000000")
                             setNumber(strip, 0, 0, ziffer_1, parameters[1])
@@ -408,6 +408,18 @@ def showStopWatch(strip, parameters):
                         setNumber(strip, 0, 4, 0, parameters[1])
                         setNumber(strip, 0, 11, 0, parameters[1])
                         setNumber(strip, 0, 15, 0, parameters[1])
+                        ziffer_1 = 0
+                        ziffer_2 = 0
+                        ziffer_3 = 0
+                        ziffer_4 = 0
+                        ziffer_5 = 0
+                        ziffer_6 = 0
+                        compare_ziffer_1 = 0
+                        compare_ziffer_2 = 0
+                        compare_ziffer_3 = 0
+                        compare_ziffer_4 = 0
+                        compare_ziffer_5 = 0
+                        compare_ziffer_6 = 0
                     elif command[0] == "stopStopwatch":
                         STATE = STOPPED
                     else:
@@ -426,6 +438,18 @@ def showStopWatch(strip, parameters):
                         setNumber(strip, 0, 4, 0, parameters[1])
                         setNumber(strip, 0, 11, 0, parameters[1])
                         setNumber(strip, 0, 15, 0, parameters[1])
+                        ziffer_1 = 0
+                        ziffer_2 = 0
+                        ziffer_3 = 0
+                        ziffer_4 = 0
+                        ziffer_5 = 0
+                        ziffer_6 = 0
+                        compare_ziffer_1 = 0
+                        compare_ziffer_2 = 0
+                        compare_ziffer_3 = 0
+                        compare_ziffer_4 = 0
+                        compare_ziffer_5 = 0
+                        compare_ziffer_6 = 0
                     elif command[0] == "stopStopwatch":
                         pass
                     else:
