@@ -37,6 +37,7 @@ STATE = STOPPED
 speed_delay = 1
 
 
+
 # Snake Boddy, Start Coordinates
 x = [5,6,7]
 y = [4,4,4]
@@ -114,19 +115,29 @@ def move():
         y[len(y)-1] = y_new
 
 
-def readAllInputs():
-    pass
+def isKeyPress(command):
+    if command[0] == "keyPressed":
+        return True
+    else:
+        return False
 
 
-def keyInputToDirection():
-    pass
+def readInputs():
+    while int(CommandsAvailable()) > 1:
+        delLastCommand()
+    command = getCommand()
+    if isKeyPress(command):
+        DIRECTION = command[1]
+    else:
+        STATE = OVER
 
-
+# Move snake boddy to buffer
 def drawSnakeToBuffer(strip):
     for i in range(len(x)):
         index = getPixelIndex(y[i],x[i])
         strip.setPixelColor(index,Color(snake_color_r,snake_color_g,snake_color_b))
 
+# Move Apple to buffer
 def drawAppleToBuffer(strip):
     index = getPixelIndex(apple[1],apple[0])
     strip.setPixelColor(index,Color(apple_color_r,apple_color_g,apple_color_b))
@@ -169,9 +180,9 @@ def snake(strip,parameters):
         if (command[0] != "startSnake" and command[0] != "keyPressed"):
             STATE = OVER
 
+    # Main Game Loop
+    while STATE != OVER:
+        readInputs()
+        move()
         draw(strip)
         time.sleep(speed_delay)
-
-        if int(CommandsAvailable()) > 1:
-            delLastCommand()
-            break
