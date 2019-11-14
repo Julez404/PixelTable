@@ -58,7 +58,7 @@ def newApple():
 
     while True:
         # Calc new Coordinates
-        apple = [randint(0,LED_COLUMN_COUNT),randint(0,(LED_COUNT/LED_COLUMN_COUNT))]
+        apple = [randint(0,config.LED_COLUMN_COUNT),randint(0,(config.LED_COUNT/config.LED_COLUMN_COUNT))]
 
         # Check if new Position is on snake
         for i in range(x(len)):
@@ -90,15 +90,15 @@ def move():
             break
 
     # Game Over Check - Self Eaten
-    for i in range(LED_COLUMN_COUNT):
+    for i in range(config.LED_COLUMN_COUNT):
         if x[i] == x_new:
             if y[i] == y_new:
                 STATE = OVER
 
     # Game Over Check - Boundry
-    if (x_new >= LED_COLUMN_COUNT or x_new < 0):
+    if (x_new >= config.LED_COLUMN_COUNT or x_new < 0):
         STATE = OVER
-    if (y_new >= LED_COUNT/LED_COLUMN_COUNT or y_new < 0):
+    if (y_new >= config.LED_COUNT/config.LED_COLUMN_COUNT or y_new < 0):
         STATE = OVER
 
     # Check if Apple got Eaten
