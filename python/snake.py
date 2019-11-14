@@ -57,7 +57,8 @@ def newApple():
 
     while True:
         # Calc new Coordinates
-        apple = [randint(0,config.LED_COLUMN_COUNT),randint(0,(config.LED_COUNT/config.LED_COLUMN_COUNT))]
+        apple[0] = randint(0,config.LED_COLUMN_COUNT-1)
+        apple[1] = randint(0,(config.LED_COUNT/config.LED_COLUMN_COUNT)-1)
 
         # Check if new Position is on snake
         for i in range(0,len(x)):
