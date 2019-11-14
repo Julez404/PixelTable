@@ -52,12 +52,13 @@ DIRECTION = NONE
 # Create new Apple on Field
 #-----------------------------------------------------------------------------
 def newApple():
+    global apple
     isTaken = NO
 
     while True:
         # Calc new Coordinates
-        global apple[0] = randint(0,config.LED_COLUMN_COUNT-1)
-        global apple[1] = randint(0,(config.LED_COUNT/config.LED_COLUMN_COUNT)-1)
+        apple[0] = randint(0,config.LED_COLUMN_COUNT-1)
+        apple[1] = randint(0,(config.LED_COUNT/config.LED_COLUMN_COUNT)-1)
 
         # Check if new Position is on snake
         for i in range(0,len(x)):
@@ -73,6 +74,10 @@ def newApple():
 
 # Move Snake in current direction
 def move():
+    global x
+    global y
+    global STATE
+
     # Get new Coordinates
     for case in switch(DIRECTION):
         if case(RIGHT):
@@ -92,13 +97,13 @@ def move():
     for i in range(config.LED_COLUMN_COUNT):
         if x[i] == x_new:
             if y[i] == y_new:
-                global STATE = OVER
+                STATE = OVER
 
     # Game Over Check - Boundry
     if (x_new >= config.LED_COLUMN_COUNT or x_new < 0):
-        global STATE = OVER
+        STATE = OVER
     if (y_new >= config.LED_COUNT/config.LED_COLUMN_COUNT or y_new < 0):
-        global STATE = OVER
+        STATE = OVER
 
     # Check if Apple got Eaten
     if (apple[0] == x_new) and (apple[1] == y_new):
@@ -107,10 +112,10 @@ def move():
         newApple()
     else:
         for i in range(len(x)-1):
-            global  x[i] = x[i+1]
-            global  y[i] = y[i+1]
-        global  x[len(x)-1] = x_new
-        global  y[len(y)-1] = y_new
+            x[i] = x[i+1]
+            y[i] = y[i+1]
+        x[len(x)-1] = x_new
+        y[len(y)-1] = y_new
 
 
 def isKeyPress(command):
@@ -121,13 +126,16 @@ def isKeyPress(command):
 
 
 def readInputs():
+    global DIRECTION
+    global STATE
+
     while int(CommandsAvailable()) > 1:
         delLastCommand()
     command = getCommand()
     if isKeyPress(command):
-        global DIRECTION = command[1]
+        DIRECTION = command[1]
     else:
-        global STATE = OVER
+        STATE = OVER
 
 # Move snake boddy to buffer
 def drawSnakeToBuffer(strip):
@@ -149,20 +157,29 @@ def draw(strip):
 
 
 def importColors(colors):
+    global snake_color_r
+    global snake_color_g
+    global snake_color_b
+    global apple_color_r
+    global apple_color_g
+    global apple_color_b
+
     snake_color = colors[1]
     apple_color = colors[2]
 
-    global snake_color_r = int(snake_color[0]+snake_color[1],16)
-    global snake_color_g = int(snake_color[2]+snake_color[3],16)
-    global snake_color_b = int(snake_color[4]+snake_color[5],16)
+    snake_color_r = int(snake_color[0]+snake_color[1],16)
+    snake_color_g = int(snake_color[2]+snake_color[3],16)
+    snake_color_b = int(snake_color[4]+snake_color[5],16)
 
-    global apple_color_r = int(apple_color[0]+apple_color[1],16)
-    global apple_color_g = int(apple_color[2]+apple_color[3],16)
-    global apple_color_b = int(apple_color[4]+apple_color[5],16)
+    apple_color_r = int(apple_color[0]+apple_color[1],16)
+    apple_color_g = int(apple_color[2]+apple_color[3],16)
+    apple_color_b = int(apple_color[4]+apple_color[5],16)
 
 
 # Main function
 def snake(strip,parameters):
+    global STATE
+
     # Import the Color scheme
     importColors(parameters)
 
@@ -176,7 +193,7 @@ def snake(strip,parameters):
             delLastCommand()
         command = getCommand()
         if (command[0] != "startSnake" and command[0] != "keyPressed"):
-            global STATE = OVER
+            STATE = OVER
 
     # Main Game Loop
     while STATE != OVER:
