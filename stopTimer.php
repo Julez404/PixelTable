@@ -1,6 +1,6 @@
 <?php
 
-exec("./python/stopTimer.py",$output);
+exec("./python/interface_stopTimer.py",$output);
 print_r($output);
 
 ?>

@@ -2,7 +2,7 @@
 
 $key = $_GET['key'];
 
-exec("./python/setKey.py $key",$output);
+exec("./python/interface_setKey.py $key",$output);
 print_r($output);
 
 ?>

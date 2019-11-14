@@ -2,7 +2,7 @@
 
 $message = $_GET['message'];
 
-exec("./python/setRunningMagazine.py $message",$output);
+exec("./python/interface_setRunningMagazine.py $message",$output);
 print_r($output);
 
 ?>

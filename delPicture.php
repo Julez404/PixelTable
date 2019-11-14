@@ -2,7 +2,7 @@
 
 $picture = $_GET['picture'];
 
-exec("./python/delPicture.py $picture",$output);
+exec("./python/interface_delPicture.py $picture",$output);
 print_r($output);
 
 ?>

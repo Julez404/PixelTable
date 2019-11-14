@@ -1,6 +1,6 @@
 <?php
 
-exec("./python/resetStopwatch.py",$output);
+exec("./python/interface_resetStopwatch.py",$output);
 print_r($output);
 
 ?>

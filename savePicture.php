@@ -2,7 +2,7 @@
 
 $picture = $_GET['picture'];
 
-exec("./python/savePicture.py $picture",$output);
+exec("./python/interface_savePicture.py $picture",$output);
 print_r($output);
 
 ?>

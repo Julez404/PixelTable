@@ -1,6 +1,6 @@
 <?php
 
-exec("./python/getAllPictures.py",$output);
+exec("./python/interface_getAllPictures.py",$output);
 print_r($output);
 
 ?>
