@@ -1,22 +1,27 @@
-﻿<div class="d-flex justify-content-center">
+﻿<div class="d-flex justify-content-center"  style="text-align:center">
     <div class="d-flex flex-column">
         <div id="div_controller">
-            <div class="row">
+            <div class="row justify-content-between">
                 <div id="div_action_keys">
                     <div id="div_action_keys_up">
-                        <span class="controll_key" id="UP" onclick="setKey(this.id);"><i class="fa fa-chevron-circle-up "></i></span>
+                        <span class="controll key" id="UP" onclick="setKey(this.id);"><i class="fa fa-chevron-circle-up "></i></span>
                     </div>
                     <div id="div_action_keys_right_left">
-                        <span class="controll_key" id="LEFT" onclick="setKey(this.id);"><i class="fa fa-chevron-circle-left"></i></span>
-                        <span class="controll_key" id="RIGHT" onclick="setKey(this.id);"><i class="fa fa-chevron-circle-right"></i></span>
+                        <span class="controll key" id="LEFT" onclick="setKey(this.id);"><i class="fa fa-chevron-circle-left"></i></span>
+                        <span class="controll key empty"><i class="fa fa-chevron-circle-right"></i></span>
+                        <span class="controll key" id="RIGHT" onclick="setKey(this.id);"><i class="fa fa-chevron-circle-right"></i></span>
                     </div>
                     <div id="div_action_keys_down">
-                        <span class="controll_key" id="DOWN" onclick="setKey(this.id);"><i class="fa fa-chevron-circle-down"></i></span>
+                        <span class="controll key" id="DOWN" onclick="setKey(this.id);"><i class="fa fa-chevron-circle-down"></i></span>
                     </div>
                 </div>
-                <div id="div_action_keys">
-                    <span class="controll_key" id="A" onclick="setKey(this.id);">A</span>
-                    <span class="controll_key" id="B" onclick="setKey(this.id);">B</span>
+                <div id="div_action_keys" class="d-flex justify-content-end">
+                    <div id="div_action_keys" class="d-flex align-items-end">
+                        <span class="controll key1" id="A" onclick="setKey(this.id);">A</span>
+                    </div>
+                    <div id="div_action_keys" class="d-flex align-items-center">
+                        <span class="controll key1" id="B" onclick="setKey(this.id);">B</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -29,7 +34,7 @@
 </div>
 <script>
     $('#div_controller').hide();
-   
+
 
     function setKey(_id) {
         // alert(v_timer_h + v_timer_min + v_timer_sek);
@@ -48,7 +53,7 @@
         $.ajax({
             url: "startSnake.php?color_snake=FFFFFF&color_apple=FFFFFF",
             success: function () {
-    
+
             }
         });
     }//end setAlarm

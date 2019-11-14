@@ -1,5 +1,35 @@
-.controll_key{
+.controll {
+    font-size: 100px; 
+        display: inline-block;
+}
 
-    font-size:150px;
+.key {
+    color: black;
+    background-color: white;
+}
 
+.key1 {
+    font-size: 60px; 
+    color: white;
+    background-color: black;
+    width: 100px !important;
+    height: 100px !important;
+  
+    border-radius: 100%;
+}
+
+.empty {
+    background-color: white;
+    color:white;
+}
+@media only screen and (max-width: 600px) {
+    .key1 {
+    font-size: 60px; 
+    color: white;
+    background-color: black;
+    width: 100px !important;
+    height: 100px !important;
+  
+    border-radius: 100%;
+}
 }
