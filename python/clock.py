@@ -379,7 +379,7 @@ def showStopWatch(strip, parameters):
 
 
                     else:
-                        setNumber(0, 0, 10, parameters[1])
+                        setNumber(strip, 0, 0, 10, parameters[1])
                         if(compare_ziffer_1 != ziffer_1):
                             setNumber(strip, 0, 0, compare_ziffer_1, "000000")
                             setNumber(strip, 0, 0, ziffer_1, parameters[1])
