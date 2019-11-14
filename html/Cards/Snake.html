@@ -22,10 +22,14 @@
         </div>
         <br />
         <br />
-        <button class="btn btn-success btn-lg" onclick="startSnake();" type="button">Go!</button>
+        <div id="div_GO">
+            <button class="btn btn-success btn-lg" onclick="startSnake();" type="button">Go!</button>
+        </div>
     </div>
 </div>
 <script>
+    $('#div_controller').hide();
+   
 
     function setKey(_id) {
         // alert(v_timer_h + v_timer_min + v_timer_sek);
@@ -38,10 +42,13 @@
     }//end setAlarm
 
     function startSnake() {
+        $('#div_GO').hide();
+        $('#div_controller').fadeIn(500);
         // alert(v_timer_h + v_timer_min + v_timer_sek);
         $.ajax({
             url: "startSnake.php?color_snake=COLOR_SNAKE&color_apple=COLOR_APPLE",
             success: function () {
+    
             }
         });
     }//end setAlarm
