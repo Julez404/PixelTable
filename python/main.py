@@ -5,6 +5,7 @@ import config
 from random import randint
 from animations import *
 from command import *
+from snake import snake
 from pictures import *
 from pixels import *
 from clock import *
@@ -82,6 +83,8 @@ while True:
         getAnimationParameter(led_strip,command)
         delLastCommand()
 
-    # Game-Dummy
+    # Games
+    if command[0] == ("startSnake"):
+        snake(led_strip,command)
     if command[0] == ("keyPressed"):
         delLastCommand()
