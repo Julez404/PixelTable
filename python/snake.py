@@ -75,6 +75,7 @@ def move():
     global x
     global y
     global STATE
+    global DIRECTION
 
     # Get new Coordinates
     for case in switch(DIRECTION):
@@ -132,7 +133,14 @@ def readInputs():
         delLastCommand()
     command = getCommand()
     if isKeyPress(command):
-        DIRECTION = command[1]
+        if command[1] == "UP":
+            DIRECTION = UP
+        if command[1] == "UP":
+            DIRECTION = UP
+        if command[1] == "UP":
+            DIRECTION = UP
+        if command[1] == "UP":
+            DIRECTION = UP
         print(DIRECTION)
     else:
         STATE = OVER
