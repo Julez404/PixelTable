@@ -31,10 +31,10 @@ apple_color_g = 0xFF
 apple_color_b = 0xFF
 
 # STATE-Machine
-STATE = STOPPED
 STOPPED = 0
 RUNNING = 1
 OVER = 2
+STATE = STOPPED
 speed_delay = 1
 
 
@@ -165,7 +165,7 @@ def snake(strip,parameters):
         keyInputToDirection()
 
         # Dont move if direction is not set jet
-        if !(DIRECTION == NONE):
+        if (DIRECTION != NONE):
             move()
 
         draw()
