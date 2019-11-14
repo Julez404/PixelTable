@@ -11,7 +11,6 @@ from random import randint
 # Constants
 NO = 0
 YES = 1
-matrix = 0
 
 # Control
 RIGHT = 0
@@ -122,22 +121,22 @@ def keyInputToDirection():
     pass
 
 
-def drawSnakeToBuffer():
+def drawSnakeToBuffer(strip):
     for i in range(len(x)):
         index = getPixelIndex(x[i],y[i])
-        matrix.setPixelColor(index,Color(snake_color_r,snake_color_g,snake_color_b))
+        strip.setPixelColor(index,Color(snake_color_r,snake_color_g,snake_color_b))
 
 
-def drawApple():
+def drawApple(strip):
     index = getPixelIndex(apple[0],apple[1])
-    matrix.setPixelColor(index,Color(apple_color_r,apple_color_g,apple_color_b))
+    strip.setPixelColor(index,Color(apple_color_r,apple_color_g,apple_color_b))
 
 
-def draw():
-    clearPixelBuffer(matrix)
-    drawSnakeToBuffer()
-    drawAppleToBuffer()
-    matrix.show()
+def draw(strip):
+    clearPixelBuffer(strip)
+    drawSnakeToBuffer(strip)
+    drawAppleToBuffer(strip)
+    strip.show()
 
 
 def importColors(colors):
@@ -156,7 +155,6 @@ def importColors(colors):
 # Main function
 def snake(strip,parameters):
     importColors(parameters)
-    matrix = strip
     newApple()
 
     # Main Game Loop
@@ -168,7 +166,7 @@ def snake(strip,parameters):
         if (DIRECTION != NONE):
             move()
 
-        draw()
+        draw(strip)
         sleep(speed_delay)
 
         if int(CommandsAvailable()) > 1:
