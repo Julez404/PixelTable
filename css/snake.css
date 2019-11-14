@@ -13,7 +13,8 @@
     color: white;
 }
 
-@media  (orientation:portrait) {
+@media only screen and (orientation:portrait) {
+ 
     .controll {
         font-size: 300px;
         display: inline-block;
