@@ -297,8 +297,8 @@ def showStopWatch(strip, parameters):
     ziffer_5 = 0
     ziffer_6 = 0
 
-    compare_ziffer_1 = 0
-    compare_ziffer_2 = 0
+    compare_ziffer_1 = 5
+    compare_ziffer_2 = 9
     compare_ziffer_3 = 0
     compare_ziffer_4 = 0
     compare_ziffer_5 = 0
