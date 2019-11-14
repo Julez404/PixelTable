@@ -96,7 +96,7 @@ def move():
             break
 
     # Game Over Check - Self Eaten
-    for i in range(config.LED_COLUMN_COUNT):
+    for i in range(0,len(x)-1):
         if x[i] == x_new:
             if y[i] == y_new:
                 STATE = OVER
