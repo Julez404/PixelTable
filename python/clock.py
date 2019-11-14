@@ -238,7 +238,7 @@ def showTimer(strip,parameters):
 
 
 
-def showAlarmClock(time_hours, time_minutes, strip, parameters):
+def showAlarmClock(strip, parameters):
 
     #löschen
     clearPixelBuffer(strip)
@@ -252,7 +252,7 @@ def showAlarmClock(time_hours, time_minutes, strip, parameters):
     #set erste Ziffer
     Offset_x = 0
     Offset_y = 0
-    zahl = int(time_hours)
+    zahl = int(parameters[2])
     ziffer_1 = getNumberOne(zahl)
     setNumber(strip, Offset_x, Offset_y, ziffer_1, parameters[1])
 
@@ -266,14 +266,13 @@ def showAlarmClock(time_hours, time_minutes, strip, parameters):
     #set dritte Ziffer
     Offset_x = 0
     Offset_y = 11
-    zahl = time_minutes
+    zahl = int(parameters[3])
     ziffer_3 = getNumberOne(zahl)
     setNumber(strip, Offset_x, Offset_y, ziffer_3, parameters[1])
 
     #set vierte Ziffer
     Offset_x = 0
     Offset_y = 15
-
     zahl = zahl - (ziffer_3 * 10)
     ziffer_4 = getNumberTwo(zahl)
     setNumber(strip, Offset_x, Offset_y, ziffer_4, parameters[1])
