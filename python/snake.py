@@ -123,9 +123,8 @@ def keyInputToDirection():
 
 def drawSnakeToBuffer(strip):
     for i in range(len(x)):
-        index = getPixelIndex(x[i],y[i])
+        index = getPixelIndex(y[i],x[i])
         strip.setPixelColor(index,Color(snake_color_r,snake_color_g,snake_color_b))
-
 
 def drawAppleToBuffer(strip):
     index = getPixelIndex(apple[0],apple[1])
