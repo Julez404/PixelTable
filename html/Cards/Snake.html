@@ -1,4 +1,4 @@
-﻿<div class="d-flex justify-content-center"  style="text-align:center">
+﻿<div class="d-flex justify-content-center" style="text-align:center">
     <div class="d-flex flex-column">
         <div id="div_controller">
             <div class="row justify-content-between">
@@ -15,7 +15,7 @@
                         <span class="controll key" id="DOWN" onclick="setKey(this.id);"><i class="fa fa-chevron-circle-down"></i></span>
                     </div>
                 </div>
-               
+
             </div>
         </div>
         <br />
@@ -24,13 +24,14 @@
             <button class="btn btn-success btn-lg" onclick="startSnake();" type="button"><i class="fa fa-play"></i></button>
         </div>
     </div>
+    Enter your name: <input type="text">
 </div>
 <script>
+    var snake_start = "";
     $('#div_controller').hide();
 
     function setKey(_id) {
         // alert(v_timer_h + v_timer_min + v_timer_sek);
-        
         $.ajax({
             url: "setKey.php?key=" + _id + "",
             success: function () {
@@ -41,6 +42,7 @@
     function startSnake() {
         $('#div_GO').hide();
         $('#div_controller').fadeIn(500);
+        snake_start = "1";
         // alert(v_timer_h + v_timer_min + v_timer_sek);
         $.ajax({
             url: "startSnake.php?color_snake=FFFFFF&color_apple=FFFFFF",
@@ -49,5 +51,30 @@
             }
         });
     }//end setAlarm
+
+
+    document.addEventListener("keydown", function (event) {
+        console.log(event.which);
+        var key = event.which;
+        if (snake_start == "1") {
+
+            //       alert(key);
+            if (key == "37") {    //left
+                setKey("LEFT");
+            }
+            if (key == "38") {    //up
+                setKey("UP");
+            }
+            if (key == "39") {    //right
+                setKey("RIGHT");
+            }
+            if (key == "40") {    //down
+                setKey("DOWN");
+            }
+        }
+    })
+
+
+
 
 </script>
