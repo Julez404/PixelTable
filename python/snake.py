@@ -77,6 +77,9 @@ def move():
     global STATE
     global DIRECTION
 
+    x_new = x[len(x)-1]
+    y_new = y[len(y)-1]
+    
     # Get new Coordinates
     for case in switch(DIRECTION):
         if case(RIGHT):
