@@ -127,7 +127,7 @@ def drawSnakeToBuffer(strip):
         strip.setPixelColor(index,Color(snake_color_r,snake_color_g,snake_color_b))
 
 
-def drawApple(strip):
+def drawAppleToBuffer(strip):
     index = getPixelIndex(apple[0],apple[1])
     strip.setPixelColor(index,Color(apple_color_r,apple_color_g,apple_color_b))
 
