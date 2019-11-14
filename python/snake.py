@@ -154,17 +154,20 @@ def importColors(colors):
 
 # Main function
 def snake(strip,parameters):
+    # Import the Color scheme
     importColors(parameters)
-    newApple()
 
-    # Main Game Loop
-    while STATE != OVER:
-        readAllInputs()
-        keyInputToDirection()
+    # Single draw on Start
+    draw(strip)
 
-        # Dont move if direction is not set jet
-        if (DIRECTION != NONE):
-            move()
+    # Wait for keyPress
+    command = getCommand()
+    while command[0] == "startSnake":
+        if int(CommandsAvailable()) > 1:
+            delLastCommand()
+        command = getCommand()
+        if (command[0] != "startSnake" and command[0] != "keyPressed"):
+            STATE = OVER
 
         draw(strip)
         time.sleep(speed_delay)
