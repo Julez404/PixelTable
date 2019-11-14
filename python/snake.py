@@ -127,7 +127,7 @@ def drawSnakeToBuffer(strip):
         strip.setPixelColor(index,Color(snake_color_r,snake_color_g,snake_color_b))
 
 def drawAppleToBuffer(strip):
-    index = getPixelIndex(apple[0],apple[1])
+    index = getPixelIndex(apple[1],apple[0])
     strip.setPixelColor(index,Color(apple_color_r,apple_color_g,apple_color_b))
 
 
@@ -157,7 +157,7 @@ def snake(strip,parameters):
     newApple()
 
     # Main Game Loop
-    while True:
+    while STATE != OVER:
         readAllInputs()
         keyInputToDirection()
 
