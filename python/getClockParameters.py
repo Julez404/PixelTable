@@ -5,7 +5,7 @@ Created on Tue Nov 12 14:48:53 2019
 @author: ipenner
 """
 
-#get einzelnde Ziffern 
+#get einzelnde Ziffern
 def getNumberOne(zahl):
     ziffer = 0
     if(0 <= zahl <= 9):
@@ -13,7 +13,7 @@ def getNumberOne(zahl):
 
     elif (10 <= zahl <= 19):
         ziffer = 1
-            
+
     elif (20 <= zahl <= 29):
         ziffer = 2
 
@@ -35,29 +35,29 @@ def getNumberTwo(zahl):
 
     elif zahl == 1:
         ziffer = 1
-    
+
     elif zahl == 2:
         ziffer = 2
-    
+
     elif zahl == 3:
         ziffer = 3
-    
+
     elif zahl == 4:
         ziffer = 4
-    
+
     elif zahl == 5:
         ziffer = 5
-    
+
     elif zahl == 6:
         ziffer = 6
-    
+
     elif zahl == 7:
         ziffer = 7
-    
+
     elif zahl == 8:
         ziffer = 8
-    
+
     elif zahl == 9:
         ziffer = 9
-        
+
     return ziffer
