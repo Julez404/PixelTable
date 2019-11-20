@@ -184,6 +184,7 @@ def draw(strip):
     strip.show()
 
 
+# Left out for eventual future implementation of diffrent modies
 #def importColors(colors):
 #    global snake_color_r
 #    global snake_color_g
@@ -208,7 +209,7 @@ def draw(strip):
 def snake(strip,parameters):
     global STATE
 
-    # Import the Color scheme
+    # Import the Color scheme -- Note: Left out for eventual future implementation of diffrent modies
     # importColors(parameters)
 
     # Single draw on Start
