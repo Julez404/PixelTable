@@ -51,6 +51,9 @@ DIRECTION = NONE
 #-----------------------------------------------------------------------------
 def newApple():
     global apple
+    global apple_color_r
+    global apple_color_g
+    global apple_color_b
     isTaken = NO
 
     while True:
@@ -62,13 +65,18 @@ def newApple():
         for i in range(0,len(x)):
             if ((x[i] == apple[0]) and (y[i] == apple[1])):
                 isTaken = YES
-
+        
+        #RandomColor
+        apple_color_r = randint(1,255)
+        apple_color_g = randint(1,255)
+        apple_color_b = randint(1,255)
+                
         # Repeate or Breakout
         if isTaken == NO:
             break
         else:
             isTaken = NO
-
+            
 
 # Move Snake in current direction
 def move():
