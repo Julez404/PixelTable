@@ -22,12 +22,12 @@ NONE = 4
 # Colors
 snake_color = "FFFFFF"
 apple_color = "FFFFFF"
-snake_color_r = 0xFF
-snake_color_g = 0xFF
-snake_color_b = 0xFF
-apple_color_r = 0xFF
-apple_color_g = 0xFF
-apple_color_b = 0xFF
+snake_color_r = [randint(1,255),randint(1,255),randint(1,255)]
+snake_color_g = [randint(1,255),randint(1,255),randint(1,255)]
+snake_color_b = [randint(1,255),randint(1,255),randint(1,255)]
+apple_color_r = randint(1,255)
+apple_color_g = randint(1,255)
+apple_color_b = randint(1,255)
 
 # STATE-Machine
 STOPPED = 0
@@ -84,6 +84,12 @@ def move():
     global y
     global STATE
     global DIRECTION
+    global apple_color_r
+    global apple_color_g
+    global apple_color_b
+    global snake_color_r
+    global snake_color_g
+    global snake_color_b
 
     x_new = x[len(x)-1]
     y_new = y[len(y)-1]
@@ -119,6 +125,10 @@ def move():
     if (apple[0] == x_new) and (apple[1] == y_new):
         x.append(x_new)
         y.append(y_new)
+        snake_color_r.append(apple_color_r)
+        snake_color_g.append(apple_color_g)
+        snake_color_b.append(apple_color_b)
+
         newApple()
     else:
         for i in range(len(x)-1):
@@ -160,7 +170,7 @@ def readInputs():
 def drawSnakeToBuffer(strip):
     for i in range(len(x)):
         index = getPixelIndex(y[i],x[i])
-        strip.setPixelColor(index,Color(snake_color_r,snake_color_g,snake_color_b))
+        strip.setPixelColor(index,Color(snake_color_r[i],snake_color_g[i],snake_color_b[i]))
 
 # Move Apple to buffer
 def drawAppleToBuffer(strip):
