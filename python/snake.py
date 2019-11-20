@@ -65,18 +65,18 @@ def newApple():
         for i in range(0,len(x)):
             if ((x[i] == apple[0]) and (y[i] == apple[1])):
                 isTaken = YES
-        
+
         #RandomColor
-                
         apple_color_r = randint(1,254)
         apple_color_g = randint(1,254)
         apple_color_b = randint(1,254)
+
         # Repeate or Breakout
         if isTaken == NO:
             break
         else:
             isTaken = NO
-            
+
 
 # Move Snake in current direction
 def move():
@@ -128,7 +128,6 @@ def move():
         snake_color_r.append(apple_color_r)
         snake_color_g.append(apple_color_g)
         snake_color_b.append(apple_color_b)
-
         newApple()
     else:
         for i in range(len(x)-1):
