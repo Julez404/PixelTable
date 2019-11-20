@@ -22,12 +22,12 @@ NONE = 4
 # Colors
 snake_color = "FFFFFF"
 apple_color = "FFFFFF"
-snake_color_r = [randint(1,255),randint(1,255),randint(1,255)]
-snake_color_g = [randint(1,255),randint(1,255),randint(1,255)]
-snake_color_b = [randint(1,255),randint(1,255),randint(1,255)]
-apple_color_r = randint(1,255)
-apple_color_g = randint(1,255)
-apple_color_b = randint(1,255)
+snake_color_r = [randint(1,254),randint(1,254),randint(1,254)]
+snake_color_g = [randint(1,254),randint(1,254),randint(1,254)]
+snake_color_b = [randint(1,254),randint(1,254),randint(1,254)]
+apple_color_r = randint(1,254)
+apple_color_g = randint(1,254)
+apple_color_b = randint(1,254)
 
 # STATE-Machine
 STOPPED = 0
@@ -67,10 +67,10 @@ def newApple():
                 isTaken = YES
         
         #RandomColor
-        apple_color_r = randint(1,255)
-        apple_color_g = randint(1,255)
-        apple_color_b = randint(1,255)
                 
+        apple_color_r = randint(1,254)
+        apple_color_g = randint(1,254)
+        apple_color_b = randint(1,254)
         # Repeate or Breakout
         if isTaken == NO:
             break
