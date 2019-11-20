@@ -22,12 +22,12 @@ NONE = 4
 # Colors
 snake_color = "FFFFFF"
 apple_color = "FFFFFF"
-snake_color_r = 0xFF
-snake_color_g = 0xFF
-snake_color_b = 0xFF
-apple_color_r = 0xFF
-apple_color_g = 0xFF
-apple_color_b = 0xFF
+snake_color_r = [randint(1,254),randint(1,254),randint(1,254)]
+snake_color_g = [randint(1,254),randint(1,254),randint(1,254)]
+snake_color_b = [randint(1,254),randint(1,254),randint(1,254)]
+apple_color_r = randint(1,254)
+apple_color_g = randint(1,254)
+apple_color_b = randint(1,254)
 
 # STATE-Machine
 STOPPED = 0
@@ -51,6 +51,9 @@ DIRECTION = NONE
 #-----------------------------------------------------------------------------
 def newApple():
     global apple
+    global apple_color_r
+    global apple_color_g
+    global apple_color_b
     isTaken = NO
 
     while True:
@@ -62,6 +65,11 @@ def newApple():
         for i in range(0,len(x)):
             if ((x[i] == apple[0]) and (y[i] == apple[1])):
                 isTaken = YES
+
+        #RandomColor
+        apple_color_r = randint(1,254)
+        apple_color_g = randint(1,254)
+        apple_color_b = randint(1,254)
 
         # Repeate or Breakout
         if isTaken == NO:
@@ -76,6 +84,12 @@ def move():
     global y
     global STATE
     global DIRECTION
+    global apple_color_r
+    global apple_color_g
+    global apple_color_b
+    global snake_color_r
+    global snake_color_g
+    global snake_color_b
 
     x_new = x[len(x)-1]
     y_new = y[len(y)-1]
@@ -111,6 +125,9 @@ def move():
     if (apple[0] == x_new) and (apple[1] == y_new):
         x.append(x_new)
         y.append(y_new)
+        snake_color_r.append(apple_color_r)
+        snake_color_g.append(apple_color_g)
+        snake_color_b.append(apple_color_b)
         newApple()
     else:
         for i in range(len(x)-1):
@@ -152,7 +169,7 @@ def readInputs():
 def drawSnakeToBuffer(strip):
     for i in range(len(x)):
         index = getPixelIndex(y[i],x[i])
-        strip.setPixelColor(index,Color(snake_color_r,snake_color_g,snake_color_b))
+        strip.setPixelColor(index,Color(snake_color_r[i],snake_color_g[i],snake_color_b[i]))
 
 # Move Apple to buffer
 def drawAppleToBuffer(strip):
@@ -167,32 +184,33 @@ def draw(strip):
     strip.show()
 
 
-def importColors(colors):
-    global snake_color_r
-    global snake_color_g
-    global snake_color_b
-    global apple_color_r
-    global apple_color_g
-    global apple_color_b
-
-    snake_color = colors[1]
-    apple_color = colors[2]
-
-    snake_color_r = int(snake_color[0]+snake_color[1],16)
-    snake_color_g = int(snake_color[2]+snake_color[3],16)
-    snake_color_b = int(snake_color[4]+snake_color[5],16)
-
-    apple_color_r = int(apple_color[0]+apple_color[1],16)
-    apple_color_g = int(apple_color[2]+apple_color[3],16)
-    apple_color_b = int(apple_color[4]+apple_color[5],16)
+# Left out for eventual future implementation of diffrent modies
+#def importColors(colors):
+#    global snake_color_r
+#    global snake_color_g
+#    global snake_color_b
+#    global apple_color_r
+#    global apple_color_g
+#    global apple_color_b
+#
+#    snake_color = colors[1]
+#    apple_color = colors[2]
+#
+#    snake_color_r = int(snake_color[0]+snake_color[1],16)
+#    snake_color_g = int(snake_color[2]+snake_color[3],16)
+#    snake_color_b = int(snake_color[4]+snake_color[5],16)
+#
+#    apple_color_r = int(apple_color[0]+apple_color[1],16)
+#    apple_color_g = int(apple_color[2]+apple_color[3],16)
+#    apple_color_b = int(apple_color[4]+apple_color[5],16)
 
 
 # Main function
 def snake(strip,parameters):
     global STATE
 
-    # Import the Color scheme
-    importColors(parameters)
+    # Import the Color scheme -- Note: Left out for eventual future implementation of diffrent modies
+    # importColors(parameters)
 
     # Single draw on Start
     draw(strip)
