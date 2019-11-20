@@ -169,7 +169,7 @@ def readInputs():
 def drawSnakeToBuffer(strip):
     for i in range(len(x)):
         index = getPixelIndex(y[i],x[i])
-        strip.setPixelColor(index,Color(snake_color_r[i]),snake_color_g[i],snake_color_b[i]))
+        strip.setPixelColor(index,Color(snake_color_r[i],snake_color_g[i],snake_color_b[i]))
 
 # Move Apple to buffer
 def drawAppleToBuffer(strip):
