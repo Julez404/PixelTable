@@ -6,7 +6,7 @@ from switchcase import switch
 from command import *
 from pixels import *
 from readback import *
-from random import randint
+from  random import randint
 
 # Constants
 NO = 0
@@ -33,6 +33,7 @@ apple_color_b = randint(1,254)
 STOPPED = 0
 RUNNING = 1
 OVER = 2
+RESTART = 3
 STATE = STOPPED
 speed_delay = 0.5
 
@@ -205,6 +206,29 @@ def draw(strip):
 #    apple_color_b = int(apple_color[4]+apple_color[5],16)
 
 
+def init():
+    global snake_color_r
+    global snake_color_g
+    global snake_color_b
+    global snake_color_r
+    global snake_color_g
+    global snake_color_b
+    global x
+    global y
+    global apple
+
+    snake_color_r = [randint(1,254),randint(1,254),randint(1,254)]
+    snake_color_g = [randint(1,254),randint(1,254),randint(1,254)]
+    snake_color_b = [randint(1,254),randint(1,254),randint(1,254)]
+    apple_color_r = randint(1,254)
+    apple_color_g = randint(1,254)
+    apple_color_b = randint(1,254)
+
+    x = [5,6,7]
+    y = [4,4,4]
+    apple = [13,4] 
+    DIRECTION = NONE
+
 # Main function
 def snake(strip,parameters):
     global STATE
@@ -231,4 +255,7 @@ def snake(strip,parameters):
         move()
         draw(strip)
         time.sleep(speed_delay)
+        if(STATE == RESTART):
+            init()
+            STATE = STOPPED
     print("Snake: Over")
