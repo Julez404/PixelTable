@@ -114,13 +114,13 @@ def move():
     for i in range(0,len(x)-1):
         if x[i] == x_new:
             if y[i] == y_new:
-                STATE = OVER
+                STATE = RESTART
 
     # Game Over Check - Boundry
     if (x_new >= config.LED_COLUMN_COUNT or x_new < 0):
         STATE = OVER
     if (y_new >= config.LED_COUNT/config.LED_COLUMN_COUNT or y_new < 0):
-        STATE = OVER
+        STATE = RESTART
 
     # Check if Apple got Eaten
     if (apple[0] == x_new) and (apple[1] == y_new):
@@ -224,10 +224,23 @@ def init():
     apple_color_g = randint(1,254)
     apple_color_b = randint(1,254)
 
+    while(CommandsAvailable() > 0):
+        delLastCommand()
+    
+    command = ["keyPressed"]
+    command.append("RIGHT")
+    setNewCommand(command)
+
     x = [5,6,7]
     y = [4,4,4]
     apple = [13,4] 
-    DIRECTION = NONE
+    DIRECTION = RIGHT
+    print(x)
+    print(y)
+    print(apple)
+    print(DIRECTION)
+
+
 
 # Main function
 def snake(strip,parameters):
@@ -257,5 +270,5 @@ def snake(strip,parameters):
         time.sleep(speed_delay)
         if(STATE == RESTART):
             init()
-            STATE = STOPPED
+            STATE = RUNNING
     print("Snake: Over")
